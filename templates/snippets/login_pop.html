@@ -1,0 +1,64 @@
+{% load static %}
+<div id="login-pop" class="popup mobile-col-12">
+    <div class="overlay">
+        <div class="popup-content no-padding">
+            <div class="close-popup-container">
+                <div class="close-popup-wrapper">
+                    <button class="close-popup-btn">X</button>
+                </div>
+            </div>
+            <div class="member-popup">
+                <div class="box-pop active-contact active">
+                    <!-- logo -->
+                    <div class="member-popup-logo">
+                        <a href="javascript:void(0)">
+                            <img src="{% static 'images/logo.svg' %}" alt="logo">
+                        </a>
+                    </div>
+                    <!-- end logo -->
+                    <div class="popup-body">
+                        <div class="text-pop">
+                            <p>Masukkan alamat email dan kata sandi Anda untuk masuk</p>
+                        </div>
+                        <!-- form -->
+                        <form class="custom-label" id="formlogin" action="#" method="POST">
+                            <div class="row inline">
+                                <div class="col inline l-12 m-6 s-12">
+                                    <div class="form-group">
+                                        <p class="">
+                                            <input placeholder="Email" class="form-control input-pop" type="text" name="member_email" value="" maxlength="50" />
+                                        </p>
+                                        <div class="icon-input">
+                                            <img src="{% static 'images/icons/email.png' %}" alt="email"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <p class="">
+                                            <input placeholder="Kata sandi" class="form-control input-pop" type="password" name="member_password" value="" maxlength="50" />
+                                        </p>
+                                        <div class="icon-input" style="top: 3px;">
+                                            <img src="{% static 'images/icons/password.png' %}" alt="password"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="err-container"></div>
+                            <div>
+                                <div class="text-pop login-helper">
+                                    <a href="member_forgot_password.html">Lupa password?</a>
+                                </div>
+                                <div class=" mobile-col-12">
+                                    <div class="login-btn">
+                                        <a><button class="button button--wapasha" id="submit-send-login">LOGIN</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spinner-body"></div>
+                        </form>
+                        <!-- end form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
