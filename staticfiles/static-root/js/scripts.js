@@ -215,43 +215,6 @@ $('.back-menu').click(function () {
 // ===============================================================================
 
 
-function load_options(id, index, selected) {
-
-    var ajax_path = "attractions/process_data.html";
-
-    $.ajax({
-        url: ajax_path,
-        data: {
-            index: index,
-            id: id,
-            selected: selected
-        },
-        type: 'POST',
-        success: function (data) {
-
-            $("#ATTR_" + index).html(data).selectpicker('refresh');
-
-            // if(data=="")
-            // {
-            // 	$(".attraction-" + index).fadeOut();
-
-            // 	if(index=="REGION")
-            // 	{
-            // 		load_options(id, 'CITY');
-            // 	}
-            // }
-            // else
-            // {
-            // 	$(".attraction-" + index).fadeIn();
-            // }
-
-            $("#ATTR_" + index).trigger('change');
-
-        }
-    })
-    return true;
-}
-
 $(document).ready(function () {
     $('.lazy').slick({
         lazyLoad: 'progressive',
@@ -364,46 +327,7 @@ $(document).ready(function () {
     }, 100);
 });
 
-$('#ATTR_COUNTRY').on('change', function () {
-    $('#ATTR_REGION').html('').selectpicker('refresh');
-    $('#ATTR_CITY').html('').selectpicker('refresh');
-    load_options($(this).val(), 'REGION', '');
 
-    var country_temp = $("option:selected", this).text().toLowerCase().replace(/[^\w ]/g, '').replace(
-        / +/g, '_');
-    a = country_temp;
-
-    if (country_temp == "country") {
-        $("#attr-search-form").attr('action', 'attractions.html');
-    } else {
-        $("#attr-search-form").attr('action', 'https://www.avia.travel/attractions/' + country_temp);
-    }
-});
-
-$('#ATTR_REGION').on('change', function () {
-    load_options($(this).val(), 'CITY', '');
-
-    var region_temp = $("option:selected", this).text().toLowerCase().replace(/[^\w ]/g, '').replace(
-        / +/g, '_');
-    b = region_temp;
-
-    if (region_temp == "region") {
-        $("#attr-search-form").attr('action', 'https://www.avia.travel/attractions/' + a);
-    } else {
-        $("#attr-search-form").attr('action', 'https://www.avia.travel/attractions/' + region_temp);
-    }
-});
-
-$('#ATTR_CITY').on('change', function () {
-    var city_temp = $("option:selected", this).text().toLowerCase().replace(/[^\w ]/g, '').replace(
-        / +/g, '_');
-
-    if (city_temp == "city") {
-        $("#attr-search-form").attr('action', 'https://www.avia.travel/attractions/' + b);
-    } else {
-        $("#attr-search-form").attr('action', 'https://www.avia.travel/attractions/' + city_temp);
-    }
-});
 
 $(document).on('click', function (e) {
     var container = $('#home-pop .box-pop .slick-active img'),

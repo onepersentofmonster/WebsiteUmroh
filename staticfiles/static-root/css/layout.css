@@ -2313,7 +2313,6 @@ ul.depList li a:hover {
   width: 80px !important; }
 
 .lStar {
-  background: url(../images/star.html) no-repeat left;
   text-indent: 30px;
   font-weight: bold; }
 
@@ -3191,7 +3190,7 @@ label.required2::after {
   background-color: #fff;
   border-bottom: 2px solid #FF970F;
   height: 80px;
-  background-image: url("../images/logo.png");
+  background-image: url("../images/logo.svg");
   background-size: 20%;
   background-repeat: no-repeat;
   background-position: center; }
