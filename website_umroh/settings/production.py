@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = 'ei+_r2+!9mv00%&o7jj@iu^qx03=)wsarp=$s!=u-_%y2iyrwi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['websiteumroh.herokuapp.com']
 
