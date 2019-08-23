@@ -13,8 +13,18 @@ SECRET_KEY = 'ei+_r2+!9mv00%&o7jj@iu^qx03=)wsarp=$s!=u-_%y2iyrwi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['websiteumroh.herokuapp.com', '54.236.235.247']
+ALLOWED_HOSTS = ['websiteumroh.herokuapp.com']
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'r.arifin123@gmail.com' #my gmail username
+EMAIL_HOST_PASSWORD = 'r1i2d3w4a5n6' #my gmail password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "Ridwan <r.arifin123@gmail.com>"
+
+
+ADMINS = [('Ridwan', EMAIL_HOST_USER)]
+MANAGERS = ADMINS
 
 # Application definition
 
