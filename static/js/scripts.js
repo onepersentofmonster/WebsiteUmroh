@@ -1407,3 +1407,13 @@ $('#insurance_cover_type').change(function () {
 // }).focus(forceAutocomplete).click(forceAutocomplete);
 
 // $(".ff_elem").autocomplete("option", "delay", 100);
+$('#footer').html($('#nav_header').html());
+
+// clse popup
+$('.popup').on('click', function(e) {
+    var container = $('.popup .overlay .popup-content');
+    if ((!container.is(e.target) && container.has(e.target).length === 0) || !$(e.target).parents('.popup .overlay .popup-content')) {
+        $(e.target).parents('.popup').fadeOut('slow');
+        $('body').removeClass('no-scroll');
+    }
+});
