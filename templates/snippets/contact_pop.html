@@ -1,328 +1,229 @@
 {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/contact_pop.css' %}" />
-        <div id="contact-pop" class="popup mobile-col-12">
-            <div class="overlay">
-                <div class="popup-content no-padding">
-                    <div class="box-close">
-                        <a onclick="$('#contact-pop').hide();$('body').removeClass('no-scroll');">
-                            <div class="pop-close"></div>
-                        </a>
-                    </div>
-                    <ul class="l-pop clear">
-                        <li class="active half-width">
-                            <a data-contact="2">
-                                <div class="tbl">
-                                    <div class="cell v-middle icon-pop">
-                                        <div class="img-contact"></div>
-                                    </div>
-                                    <div class="cell v-middle">
-                                        <div class="t-pop">Hubungi Kami</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="half-width">
-                            <a data-contact="3">
-                                <div class="tbl">
-                                    <div class="cell v-middle icon-pop">
-                                        <div class="img-find"></div>
-                                    </div>
-                                    <div class="cell v-middle">
-                                        <div class="t-pop">Temukan Kami</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div class="xdanger">
-                        <div class="xclose-xdanger"><i class="fa fa-close"></i></div>
-                        <p style="font-weight:bold;padding-bottom:15px;">Judul</p>
-                        <p style="padding-bottom:10px;">
-                            Consequat labore dolore adipisicing irure consequat quis non amet excepteur cillum elit proident.
-                            Et mollit nostrud id qui deserunt aute tempor ex ullamco ad mollit amet. In nisi consectetur ipsum commodo. 
-                            Sit occaecat id consequat sunt laboris enim amet exercitation officia sint ex. 
-                            Ipsum sit laborum aliquip irure laboris nulla duis sint cillum nulla. 
-                            Aute cillum dolor exercitation Lorem tempor cupidatat.
-                        </p>
-                        <p>
-                            Fugiat eu do eu sunt veniam sint mollit sint et enim sint laborum voluptate.
-                        </p>
-                    </div>
-
-                    <!-- pertanyaan & saran form -->
-                    <div class="box-pop active-contact" data-contact="2">
-                        <div class="title">Anda mempunyai pertanyaan dan saran?</div>
-                        <div class="text-pop">
-                            <div>Harap jangan ragu untuk menghubungi kami. Kami akan segera menindaklanjuti, Terima kasih.</div>
-                        </div>
-
-                        <!-- Form -->
-                        <form inCaptcha class="custom-label" id="formContact" action="#" method="POST">
-                            <div class="row inline">
-                                <div class="col inline l-6 m-6 s-12">
-                                    <div class="form-group">
-                                        <p class="">
-                                            <input placeholder="Nama" class="form-control input-pop" type="text" name="name" value="" maxlength="50" />
-                                        </p>
-                                        <div class="icon-input">
-                                            <img src="{% static 'images/icons/fullname.png' %}" alt="icon_fullname" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <p class="">
-                                            <input placeholder="Email" class="form-control input-pop" type="text" name="email" value="" maxlength="50" />
-                                        </p>
-                                        <div class="icon-input" style="top: 3px;">
-                                            <img src="{% static 'images/icons/email.png' %}" alt="icon_email" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col inline l-6 m-6 s-12">
-                                    <div class="form-group">
-                                        <p class="">
-                                            <input placeholder="Telepon" class="form-control input-pop" type="text" name="phone" value="" maxlength="20" />
-                                        </p>
-                                        <div class="icon-input">
-                                            <img src="{% static 'images/icons/phone.png' %}" alt="icon_phone" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <p class="">
-                                            <input placeholder="Subyek" class="form-control input-pop" type="text" name="subject" value="" maxlength="200" />
-                                        </p>
-                                        <div class="icon-input" style="top: 2px;">
-                                            <img src="{% static 'images/icons/subject.png' %}" alt="icon_subject" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="label" style="font-size: 14px;">Pesan</div>
-                                <div class="icon-input" style="top:2px;">
-                                    <img src="{% static 'images/icons/message.png' %}" alt="icon_message" />
-                                </div>
-                                <textarea class="form-control textarea-pop" type="message" name="message" maxlength="300"></textarea>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 mobile-col-12">
-                                    <div id="captcha_contactus"></div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 mobile-col-12">
-                                    <a><button class="button button--wapasha" id="submit-send-contact">SUBMIT</button></a>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- endform -->
-                    </div>
-                    <!-- end pertanyaan & saran form -->
-
-                    <!-- hubungi kami & box lokasi -->
-                    <div class="box-pop active-find" data-contact="3" style="overflow-y:scroll;height:560px;">
-                        <!-- hubungi kami -->
-                        <div class="tbl clear">
-                            <div class="cell w50 pull-right">
-                                <div id="map2" class="map2"></div>
-                            </div>
-                            <div class="cell w50 p30 pull-left">
-                                <div class="t-location">Hubungi Kami</div>
-                                <!-- row -->
-                                <div class="row inline">
-                                    <!-- sosial media -->
-                                    <div class="col inline l-5 m-5 s-12 push-l-7 push-m-7 push-s-0 xs20">
-                                        <!-- facebook -->
-                                        <div class="mb15">
-                                            <div class="inline-block hvr-soc">
-                                                <div class="inline-block v-middle bdr-pop">
-                                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="inline-block v-middle">
-                                                    <a href="#" target="_blank">admin</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- twitter -->
-                                        <div class="mb15">
-                                            <div class="inline-block hvr-soc">
-                                                <div class="inline-block v-middle bdr-pop">
-                                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="inline-block v-middle">
-                                                    <a href="#" target="_blank">admin</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- instagram -->
-                                        <div class="mb15">
-                                            <div class="inline-block hvr-soc">
-                                                <div class="inline-block v-middle bdr-pop">
-                                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="inline-block v-middle">
-                                                    <a href="#" target="_blank">admin</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- youtube -->
-                                        <div>
-                                            <div class="inline-block hvr-soc">
-                                                <div class="inline-block v-middle bdr-pop">
-                                                    <i class="fa fa-youtube" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="inline-block v-middle">
-                                                    <a href="#" target="_blank">admin</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end sosial media -->
-                                    <!-- lokasi -->
-                                    <div class="col inline l-7 m-7 s-12 pull-l-5 pull-m-5 pull-s-0">
-                                        <div class="p-location detail-location1 open">
-                                            <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1</div>
-                                            <p>Jl. Raya - INDONESIA</p>
-                                            <div>
-                                                P. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="#">(+62-21) ... </a>
-                                            </div>
-                                            <div>
-                                                E. <a href="#">admin@admin.com</a>
-                                            </div>
-                                            <div>
-                                                Operational<br />
-                                                Monday-Friday ()<br />
-                                                Saturday ()
-                                            </div>
-                                        </div>
-                                        <div class="p-location detail-location2 ">
-                                            <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2</div>
-                                            <p>Jl. Raya 2 - INDONESIA</p>
-                                            <div>
-                                                P. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="#">admin@admin.com</a>
-                                            </div>
-                                            <div>
-                                                Operational: <br />
-                                                Monday-Friday () <br />
-                                                Saturday-Sunday ()
-                                            </div>
-                                        </div>
-                                        <div class="p-location detail-location3 ">
-                                            <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3</div>
-                                            <p>Jl. Raya 3 - INDONESIA</p>
-                                            <div>
-                                                P. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="#">admin@admin.com</a>
-                                            </div>
-                                            <div>
-                                                Operational: <br />
-                                                Monday-Friday () <br />
-                                                Saturday-Sunday ()
-                                            </div>
-                                        </div>
-                                        <div class="p-location detail-location4 ">
-                                            <div class="t-cabang">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
-                                            </div>
-                                            <p>Jl. Raya 4 - INDONESIA</p>
-                                            <div>
-                                                P. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="#">(+62-21) ...</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="#">admin@admin.com</a>
-                                            </div>
-                                            <div>
-                                                Operational : <br />
-                                                Monday-Friday () <br />
-                                                Saturday ()
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end lokasi -->
-                                </div>
-                                <!-- end row -->
-                            </div>
-                        </div>
-                        <!-- end hubungi kami -->
-
-                        <!-- box lokasi -->
-                        <div class="box-location">
-                            <div class="title-location">Kantor Kami</div>
-                            <div class="item-location">
-                                <div class="row inline min-10">
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.161166" lng-data="106.840104" class="hvr-location location1 active">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl. Raya - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.1929305" lng-data="106.8222026" class="hvr-location location2">
-                                                <div class=" text-location">
-                                                    <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2
-                                                </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl. Raya 2 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.1581384" lng-data="106.9078048" class="hvr-location location3">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl. Raya 3 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.375815" lng-data="106.916152" class="hvr-location location4 ">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl. Raya 4 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end box lokasi -->
-                    </div>
-                    <!-- end hubungi kami & box lokasi -->
-                </div>
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact_pop.css' %}" />
+<div id="contact-pop" class="popup mobile-col-12">
+    <div class="overlay">
+        <div class="popup-content no-padding">
+            <div class="box-close">
+                <a onclick="$('#contact-pop').hide();$('body').removeClass('no-scroll');">
+                    <div class="pop-close"></div>
+                </a>
             </div>
+            <ul class="l-pop clear">
+                <li class="full-width">
+                    <a data-contact="3">
+                        <div class="tbl">
+                            <div class="cell v-middle icon-pop">
+                                <div class="img-find"></div>
+                            </div>
+                            <div class="cell v-middle">
+                                <div class="t-pop">Temukan Kami</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="xdanger">
+                <div class="xclose-xdanger"><i class="fa fa-close"></i></div>
+                <p style="font-weight:bold;padding-bottom:15px;">HATI-HATI TERHADAP PENIPUAN!!</p>
+                <p style="padding-bottom:10px;">
+                    TAUFIQ HT TOURS & TRAVEL tidak memiliki kerjasama dengan instansi tertentu dalam hal penyediaan
+                    tiket dan proses
+                    recruitment karyawan, Kami menghimbau Bapak & Ibu sekalian untuk berhati - hati terhadap segala
+                    jenis penipuan yang mengatasnamakan TAUFIQ HT TOURS & TRAVEL
+                </p>
+                <p>
+                    Untuk info lebih lanjut silakan menghubungi kami di: 0858-6308-7879/0857-9751-1206 atau email ke:
+                    taufiqht29@gmail.com
+                </p>
+            </div>
+
+            <!-- hubungi kami & box lokasi -->
+            <div class="box-pop active-find" data-contact="3" style="overflow-y:scroll;height:560px;">
+                <!-- hubungi kami -->
+                <div class="tbl">
+                    <div class="cell w50 pull-right">
+                        <div id="map2" class="map2"></div>
+                    </div>
+                    <div class="cell w50 p30 pull-left">
+                        <div class="t-location">Hubungi Kami</div>
+                        <!-- row -->
+                        <div class="row inline">
+                            <!-- sosial media -->
+                            <div class="col inline l-5 m-5 s-12 push-l-7 push-m-7 push-s-0 xs20">
+                                <!-- facebook -->
+                                <div class="mb15">
+                                    <div class="inline-block hvr-soc">
+                                        <div class="inline-block v-middle bdr-pop">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="inline-block v-middle">
+                                            <a href="https://www.facebook.com/thttourstravel/"
+                                                target="_blank">thttourstravel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- instagram -->
+                                <div class="mb15">
+                                    <div class="inline-block hvr-soc">
+                                        <div class="inline-block v-middle bdr-pop">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="inline-block v-middle">
+                                            <a href="http://www.instagram.com/taufiqht_travel/"
+                                                target="_blank">taufiqht_travel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end sosial media -->
+                            <!-- lokasi -->
+                            <div class="col inline l-7 m-7 s-12 pull-l-5 pull-m-5 pull-s-0">
+                                <div class="p-location detail-location1 open">
+                                    <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1
+                                    </div>
+                                    <p>Jl.Pabuaran No.50 Sukabumi 43131 - INDONESIA
+                                    </p>
+                                    <div>
+                                        P. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                                <div class="p-location detail-location2 ">
+                                    <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2
+                                    </div>
+                                    <p>Jl.Lingkar Selatan Sukabumi 43131 - INDONESIA</p>
+                                    <div>
+                                        P. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                                <div class="p-location detail-location3 ">
+                                    <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
+                                    </div>
+                                    <p>Jl. Raya 3 - INDONESIA</p>
+                                    <div>
+                                        P. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                                <div class="p-location detail-location4 ">
+                                    <div class="t-cabang">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
+                                    </div>
+                                    <p>Jl. Raya 4 - INDONESIA</p>
+                                    <div>
+                                        P. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end lokasi -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                </div>
+                <!-- end hubungi kami -->
+
+                <!-- box lokasi -->
+                <div class="box-location">
+                    <div class="title-location">Kantor Kami</div>
+                    <div class="item-location">
+                        <div class="row inline min-10">
+                            <div class="col inline l-3 m-4 s-12 min-10">
+                                <div lat-data="-6.161166" lng-data="106.840104" class="hvr-location location1 active">
+                                    <div class=" text-location">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1
+                                    </div>
+                                    <div class="bdy-location">
+                                        <p>
+                                            Jl.Pabuaran No.50 Sukabumi 43131 - INDONESIA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col inline l-3 m-4 s-12 min-10">
+                                <div lat-data="-6.1929305" lng-data="106.8222026" class="hvr-location location2">
+                                    <div class=" text-location">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2
+                                    </div>
+                                    <div class="bdy-location">
+                                        <p>
+                                            Jl.Lingkar Selatan Sukabumi 43131 - INDONESIA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col inline l-3 m-4 s-12 min-10">
+                                <div lat-data="-6.1581384" lng-data="106.9078048" class="hvr-location location3">
+                                    <div class=" text-location">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
+                                    </div>
+                                    <div class="bdy-location">
+                                        <p>
+                                            Jl. Raya 3 - INDONESIA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col inline l-3 m-4 s-12 min-10">
+                                <div lat-data="-6.375815" lng-data="106.916152" class="hvr-location location4 ">
+                                    <div class=" text-location">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
+                                    </div>
+                                    <div class="bdy-location">
+                                        <p>
+                                            Jl. Raya 4 - INDONESIA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end box lokasi -->
+            </div>
+            <!-- end hubungi kami & box lokasi -->
         </div>
+    </div>
+</div>

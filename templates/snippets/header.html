@@ -1,92 +1,88 @@
 {% load static %}
-        <header>
-            <div class="container bdr-hdr">
-                <div class="abs-menu-toggle hidden-md hidden-lg">
+<header>
+    <div class="container bdr-hdr">
+        <div class="abs-menu-toggle hidden-md hidden-lg">
+            <div class="h60">
+                <div class="tbl">
+                    <div class="cell">
+                        <a class="menu-toggle">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row inline min-5">
+            <div class="col inline l-2 m-12 s-12 min-5">
+                <div id="logo">
+                    <a href="/">
+                        <img src="{% static 'images/news/logo.png' %}" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="col inline l-10 m-3 s-3 text-right min-5 hidden-xs hidden-sm">
+                <div class="inline-block v-middle" id="main-menu">
                     <div class="h60">
                         <div class="tbl">
                             <div class="cell">
-                                <a class="menu-toggle">
-                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                <ul>
+                                    <li class="menu-tour ">
+                                        <div class="dropdown">
+                                            <a>Tour</a>
+                                            <div class="dropdown-content">
+                                                <a href="#">Umroh</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-other ">
+                                        <div class="dropdown">
+                                            <a>Travel</a>
+                                            <div class="dropdown-content">
+                                                <a href="#">Asia</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class=" menu-documents ">
+                                        <div class="dropdown">
+                                            <a>Nav3</a>
+                                            <div class="dropdown-content">
+                                                <a href="#">Link7</a>
+                                                <a href="#">Link8</a>
+                                                <a href="#">Link9</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-insurance ">
+                                        <a href="#">Nav4</a>
+                                    </li>
+                                    <li class=" menu-about">
+                                        <div class="dropdown">
+                                            <a>Nav5</a>
+                                            <div class="dropdown-content">
+                                                <a href="#">Link10</a>
+                                                <a href="#">Link11</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inline-block v-middle">
+                    <div class="h60">
+                        <div class="tbl">
+                            <div class="cell">
+                                <a class="contact">
+                                    <button class="button button--wapasha btn-small">Temukan Kami</button>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row inline min-5">
-                    <div class="col inline l-2 m-12 s-12 min-5">
-                        <div id="logo">
-                            <a href="/">
-                                <img src="{% static 'images/logo.svg' %}" alt="logo" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col inline l-10 m-3 s-3 text-right min-5 hidden-xs hidden-sm">
-                        <div class="inline-block v-middle" id="main-menu">
-                            <div class="h60">
-                                <div class="tbl">
-                                    <div class="cell">
-                                        <ul>
-                                            <li class="menu-tour ">
-                                                <div class="dropdown">
-                                                    <a>Nav1</a>
-                                                    <div class="dropdown-content">
-                                                        <a href="#">Link1</a>
-                                                        <a href="#">Link2</a>
-                                                        <a href="#">Link3</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="menu-other ">
-                                                <div class="dropdown">
-                                                    <a>Nav2</a>
-                                                    <div class="dropdown-content">
-                                                        <a href="#">Link4</a>
-                                                        <a href="#">Link5</a>
-                                                        <a href="#">Link6</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class=" menu-documents ">
-                                                <div class="dropdown">
-                                                    <a>Nav3</a>
-                                                    <div class="dropdown-content">
-                                                        <a href="#">Link7</a>
-                                                        <a href="#">Link8</a>
-                                                        <a href="#">Link9</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="menu-insurance ">
-                                                <a href="#">Nav4</a>
-                                            </li>
-                                            <li class=" menu-about">
-                                                <div class="dropdown">
-                                                    <a>Nav5</a>
-                                                    <div class="dropdown-content">
-                                                        <a href="#">Link10</a>
-                                                        <a href="#">Link11</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="inline-block v-middle">
-                            <div class="h60">
-                                <div class="tbl">
-                                    <div class="cell">
-                                        <a class="contact">
-                                            <button class="button button--wapasha btn-small">Hubungi Kami</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="profile-menu-temp" style="display: none;"></div>
-                    </div>
-                </div>
+                <div class="profile-menu-temp" style="display: none;"></div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>
