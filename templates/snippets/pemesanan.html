@@ -7,407 +7,49 @@
                                     <a data-id="1">
                                         <div class="inline-block v-middle">
                                             <div class="img">
-                                                <img src="{% static 'images/banner/icon1.png' %}" alt="icon1_demo" />
                                             </div>
                                         </div>
-                                        <div class="inline-block v-middle">demo 1</div>
+                                        <div class="inline-block v-middle"></div>
                                     </a>
                                 </li>
                                 <li>
                                     <a data-id="2">
                                         <div class="inline-block v-middle">
                                             <div class="img">
-                                                <img src="{% static 'images/banner/icon2.png' %}" alt="icon2_demo" />
+                                                <img src="{% static 'images/banner/icon2.png' %}" alt="icon_umroh" />
                                             </div>
                                         </div>
-                                        <div class="inline-block v-middle">demo 2</div>
+                                        <div class="inline-block v-middle">Tour</div>
                                     </a>
                                 </li>
                                 <li class="">
                                     <a data-id="4">
                                         <div class="inline-block v-middle">
                                             <div class="img">
-                                                <img src="{% static 'images/banner/icon4.png' %}" alt="icon3_demo" />
+                                                <img src="{% static 'images/banner/icon3.png' %}" alt="icon_travel" />
                                             </div>
                                         </div>
-                                        <div class="inline-block v-middle">demo 3</div>
+                                        <div class="inline-block v-middle">Travel</div>
                                     </a>
                                 </li>
                                 <li>
                                     <a data-id="5">
                                         <div class="inline-block v-middle">
                                             <div class="img">
-                                                <img src="{% static 'images/banner/icon5.png' %}" alt="icon4_demo" />
                                             </div>
                                         </div>
-                                        <div class="inline-block v-middle">demo 4</div>
+                                        <div class="inline-block v-middle"></div>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <!-- demo1 -->
-                    <div class="abs-search-home active-flight">
-                        <div class="container">
-                            <ul class="l-flight">
-                                <li><a class="active click-return">RETURN</a></li>
-                                <li><a class="click-oneway">ONE WAY</a></li>
-                            </ul>
-                            <div class="tbl block480">
-                                <!-- form -->
-                                <form action="#" method="post" class="ao3StepOneMultiple">
-                                    <input type="hidden" name="data[lastStep]" value="OneMultiple" />
-                                    <input type="hidden" name="lang" value="en" />
-                                    <input type="hidden" name="action" value="eSearchFormStaticData" />
-                                    <input type="hidden" value="" name="data[AO3SOReference]" />
-                                    <div class="cell">
-                                        <div class="tbl block991">
-                                            <div class="cell plane1">
-                                                <div class="row inline min-5">
-                                                    <div class="abs-exchange">
-                                                        <div class="i-exchange">
-                                                            <img src="{% static 'images/icons/exchange2.png' %}" alt="icon_exhange" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col inline l-6 m-6 s-6 min-5 custom-select-plane">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/plane-go.png' %}" alt="icon_plane_go" />
-                                                            </div>
-                                                            <input 
-                                                                class="ff_elem form-control f_elem_source" 
-                                                                type="text"
-                                                                name="data[flights][0][originSearch]" 
-                                                                value="" 
-                                                                id="f_elem_source" 
-                                                            />
-
-                                                            <input 
-                                                                type="hidden" 
-                                                                id="exact_origin_0" 
-                                                                class="input_hidden"
-                                                                name="data[flights][0][origin]" 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col inline l-6 m-6 s-6 min-5 custom-select-plane">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/plane-back.png' %}" alt="icon_plane_back" />
-                                                            </div>
-                                                            <input 
-                                                                class="ff_elem form-control f_elem_destination" 
-                                                                type="text"
-                                                                name="data[flights][0][destinationSearch]" 
-                                                                value=""
-                                                                id="f_elem_destination" 
-                                                            />
-
-                                                            <input 
-                                                                type="hidden" 
-                                                                id="exact_destination_0" 
-                                                                class="input_hidden"
-                                                                name="data[flights][0][destination]" 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cell plane2">
-                                                <div class="row inline min-5">
-                                                    <div class="col inline l-6 m-6 s-6 min-5 block480">
-                                                        <div class="box-date">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/kalender3.png' %}" alt="icon_kalender" />
-                                                            </div>
-                                                            <div class="row inline min-5">
-                                                                <div class="col inline l-6 m-6 s-6 min-5">
-                                                                    <input 
-                                                                        type="text" 
-                                                                        name="data[flights][0][departureDateInput]"
-                                                                        id="start-date-flight" 
-                                                                        class="form-control input-date"
-                                                                        readonly 
-                                                                    />
-                                                                    <div class="space-date">-</div>
-                                                                </div>
-                                                                <div class="col inline l-6 m-6 s-6 min-5">
-                                                                    <input 
-                                                                        type="text" 
-                                                                        name="data[flights][1][departureDateInput]"
-                                                                        id="end-date-flight" 
-                                                                        class="form-control input-date" 
-                                                                        readonly 
-                                                                    />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cell">
-                                        <button type="submit" class="button button--wapasha btn-plane">
-                                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                                <!-- end form -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end demo1 -->
                     <!-- demo2 -->
                     <div class="abs-search-home active-tour">
                         <div class="container">
                             <!-- form -->
-                            <form id="search_form" action="#" class="form" method="post">
-                                <ul class="list-tour">
-                                    <li>
-                                        <a class="widget-asia">demo 1</a>
-                                        <input type="radio" name="region" class="hide" value="1" />
-                                    </li>
-                                    <li>
-                                        <a class="widget-australia & new zealand">demo 2</a>
-                                        <input type="radio" name="region" class="hide" value="2" />
-                                    </li>
-                                    <li>
-                                        <a class="widget-china">demo 3</a>
-                                        <input type="radio" name="region" class="hide" value="3" />
-                                    </li>
-                                    <li>
-                                        <a class="widget-europe">demo 4</a>
-                                        <input type="radio" name="region" class="hide" value="4" />
-                                    </li>
-                                </ul>
-
-                                <div class="tbl block480">
-                                    <div class="cell">
-                                        <div class="tbl block991">
-                                            <div class="cell plane1">
-                                                <div class="row inline min-5">
-                                                    <div class="col inline l-6 m-6 s-6 min-5 custom-select-plane">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-kota.png' %}" alt="icon_select_kota" />
-                                                            </div>
-                                                            <select 
-                                                                name="destination" 
-                                                                id="select_country"
-                                                                class="form-control selectpicker custom-select select-new-tour select-disabled yellow-hover"
-                                                            >
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col inline l-6 m-6 s-6 min-5 block480">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-kalender.png' %}" alt="icon_select_kalender" />
-                                                            </div>
-                                                            <select 
-                                                                name="month_year" 
-                                                                id=""
-                                                                class="form-control selectpicker custom-select select-new-tour select-disabled yellow-hover"
-                                                            >
-                                                                <option selected value="0" disabled="true">Departure Month</option>
-                                                                <option value="0">Any Time</option>
-                                                                <option value="08-2019">August 2019</option>
-                                                                <option value="09-2019">September 2019</option>
-                                                                <option value="10-2019">October 2019</option>
-                                                                <option value="11-2019">November 2019</option>
-                                                                <option value="12-2019">December 2019</option>
-                                                                <option value="01-2020">January 2020</option>
-                                                                <option value="02-2020">February 2020</option>
-                                                                <option value="03-2020">March 2020</option>
-                                                                <option value="04-2020">April 2020</option>
-                                                                <option value="05-2020">May 2020</option>
-                                                                <option value="06-2020">June 2020</option>
-                                                                <option value="07-2020">July 2020</option>
-                                                                <option value="08-2020">August 2020</option>
-                                                                <option value="09-2020">September 2020</option>
-                                                                <option value="10-2020">October 2020</option>
-                                                                <option value="11-2020">November 2020</option>
-                                                                <option value="12-2020">December 2020</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cell plane2">
-                                                <div class="row inline min-5">
-                                                    <div class="col inline l-5 m-6 s-5 min-5 block480">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-time.png' %}" alt="icon_select_time" />
-                                                            </div>
-                                                            <select 
-                                                                name="days" 
-                                                                id=""
-                                                                class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
-                                                            >
-                                                                <option value="0" selected="selected" disabled="true">Duration</option>
-                                                                <option value="0">Any Duration</option>
-                                                                <option value="1-2">1-2 days</option>
-                                                                <option value="3-5">3-5 days</option>
-                                                                <option value="6-10">6-10 days</option>
-                                                                <option value="11-15">11-15 days</option>
-                                                                <option value="16-20">16-20 days</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col inline l-7 m-6 s-7 min-5 block480">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-money.png' %}" alt="icon_select_money" />
-                                                            </div>
-                                                            <div class="box-range">
-                                                                <div class="row inline min-0">
-                                                                    <div class="col inline l-6 m-6 s-6 min-0 range-space">
-                                                                        <input 
-                                                                            class="bdr-range" 
-                                                                            type="text" 
-                                                                            id="amount-tour-1"
-                                                                            name="value1" 
-                                                                            readonly 
-                                                                        />
-                                                                    </div>
-                                                                    <div class="col inline l-6 m-6 s-6 min-0">
-                                                                        <input 
-                                                                            class="bdr-range text-right" 
-                                                                            type="text"
-                                                                            id="amount-tour-2" 
-                                                                            name="value2" 
-                                                                            readonly 
-                                                                        />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="arrow-flight">
-                                                                <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                                            </div>
-                                                            <div class="in-range">
-                                                                <div id="slider-price-tour"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cell">
-                                        <button type="submit" class="button button--wapasha btn-plane">
-                                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- end form -->
-                        </div>
-                    </div>
-                    <!-- end demo2 -->
-                    <!-- demo3 -->
-                    <div class="abs-search-home active-attraction">
-                        <!-- form -->
-                        <form id="attr-search-form" action="#" method=post>
-                            <div class="container">
-                                <ul class="l-flight">
-                                    <li><a class="active click-domestic">Domestic</a></li>
-                                    <li><a class="click-international">International</a></li>
-                                </ul>
-                                <div class="tbl block480">
-                                    <div class="cell">
-                                        <div class="tbl block991">
-                                            <div class="cell plane1">
-                                                <div class="row inline min-5">
-                                                    <div class="col inline l-6 m-6 s-6 min-5 custom-select-plane">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane" style="color:#919aa0;">
-                                                                <i class="fa fa-search" aria-hidden="true"></i>
-                                                            </div>
-                                                            <input 
-                                                                class="form-control input-desti" 
-                                                                type="text" 
-                                                                name="name"
-                                                                id="ATTR_name" 
-                                                                placeholder="Attraction Name" 
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col inline l-6 m-6 s-6 min-5 custom-select-plane">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-map.png' %}" alt="icon_select_map" />
-                                                            </div>
-                                                            <select 
-                                                                name="country" 
-                                                                id="ATTR_COUNTRY"
-                                                                class="form-control selectpicker custom-select select-attraction select-disabled required yellow-hover"
-                                                                required
-                                                            >
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="cell plane2">
-                                                <div class="row inline min-5">
-                                                    <div class="col inline l-6 m-6 s-6 min-5 block480">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-kota.png' %}" alt="icon_select_kota" />
-                                                            </div>
-                                                            <select 
-                                                                name="region" 
-                                                                id="ATTR_REGION"
-                                                                class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
-                                                            >
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col inline l-6 m-6 s-6 min-5 block480">
-                                                        <div class="pos-rel">
-                                                            <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-city.png' %}" alt="icon_select_city" />
-                                                            </div>
-                                                            <select 
-                                                                name="city" 
-                                                                id="ATTR_CITY"
-                                                                class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
-                                                            >
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cell">
-                                        <button class="button button--wapasha btn-plane">
-                                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <!-- end form -->
-                    </div>
-                    <!-- end demo4 -->
-                    <div class="abs-search-home active-insurance">
-                        <!-- form -->
                         <form action="#" method=post>
                             <div class="container">
-                                <ul class="l-flight">
-                                    <li><a class="active click-daily">Daily</a></li>
-                                    <li><a class="click-annual">Annual</a></li>
-                                    <input 
-                                        type="text" 
-                                        class="hide" 
-                                        id="daily_annual" 
-                                        name="daily_annual" 
-                                        value="daily" 
-                                    />
-                                </ul>
                                 <div class="tbl block480">
                                     <div class="cell">
                                         <div class="tbl block991">
@@ -416,22 +58,14 @@
                                                     <div class="col inline l-6 m-6 s-6 min-5">
                                                         <div class="pos-rel show-annual">
                                                             <div class="i-plane">
-                                                                <img src="{% static 'images/icons/select-map.png' %}" alt="icon_select_map" />
+                                                                <img src="{% static 'images/icons/plane-go.png' %}" alt="icon_select_map" />
                                                             </div>
                                                             <select 
                                                                 name="insurance_destination" 
                                                                 id="insurance_destination"
                                                                 class="form-control selectpicker custom-select select-new-tour select-disabled yellow-hover"
                                                             >
-                                                                <option disabled="true" selected>Country</option>
-                                                                <option value="114">Indonesia</option>
-                                                                <option value="219">Singapore</option>
-                                                                <option value="149">Malaysia</option>
-                                                                <option value="14">Australia</option>
-                                                                <option value="1">Afghanistan</option>
-                                                                <option value="2">Albania</option>
-                                                                <option value="3">Algeria</option>
-                                                                <option value="284">America</option>
+                                                                <option disabled="true" selected>Umroh</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -445,7 +79,17 @@
                                                                 id="insurance_cover_type"
                                                                 class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
                                                             >
-                                                                <option disabled="true" selected>Cover Type</option>
+                                                            <option value="none" selected disabled hidden> 
+                                                                Pilih Paket 
+                                                            </option> 
+                                                            <option>Reguler</option>
+                                                            <option>Bisnis</option>
+                                                            <option>Eksekutif</option>
+                                                            <option>21Hari</option>
+                                                            <option>Arbain</option>
+                                                            <option>+ City Tour Dubai</option>
+                                                            <option>+ Turki Bursa</option>
+                                                            <option>+ Yordan</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -483,6 +127,115 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <!--optional-->
+                                                    <div class="col inline l-6 m-6 s-6 min-5 block480">
+                                                        <div class="pos-rel">
+                                                            <div class="i-plane">
+                                                                <img src="{% static 'images/icons/select-plan.png' %}" alt="icon_select_plan" />
+                                                            </div>
+                                                            <select 
+                                                                name="insurance_benefit" 
+                                                                id="insurance_benefit"
+                                                                class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
+                                                            >
+                                                                <option disabled="true" selected>Choice of Benefit</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cell">
+                                        <button class="button button--wapasha btn-plane">
+                                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- end form -->
+                        </div>
+                    </div>
+                    <!-- end demo2 -->
+                    <!-- demo3 -->
+                    <div class="abs-search-home active-attraction">
+                        <!-- form -->
+                        <form action="#" method=post>
+                            <div class="container">
+                                <div class="tbl block480">
+                                    <div class="cell">
+                                        <div class="tbl block991">
+                                            <div class="cell plane1">
+                                                <div class="row inline min-5">
+                                                    <div class="col inline l-6 m-6 s-6 min-5">
+                                                        <div class="pos-rel show-annual">
+                                                            <div class="i-plane">
+                                                                <img src="{% static 'images/icons/plane-go.png' %}" alt="icon_select_map" />
+                                                            </div>
+                                                            <select 
+                                                                name="insurance_destination" 
+                                                                id="insurance_destination"
+                                                                class="form-control selectpicker custom-select select-new-tour select-disabled yellow-hover"
+                                                            >
+                                                                <option disabled="true" selected>Travel</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col inline l-6 m-6 s-6 min-5">
+                                                        <div class="pos-rel">
+                                                            <div class="i-plane">
+                                                                <img src="{% static 'images/icons/select-plan.png' %}" alt="icon_select_plan" />
+                                                            </div>
+                                                            <select 
+                                                                name="insurance_cover_type" 
+                                                                id="insurance_cover_type"
+                                                                class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
+                                                            >
+                                                            <option value="none" selected disabled hidden> 
+                                                                Pilih Paket 
+                                                            </option> 
+                                                            <option>Malaysia</option>
+                                                            <option>Singapura</option>
+                                                            <option>Thailand</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cell plane2">
+                                                <div class="row inline min-5">
+                                                    <div class="col inline l-6 m-6 s-6 min-5 block480">
+                                                        <div class="box-date">
+                                                            <div class="i-plane">
+                                                                <img src="{% static 'images/icons/kalender3.png' %}" alt="icon_kalender3" />
+                                                            </div>
+                                                            <div class="row inline min-5">
+                                                                <div class="col inline l-6 m-6 s-6 min-5">
+                                                                    <input 
+                                                                        type="text" 
+                                                                        id="start-date-insurance"
+                                                                        name="start-date-insurance" 
+                                                                        class="form-control input-date"
+                                                                        placeholder="Start date" 
+                                                                        readonly
+                                                                    />
+                                                                    <div class="space-date">-</div>
+                                                                </div>
+                                                                <div class="col inline l-6 m-6 s-6 min-5">
+                                                                    <input 
+                                                                        type="text" 
+                                                                        id="end-date-insurance" 
+                                                                        name="end-date-insurance"
+                                                                        class="form-control input-date" 
+                                                                        placeholder="End date"
+                                                                        readonly 
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--optional-->
                                                     <div class="col inline l-6 m-6 s-6 min-5 block480">
                                                         <div class="pos-rel">
                                                             <div class="i-plane">
@@ -511,5 +264,5 @@
                         </form>
                         <!-- end form -->
                     </div>
-                    <!-- end demo4 -->
+                    <!-- end demo3 -->
                 </div>
