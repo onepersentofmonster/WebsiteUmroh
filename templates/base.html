@@ -52,15 +52,28 @@
 </head>
 
 <body>
-    {% block blockname %}
+{% block canvas %}
     {% include 'snippets/canvas.html' %}
-    {% endblock blockname %}
+{% endblock canvas %}
+    
     {% block section %}
-
+        
+        {% block header %}
+            
+        {% endblock header %}
+    
+        {% block main %}
+            
+        {% endblock main %}
+        
+        {% block footer %}
+            
+        {% endblock footer %}
+            
     {% endblock section %}
-
+    
     {% block script %}
-
+        
     {% endblock script %}
 </body>
 

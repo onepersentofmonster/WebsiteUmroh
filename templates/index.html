@@ -13,55 +13,62 @@
 
 
 {% block section %}
-<section id="main-page">
-    <div class="bg-dark"></div>
-    {% include 'snippets/header.html' %}
+    <section id="main-page">
+        <div class="bg-dark"></div>
 
-    {% include 'snippets/contact_pop.html' %}
+    {% block header %}
+        {% include 'snippets/header.html' %}
+        {% include 'snippets/contact_pop.html' %}
+    {% endblock header %}
+    
+    {% block main %}
+        <section id="main">
+            <div class="pos-rel">
+                <!-- banner slider -->
+                {% include 'components/carousel.html' %}
+                <!-- end banner slider -->
 
-    <section id="main">
-        <div class="pos-rel">
-            <!-- banner slider -->
-            {% include 'snippets/carousel.html' %}
-            <!-- end banner slider -->
-
-            <!-- pemesanan -->
-            {% include 'snippets/pemesanan.html' %}
-            <!-- end pemesanan -->
-        </div>
-
-        <div class="section-1">
-            <div class="container">
-                <!-- promo -->
-                {% include 'snippets/promo.html' %}
-                <!-- end promo -->
-
-                <!-- service -->
-                {% include 'snippets/section-1.html' %}
-                <!-- end service -->
+                <!-- pemesanan -->
+                {% include 'components/pemesanan.html' %}
+                <!-- end pemesanan -->
             </div>
-        </div>
 
-        <div class="section-2">
-            {% include 'snippets/section-2.html' %}
-        </div>
+            <div class="section-1">
+                <div class="container">
+                    <!-- promo -->
+                    {% include 'components/promo.html' %}
+                    <!-- end promo -->
 
-        <div class="section-3" style="margin-top:5em">
-            {% include 'snippets/section-3.html' %}
-        </div>
+                    <!-- service -->
+                    {% include 'components/section-1.html' %}
+                    <!-- end service -->
+                </div>
+            </div>
 
-        <div class="section-4">
-            {% include 'snippets/section-4.html' %}
-        </div>
+            <div class="section-2">
+                {% include 'components/section-2.html' %}
+            </div>
 
-        <div class="section-5">
-            {% include 'snippets/section-5.html' %}
-        </div>
+            <div class="section-3" style="margin-top:5em">
+                {% include 'components/section-3.html' %}
+            </div>
+
+            <div class="section-4">
+                {% include 'components/section-4.html' %}
+            </div>
+
+            <div class="section-5">
+                {% include 'components/section-5.html' %}
+            </div>
+        </section>
+    {% endblock main %}
+
+    {% block footer %}
+        <footer>
+            {% include 'snippets/footer.html' %}
+        </footer>
+    {% endblock footer %}
     </section>
-    <footer>
-        {% include 'snippets/footer.html' %}
-    </footer>
-</section>
 {% endblock section %}
 {% block script %}
 <script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
