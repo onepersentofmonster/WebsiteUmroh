@@ -29,12 +29,16 @@ MANAGERS = ADMINS
 # Application definition
 
 INSTALLED_APPS = [
+    'blogs.apps.BlogsConfig',
+    'packages.apps.PackagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'multiselectfield',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [

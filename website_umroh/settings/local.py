@@ -19,12 +19,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blogs.apps.BlogsConfig',
+    'packages.apps.PackagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'multiselectfield',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -64,8 +68,12 @@ WSGI_APPLICATION = 'website_umroh.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_taufiq',
+        'USER': 'ridwan',
+        'PASSWORD': 'arifin123',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -118,3 +126,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static-root')
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
+

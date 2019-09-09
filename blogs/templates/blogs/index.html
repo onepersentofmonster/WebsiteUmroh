@@ -1,0 +1,516 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+<style type="text/css">
+    .container-head-filter{
+        margin-bottom: 20px;
+    }
+    .container-head-filter p{
+        font-size: 20px;
+    }
+    .container-head-filter p b{
+        font-weight: bold;
+        font-style: italic;
+        color: #297cbb;
+    }
+    h1.empty-class{
+        text-align: center;
+    }
+    #main .pad-blog .bg-category ul li a.active{
+        left:5px;
+        background-color:#5c9bcb;
+        background-image:-webkit-linear-gradient(-180deg, #5c9bcb,#297cbb 90%);
+        background-image:linear-gradient(-90deg,#5c9bcb,#297cbb 90%);
+        color:white
+    }
+    .button.button--wapasha.btn-center{
+        margin-top: 150px;
+    }
+    </style>
+{% endblock style %}
+    
+{% block main %}
+    
+<section id="main">
+	<div class="slider-blog">
+        <div class="banner-blog">
+			<div class="item-blog">
+				<div class="container">
+					<div class="title-blog">Cara Unik Abadikan Perjalananmu Agar Semakin Berkesan</div>
+				</div>
+			</div>
+            <div class="img-blog" style="background: url('images/banner/banner-blog.jpg') center no-repeat;"></div>
+        </div>
+    </div>
+	<div class="pad-blog">
+		<div class="container">
+			<div class="hidden-sm hidden-md hidden-lg">
+				<div class="input-search product-animated-bottom">
+					<div class="i-search">
+                        <img src="lib/images/icons/search.png"/>
+                    </div>
+                    <form method="POST" action="https://www.avia.travel/blog/search">
+                        <input type="text" class="form-control" name="blog_search" placeholder="Search Article" value="" />
+                    </form>
+				</div>
+				<div class="bg-category product-animated-bottom">
+					<div class="t-category">Categories</div>
+					<ul>
+                        <li>
+                            <a href="blog/category/1.html">Category1</a>
+                        </li>
+                        <li>
+                            <a href="blog/category/2.html">Category 2</a>
+                        </li>
+                    </ul>
+				</div>
+			</div>
+			<div class="row inline">
+				<div class="col inline l-9 m-8 s-12">
+					<div class="left-blog">
+                        <div class="row inline min-10">
+							
+                            <div class="col inline l-6 m-6 s-12 min-10  product-animated-bottom">
+								<div class="box-blog">
+									<div class="pos-rel overhidden">
+                                        <a href="blog/view/buah_tangan_khas_negeri_tirai_bambu.html">
+											<div class="overlay-blog"></div>
+											<div class="i-blog" style="background: url('lib/images/blog/thumbnails/T3.jpg') center no-repeat;"></div>
+										</a>
+                                        <div class="desc-blog">
+											<div class="abs-blog">
+												<ul>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="lib/images/icons/calender.png"/>
+														</div>
+														<div class="inline-block v-middle t-desc-blog">18 May 2018</div>
+													</li>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="lib/images/icons/tag.png" style="position: relative; top: 2px;"/>
+														</div>
+														<div class="inline-block v-middle t-desc-blog blue">
+															Category1	
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="in-blog">
+										<div class="n-blog">
+											<a href="blog/view/buah_tangan_khas_negeri_tirai_bambu.html">
+												<div>Blog1</div>
+											</a>
+										</div>
+										<div class="bdy-blog">
+											<p>
+                                                blog1   
+                                            </p>
+										</div>
+										<div class="button-read">
+											<a href="blog/view/buah_tangan_khas_negeri_tirai_bambu.html" class="read">Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+                            <div class="col inline l-6 m-6 s-12 min-10  product-animated-bottom">
+								<div class="box-blog">
+									<div class="pos-rel overhidden">
+																				<a href="blog/view/destinasi_wajib_saat_liburan_ke_hong_kong.html">
+											<div class="overlay-blog"></div>
+											<div class="i-blog" style="background: url('lib/images/blog/thumbnails/T1.jpg') center no-repeat;"></div>
+										</a>
+																				<div class="desc-blog">
+											<div class="abs-blog">
+												<ul>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="lib/images/icons/calender.png"/>
+														</div>
+														<div class="inline-block v-middle t-desc-blog">17 May 2018</div>
+													</li>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="lib/images/icons/tag.png" style="position: relative; top: 2px;"/>
+														</div>
+														<div class="inline-block v-middle t-desc-blog blue">
+															Category1	
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="in-blog">
+										<div class="n-blog">
+											<a href="blog/view/destinasi_wajib_saat_liburan_ke_hong_kong.html">
+												<div>Destinasi Wajib Saat Liburan ke Hong Kong</div>
+											</a>
+										</div>
+										<div class="bdy-blog">
+											<p>Although a picture describes a thousand words, some story and experiences are better described in detail.
+
+Not only fulfilling for the eyes, but also ensuring you to be certain before you head on to travel. For you people who experience wanderlust, to und</p>
+										</div>
+										<div class="button-read">
+											<a href="blog/view/destinasi_wajib_saat_liburan_ke_hong_kong.html" class="read">Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+                            <div class="col inline l-6 m-6 s-12 min-10  product-animated-bottom">
+								<div class="box-blog">
+									<div class="pos-rel overhidden">
+																														<a href="blog/view/destinasi_menarik_di_new_york_kamu_wajib_kesini.html">
+											<div class="overlay-blog"></div>
+											<div class="i-blog" style="background: url('../img.youtube.com/vi/T5/maxresdefault.jpg') no-repeat center;"></div>
+										</a>
+																				<div class="desc-blog">
+											<div class="abs-blog">
+												<ul>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="lib/images/icons/calender.png"/>
+														</div>
+														<div class="inline-block v-middle t-desc-blog">05 Jan 2018</div>
+													</li>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="lib/images/icons/tag.png" style="position: relative; top: 2px;"/>
+														</div>
+														<div class="inline-block v-middle t-desc-blog blue">
+															Category1	
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="in-blog">
+										<div class="n-blog">
+											<a href="blog/view/destinasi_menarik_di_new_york_kamu_wajib_kesini.html">
+												<div>Destinasi Menarik di New York, Kamu Wajib Kesini!</div>
+											</a>
+										</div>
+										<div class="bdy-blog">
+											<p>Although a picture describes a thousand words, some story and experiences are better described in detail.
+
+Not only fulfilling for the eyes, but also ensuring you to be certain before you head on to travel. For you people who experience wanderlust, to und</p>
+										</div>
+										<div class="button-read">
+											<a href="blog/view/destinasi_menarik_di_new_york_kamu_wajib_kesini.html" class="read">Read More</a>
+										</div>
+									</div>
+								</div>
+							</div>
+													</div>
+						<ul class="pagination">
+													</ul>
+												</div>
+				</div>
+				<div class="col inline l-3 m-4 s-12 hidden-xs">
+					<div class="right-blog">
+						<div class="input-search product-animated-bottom">
+							<div class="i-search"><img src="lib/images/icons/search.png"/></div>
+								<form method="POST" action="https://www.avia.travel/blog/search">
+									<input type="text" class="form-control search-web" name="blog_search" placeholder="Search Article" value="" />
+								</form>
+						</div>
+						<div class="pos-rel product-animated-bottom">
+							<div class="slider-search">
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/PROMO_PERIOD_UNTIL_31_AUG_2019-01.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/QANTAS_AIRWAYS_AUG_3_2019-01.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/205e500a-04be-46e3-8854-bc796982604b.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/6f0ae46b-b146-4016-a8c9-b435ca8355a2.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="preorder/32/pre_order_japan_travel_fair_30aug-1sep.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/ANA_AGUSTUS-01.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/SOSMED_GARUDA_AUGUST-01.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/07969b8c-0e2d-4b38-8c55-d467999a4490.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/sosmed_quantum_of_the_seas_rev-01-02-01.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="cruise/detail/81/6d5n_singapore_penang_phuket_cruise.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+																<div class="item">
+									<div class="pos-rel">									
+										<div class="img-search" style="background: url('images/promo/vietnam_air-01.jpg') center no-repeat;"></div>
+										<!-- <div class="overlay-search"></div> -->
+										<div class="abs-search">
+											<!-- <div class="logo-search"><img src=""/></div>
+											<div class="t-search">West Coast USA</div>
+											<div class="bdy-search">
+												<p>A vivid look into a one-of-kind destination</p>
+											</div> -->
+																						<a href="index.html"><button class="button button--wapasha btn-center btn-blog">Explore Now</button></a>
+																					</div>
+									</div>
+								</div>
+															</div>
+														<style>
+								.slide-search i .fa-chevron-left{
+									box-shadow(-2px 4px 25px -5px #8f8f8f);
+								}
+							</style>
+							<div class="slide-search">
+								<i class="fa fa-chevron-left" aria-hidden="true"></i>
+								<i class="fa fa-chevron-right" aria-hidden="true"></i>
+							</div>
+													</div> 
+						<div class="bg-instagram">
+							<div class="h-instagram bold">Lately on Instagram</div>
+								<div class="row inline">
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																		<div class="col inline l-4 m-4 s-6 product-animated-bottom">
+										<a href="https://www.instagram.com/p/" target="_blank">
+											<div class="hvr-instagram">
+												<div class="overlay-instagram"></div>
+												<img src="#"/>
+											</div>
+										</a>
+									</div>
+																	</div>
+							</div>
+							<div class="bg-category product-animated-bottom">
+								<div class="t-category bold">Categories</div>
+								<ul>
+																			<li><a href="blog/category/1.html"  >Category1</a></li>
+																			<li><a href="blog/category/2.html"  >Category 2</a></li>
+																	</ul>
+							</div>
+							<div class="bg-article">
+								<div class="t-article bold">Popular This Month</div>
+																<div class="in-article">
+									<a href="blog/view/buah_tangan_khas_negeri_tirai_bambu.html"> 
+										<div class="tbl">
+											<div class="cell w80 product-animated-left">
+																									<div class="i-article" style="background: url('lib/images/blog/thumbnails/T3.jpg') center no-repeat;"></div>
+																							</div>
+											<div class="cell product-animated-right">
+												<div class="n-article">
+													<div>Buah Tangan Khas Negeri Tirai Bambu. Apa Saja Ya?</div>
+												</div>
+												<div>
+													<div class="inline-block v-middle">
+														<img src="lib/images/icons/calender.png" style="height: 16px;"/>
+													</div>
+													<div class="inline-block v-middle d-article">18 May 2018</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+																<div class="in-article">
+									<a href="blog/view/destinasi_wajib_saat_liburan_ke_hong_kong.html"> 
+										<div class="tbl">
+											<div class="cell w80 product-animated-left">
+																									<div class="i-article" style="background: url('lib/images/blog/thumbnails/T1.jpg') center no-repeat;"></div>
+																							</div>
+											<div class="cell product-animated-right">
+												<div class="n-article">
+													<div>Destinasi Wajib Saat Liburan ke Hong Kong</div>
+												</div>
+												<div>
+													<div class="inline-block v-middle">
+														<img src="lib/images/icons/calender.png" style="height: 16px;"/>
+													</div>
+													<div class="inline-block v-middle d-article">17 May 2018</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+																<div class="in-article">
+									<a href="blog/view/destinasi_menarik_di_new_york_kamu_wajib_kesini.html"> 
+										<div class="tbl">
+											<div class="cell w80 product-animated-left">
+																									<div class="i-article" style="background: url('../img.youtube.com/vi/T5/maxresdefault.jpg') center no-repeat;"></div>
+																							</div>
+											<div class="cell product-animated-right">
+												<div class="n-article">
+													<div>Destinasi Menarik di New York, Kamu Wajib Kesini!</div>
+												</div>
+												<div>
+													<div class="inline-block v-middle">
+														<img src="lib/images/icons/calender.png" style="height: 16px;"/>
+													</div>
+													<div class="inline-block v-middle d-article">05 Jan 2018</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+															</div>
+						</div>
+					</div>
+				</div>
+							</div>
+		</div>
+	</div>
+</section>
+{% endblock main %}
+    

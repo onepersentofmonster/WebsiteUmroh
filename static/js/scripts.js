@@ -352,7 +352,7 @@ function banner_counter() {
 banner_counter()
 
 
-$('.slider-banner').slick({
+$('.carousel').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -368,7 +368,7 @@ var slide_to_show = 4;
 $('.nav-banner').slick({
     slidesToShow: slide_to_show,
     slidesToScroll: 1,
-    asNavFor: '.slider-banner',
+    asNavFor: '.carousel',
     dots: false,
     arrows: false,
     centerMode: false,
@@ -901,11 +901,11 @@ $('ul.l-icon li a').on('click', function () {
             $(this).removeClass('open');
         });
 
-        $('.item-banner').removeClass('open');
+        $('.item_carousel').removeClass('open');
 
         if (li_tab.attr('data-id') == '1') {
             parents.find('.active-flight').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
                 $('ul.l-icon li a').attr('href', 'flight_international.html');
@@ -919,7 +919,7 @@ $('ul.l-icon li a').on('click', function () {
             });
         } else if (li_tab.attr('data-id') == '2') {
             parents.find('.active-tour').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
                 $('ul.l-icon li a').attr('href', 'tour.html');
@@ -933,7 +933,7 @@ $('ul.l-icon li a').on('click', function () {
             });
         } else if (li_tab.attr('data-id') == '4') {
             parents.find('.active-attraction').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
                 $('ul.l-icon li a').attr('href', 'attractions.html');
@@ -947,7 +947,7 @@ $('ul.l-icon li a').on('click', function () {
             });
         } else if (li_tab.attr('data-id') == '5') {
             parents.find('.active-insurance').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
                 $('ul.l-icon li a').attr('href', 'insurance.html');
@@ -963,7 +963,7 @@ $('ul.l-icon li a').on('click', function () {
     } else {
         li_tab.parent().removeClass('active');
         parents.find('.abs-search-home').removeClass('open');
-        $('.item-banner').removeClass('open');
+        $('.item_carousel').removeClass('open');
     }
 });
 
@@ -992,7 +992,7 @@ $("html").click(function (a) {
             .target).parents().is(".ui-datepicker-header") && !$(a.target).parents().is(
             ".ui-state-default") && !$(a.target).is(".ui-state-default")) {
         $('.abs-search-home').removeClass('open');
-        $('.item-banner').removeClass('open');
+        $('.item_carousel').removeClass('open');
         $('ul.l-icon li').removeClass('active');
         $('.in-range').removeClass('open');
     }

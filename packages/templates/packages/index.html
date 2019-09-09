@@ -1,0 +1,1657 @@
+{% extends 'base.html' %}
+
+        
+        {% block main %}
+            <section id="main">
+                <div class="pad-global">
+
+
+            <div class="container">
+                
+                <div class="box-desti">
+                                <div class="title bold capitalize" id="result_destination">Destinations</div>
+                                <div class="bdr-desti"></div>
+                    <div class="row inline">
+                            <div class="col inline l-3 m-12 s-12 sm30">
+                                <form id="search_form" action="https://www.avia.travel/search" class="form" method="post">
+                                <div class="jv-desti">
+                                    <div class="mb-desti">
+                                        <div class="pos-rel">
+                                            <input class="form-control input-desti" type="text" name="name_destination" placeholder="Tour Name" value=""/>
+                                            <div class="icon-search"><i class="fa fa-search" aria-hidden="true"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear">
+                                        <div class="inline992 pr20 mb-desti">
+                                            <div class="pos-rel">
+                                                <div class="icon-select">
+                                                    <img src="lib/images/icons/select-map.png"/>
+                                                </div>
+                                                <select name="region" id="select_region" class="form-control selectpicker custom-select small-select yellow-hover formselect capitalize">
+                                                    <option value="0" selected disabled>Region</option>
+                                                    <option value="0">Any Region</option>
+                                                                                    <option value="1">africa</option>
+                                                                    <option value="2">america</option>
+                                                                    <option value="3">asia</option>
+                                                                    <option value="4">australia & new zealand</option>
+                                                                    <option value="6">china</option>
+                                                                    <option value="5">europe</option>
+                                                                    <option value="7">middle east</option>
+                                                                    <option value="9">others</option>
+                                                                            </select>							
+                                            </div>
+                                        </div>
+                                        <div class="inline992 pl20 mb-desti">
+                                            <div class="pos-rel">
+                                                <div class="icon-select">
+                                                    <img src="lib/images/icons/select-kota.png"/>
+                                                </div>
+                                                <div id="wrap_country">
+                                                <select name="destination" id="select_country" class="form-control selectpicker custom-select small-select yellow-hover formselect">
+                                                    <option value="0" selected disabled>Country</option>
+                                                    <option value="0">Any Country</option>
+                                                                                            </select>
+                                                </div>							
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear">
+                                        <div class="inline992 pr20 mb-desti">
+                                            <div class="pos-rel">
+                                                <div class="icon-select">
+                                                    <img src="lib/images/icons/select-time.png"/>
+                                                </div>
+                                                <select name="days" id="" class="form-control selectpicker custom-select small-select yellow-hover">
+                                                    <option value="0" disabled selected>Duration</option>
+                                                    <option value="0">Any Duration</option>
+                                                                                <option value="1-2">1-2 days</option>
+                                                                <option value="3-5">3-5 days</option>
+                                                                <option value="6-10">6-10 days</option>
+                                                                <option value="11-15">11-15 days</option>
+                                                                <option value="16-20">16-20 days</option>
+                                                                            </select>							
+                                            </div>
+                                        </div>
+                                        <div class="inline992 pl20 mb-desti">
+                                            <div class="pos-rel">
+                                                <div class="icon-select">
+                                                    <img src="lib/images/icons/select-kalender.png"/>
+                                                </div>
+                                                <select name="month_year" id="" class="form-control selectpicker custom-select small-select yellow-hover">
+                                                    <option value="0" selected disabled>Departure Month</option>
+                                                    <option value="0">Any Time</option>
+                                                                                <option value="08-2019">August 2019</option>
+                                                                <option value="09-2019">September 2019</option>
+                                                                <option value="10-2019">October 2019</option>
+                                                                <option value="11-2019">November 2019</option>
+                                                                <option value="12-2019">December 2019</option>
+                                                                <option value="01-2020">January 2020</option>
+                                                                <option value="02-2020">February 2020</option>
+                                                                <option value="03-2020">March 2020</option>
+                                                                <option value="04-2020">April 2020</option>
+                                                                <option value="05-2020">May 2020</option>
+                                                                <option value="06-2020">June 2020</option>
+                                                                <option value="07-2020">July 2020</option>
+                                                                <option value="08-2020">August 2020</option>
+                                                                <option value="09-2020">September 2020</option>
+                                                                <option value="10-2020">October 2020</option>
+                                                                <option value="11-2020">November 2020</option>
+                                                                <option value="12-2020">December 2020</option>
+                                                                            </select>							
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear">
+                                        <div class="inline992 pr20 mb-desti custom-box-range">
+                                            <div class="pos-rel">
+                                                <div class="icon-select"><img src="lib/images/icons/select-money.png"/></div>
+                                                <div class="box-range">
+                                                    <div class="row inline min-0 ml30">
+                                                        <div class="col inline l-6 m-6 s-6 min-0 range-space">
+                                                            <input class="bdr-range " type="text" id="amount-tour-1" readonly name="value1">
+                                                        </div>
+                                                        <div class="col inline l-6 m-6 s-6 min-0">
+                                                            <input class="bdr-range text-right" type="text" id="amount-tour-2" readonly name="value2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="arrow-flight"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                                                <div class="in-range">
+                                                    <div id="slider-price-tour"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#">
+                                            <button class="button button--wapasha btn-search">SEARCH</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        
+                            <div class="col inline l-9 m-12 s-12">
+                                <div class="clear mb10">
+                                    <div class="float-left">
+                                        <div class="h34">
+                                            <div class="tbl">
+                                                <div class="cell">
+                                                    <div class="r-desti" id="result_destination">214 Results</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="float-right">
+                                        <div class="pos-rel">
+                                            <div class="select-arrow"><i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                                            <form method="post" action="#" id="SortBy">
+                                            <select name="sortTour" id="select-address" class="form-control selectpicker custom-select yellow-hover sortTour">
+                                                <option selected="selected" value="1">Departure Tercepat</option>
+                                        <option  value="2">Departure Terlama</option>
+                                        <option  value="3">Hari Tercepat</option>
+                                        <option  value="4">Hari Terlama</option>
+                                        <option  value="5">Harga Termurah</option>
+                                        <option  value="6">Harga Termahal</option>
+                                            </select>	
+                                            </form>				
+                                        </div>			
+                                    </div>
+                                </div>
+                                <div class="row inline min-10">
+                                                                                                <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR37527","bup_name":"GDAY HONGKONG SHENZHEN","bup_imageUrl":"https://www.avia.travel/images/tour/8/avenue_of_star+bruce_lee.jpg","bup_url":"https://www.avia.travel/tour/detail/37527/gday_hongkong_shenzhen","bup_price":"7890000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/37527/gday_hongkong_shenzhen.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/avenue_of_star+bruce_lee.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/avenue_of_star%2bbruce_lee.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">G'DAY HONGKONG SHENZHEN </div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Shenzhen												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Hongkong												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37527/gday_hongkong_shenzhen.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">4 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>SQ</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37531/gday_hongkong_shenzhen.html">
+                                                                    <div class="inline-block"><div class="w-date">16 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">4 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>SQ</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37533/gday_hongkong_shenzhen.html">
+                                                                    <div class="inline-block"><div class="w-date">23 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">4 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>SQ</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37535/gday_hongkong_shenzhen.html">
+                                                                    <div class="inline-block"><div class="w-date">13 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">4 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>SQ</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37537/gday_hongkong_shenzhen.html">
+                                                                    <div class="inline-block"><div class="w-date">28 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">4 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>SQ</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/37527/gday_hongkong_shenzhen.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/32%2c_59%2c_60%2c_61%2c_62%2c_63%2c_645.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">SINGAPORE AIRLINES</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 7,890,000</div>
+                                                    <div class="l-desti">
+                                                        4 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>Paket Hongkong Shenzhen ini sangat disarankan untuk Anda yang merencanakan liburan super lengkap dan tak terlupakan. Anda akan diajak menjelajahi berbagai tempat wisata yang lengkap di ke-tiga kota tersebut. Mau&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/37527/gday_hongkong_shenzhen.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR38352","bup_name":"GDAY EUROPE FIESTA + NICE","bup_imageUrl":"https://www.avia.travel/images/tour/8/madrid.jpg","bup_url":"https://www.avia.travel/tour/detail/38352/gday_europe_fiesta_nice","bup_price":"30790000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/38352/gday_europe_fiesta_nice.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/madrid.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/madrid.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">GDAY EUROPE FIESTA + NICE</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Salzburg												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Vienna												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Montpellier												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Cannes												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Nice												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Milano												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Monte-carlo												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Madrid												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Toledo												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Barcelona												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38352/gday_europe_fiesta_nice.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">12 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38354/gday_europe_fiesta_nice.html">
+                                                                    <div class="inline-block"><div class="w-date">02 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">12 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38356/gday_europe_fiesta_nice.html">
+                                                                    <div class="inline-block"><div class="w-date">16 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">12 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38358/gday_europe_fiesta_nice.html">
+                                                                    <div class="inline-block"><div class="w-date">07 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">12 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38360/gday_europe_fiesta_nice.html">
+                                                                    <div class="inline-block"><div class="w-date">14 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">12 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EK</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/38352/gday_europe_fiesta_nice.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/262.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">EMIRATES</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 30,790,000</div>
+                                                    <div class="l-desti">
+                                                        12 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>JAKARTA - DOHA - MADRID - TOLEDO - BARCELONA - MONTPELLIER - NICE - MONTE CARLO - CANNES - MILAN - INNSBURG - SALZBURG - VIENNA <br />
+            <br />
+            Sebuah destinasi impian banyak&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/38352/gday_europe_fiesta_nice.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR38056","bup_name":"EUROPE BALKAN + GREECE","bup_imageUrl":"https://www.avia.travel/images/tour/8/sarajevo.jpg","bup_url":"https://www.avia.travel/tour/detail/38056/europe_balkan_greece","bup_price":"37990000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/38056/europe_balkan_greece.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/sarajevo.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/sarajevo.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">EUROPE BALKAN + GREECE</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Sarajevo												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Dubrovnik												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Split												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Zagreb												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Athens												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Ljubljana												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38056/europe_balkan_greece.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">16 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>TK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38058/europe_balkan_greece.html">
+                                                                    <div class="inline-block"><div class="w-date">03 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">16 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>TK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38060/europe_balkan_greece.html">
+                                                                    <div class="inline-block"><div class="w-date">12 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">16 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>TK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38062/europe_balkan_greece.html">
+                                                                    <div class="inline-block"><div class="w-date">01 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">16 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>TK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38064/europe_balkan_greece.html">
+                                                                    <div class="inline-block"><div class="w-date">17 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">16 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>TK</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/38056/europe_balkan_greece.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/29.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">TURKISH AIRLINES</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 37,990,000</div>
+                                                    <div class="l-desti">
+                                                        11-16 days 											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>Nikmati indahnya berkeliling di Balkan Countries, seperti: Bosnia & Herzegovina, Croatia, Montenegro serta Greece yang indah dan penuh sejarah. Kami akan memberikan Anda sebuah pengalaman yang tak terlupakan dan paket&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/38056/europe_balkan_greece.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR33761","bup_name":"GDAY WEST EUROPE + MT TITLIS & ZAANSE SCHANS","bup_imageUrl":"https://www.avia.travel/images/tour/8/mt.Titlis_.jpg","bup_url":"https://www.avia.travel/tour/detail/33761/gday_west_europe_mt_titlis_zaanse_schans","bup_price":"26590000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/33761/gday_west_europe_mt_titlis_zaanse_schans.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/mt.Titlis_.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/mt.Titlis_.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">G'DAY WEST EUROPE + MT TITLIS & ZAANSE SCHANS</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Brussels												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Paris												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Frankfurt												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Rome												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Venice												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Amsterdam												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Lucerne  												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Zurich												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38943/gday_west_europe_mt_titlis_zaanse_schans.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">13 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/36669/gday_west_europe_mt_titlis_zaanse_schans.html">
+                                                                    <div class="inline-block"><div class="w-date">02 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">13 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>TK</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37300/gday_west_europe_mt_titlis_zaanse_schans.html">
+                                                                    <div class="inline-block"><div class="w-date">10 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">13 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EY</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37302/gday_west_europe_mt_titlis_zaanse_schans.html">
+                                                                    <div class="inline-block"><div class="w-date">24 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">13 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>EY</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/33761/gday_west_europe_mt_titlis_zaanse_schans.html">
+                                                                    <div class="inline-block"><div class="w-date">26 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">13 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/33761/gday_west_europe_mt_titlis_zaanse_schans.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/542.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">QATAR AIRWAYS</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 26,590,000</div>
+                                                    <div class="l-desti">
+                                                        12-13 days 											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>Sebuah destinasi impian banyak orang, sebuah destinasi penuh budaya akan maha karya seni arsitektur, kecantikan alam dan kandungan nilai sejarah yang tinggi. Hampir setiap sudut Eropa bisa dijadikan objek wisata,&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/33761/gday_west_europe_mt_titlis_zaanse_schans.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR38044","bup_name":"SCANDINAVIA EXPERIENCE","bup_imageUrl":"https://www.avia.travel/images/tour/8/CPH_CRUISE_20190705_152214_(1).jpg","bup_url":"https://www.avia.travel/tour/detail/38044/scandinavia_experience","bup_price":"31390000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/38044/scandinavia_experience.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/CPH_CRUISE_20190705_152214_(1).jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/CPH_CRUISE_20190705_152214_(1.html).jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">SCANDINAVIA EXPERIENCE</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Copenhagen 												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Helsinki												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Hamar												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Bergen												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Oslo												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Stockholm												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38044/scandinavia_experience.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38487/scandinavia_experience.html">
+                                                                    <div class="inline-block"><div class="w-date">02 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38489/scandinavia_experience.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38491/scandinavia_experience.html">
+                                                                    <div class="inline-block"><div class="w-date">03 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38493/scandinavia_experience.html">
+                                                                    <div class="inline-block"><div class="w-date">14 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/38044/scandinavia_experience.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/542.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">QATAR AIRWAYS</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 31,390,000</div>
+                                                    <div class="l-desti">
+                                                        9 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>JAKARTA - HELSINKI - STOCKHOLM - KARLSTAD - HAMAR - FLAM - GUDVANGEN - VOSS - BERGEN - BRURAVIK - BRIMNES - GEILO - OSLO - COPENHAGEN<br />
+            <br />
+            Sebuah destinasi impian&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/38044/scandinavia_experience.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR37823","bup_name":"HEART OF SWITZERLAND with JUNGFRAUJOCH","bup_imageUrl":"https://www.avia.travel/images/tour/8/Jungfraujoch-Top_of_Europe2.jpg","bup_url":"https://www.avia.travel/tour/detail/37823/heart_of_switzerland_with_jungfraujoch","bup_price":"31990000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/37823/heart_of_switzerland_with_jungfraujoch.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/Jungfraujoch-Top_of_Europe2.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/Jungfraujoch-Top_of_Europe2.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">HEART OF SWITZERLAND with JUNGFRAUJOCH</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Milano												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Biel												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Geneva												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Saint Moritz												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Lugano												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Zurich												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37823/heart_of_switzerland_with_jungfraujoch.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">10 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37825/heart_of_switzerland_with_jungfraujoch.html">
+                                                                    <div class="inline-block"><div class="w-date">02 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">10 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37827/heart_of_switzerland_with_jungfraujoch.html">
+                                                                    <div class="inline-block"><div class="w-date">16 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">10 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37829/heart_of_switzerland_with_jungfraujoch.html">
+                                                                    <div class="inline-block"><div class="w-date">03 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">10 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37831/heart_of_switzerland_with_jungfraujoch.html">
+                                                                    <div class="inline-block"><div class="w-date">14 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">10 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/37823/heart_of_switzerland_with_jungfraujoch.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/542.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">QATAR AIRWAYS</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 31,990,000</div>
+                                                    <div class="l-desti">
+                                                        10 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>Ingin liburan di tempat yang indah? Swiss mungkin menjadi pilihan yang tepat. Keragaman tempat wisata di Swiss yang terdapat di daratan eropa, negara pegunungan adalah inti dari Swiss dan membuat&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/37823/heart_of_switzerland_with_jungfraujoch.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR38124","bup_name":"MINI RIVIERA WITH LOURDES","bup_imageUrl":"https://www.avia.travel/images/tour/8/Montserrat.jpg","bup_url":"https://www.avia.travel/tour/detail/38124/mini_riviera_with_lourdes","bup_price":"21890000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/38124/mini_riviera_with_lourdes.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/Montserrat.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/Montserrat.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">MINI RIVIERA WITH LOURDES</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Carcassonne												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Lourdes												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Madrid												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Toledo												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Barcelona												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Girona												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38124/mini_riviera_with_lourdes.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38126/mini_riviera_with_lourdes.html">
+                                                                    <div class="inline-block"><div class="w-date">05 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38128/mini_riviera_with_lourdes.html">
+                                                                    <div class="inline-block"><div class="w-date">18 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38130/mini_riviera_with_lourdes.html">
+                                                                    <div class="inline-block"><div class="w-date">10 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38132/mini_riviera_with_lourdes.html">
+                                                                    <div class="inline-block"><div class="w-date">22 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">9 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QR</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/38124/mini_riviera_with_lourdes.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/542.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">QATAR AIRWAYS</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 21,890,000</div>
+                                                    <div class="l-desti">
+                                                        9 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>Sebuah destinasi impian banyak orang, sebuah destinasi penuh budaya akan maha karya seni arsitektur, kecantikan alam dan kandungan nilai sejarah yang tinggi. AVIA TOUR memberikan Anda sebuah paket dengan segala&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/38124/mini_riviera_with_lourdes.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR37213","bup_name":"GDAY AUSSIE TWIN CITIES + TANGALOOMA","bup_imageUrl":"https://www.avia.travel/images/tour/8/Tangalooma_Dolphin_1.jpg","bup_url":"https://www.avia.travel/tour/detail/37213/gday_aussie_twin_cities_tangalooma","bup_price":"19690000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/37213/gday_aussie_twin_cities_tangalooma.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/Tangalooma_Dolphin_1.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/Tangalooma_Dolphin_1.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">G'DAY AUSSIE TWIN CITIES + TANGALOOMA</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Gold Coast												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Sydney												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37213/gday_aussie_twin_cities_tangalooma.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37215/gday_aussie_twin_cities_tangalooma.html">
+                                                                    <div class="inline-block"><div class="w-date">09 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/37217/gday_aussie_twin_cities_tangalooma.html">
+                                                                    <div class="inline-block"><div class="w-date">23 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/37213/gday_aussie_twin_cities_tangalooma.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/36%2c-531.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">QANTAS AIRWAYS</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 19,690,000</div>
+                                                    <div class="l-desti">
+                                                        6 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>TANGALOOMA - GOLD COAST - SYDNEY<br />
+            <br />
+            Australia merupakan negara eksotis di dunia. Terbukti, salah satu destinasi wisata Australia masuk dalam daftar nominator New 7 Wonders of Nature dari 259 nominasi&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/37213/gday_aussie_twin_cities_tangalooma.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                    <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer" bevyup_product_data='{"bup_id":"TR38565","bup_name":"GDAY MONO MELBOURNE + SYDNEY","bup_imageUrl":"https://www.avia.travel/images/tour/8/WildLife_Sydney_Zoo.jpg","bup_url":"https://www.avia.travel/tour/detail/38565/gday_mono_melbourne_sydney","bup_price":"16890000","bup_pricePrefix":"IDR ","bup_category":"Tour"}'">
+                                        <div class="item-desti">
+                                            <div class="pos-rel">
+                                                <a href="tour/detail/38565/gday_mono_melbourne_sydney.html">
+                                                    <div class="overlay-desti"></div>
+                                                                                                <div class="disc-desti"><img src="lib/images/icons/discount.png" style=""></div>
+                                                                                                <!-- <div class="img-desti" style="background: url('https://www.avia.travel/images/tour/2/WildLife_Sydney_Zoo.jpg') no-repeat center;"></div> -->
+                                                    <div class="img-desti" style="background: url('images/tour/2/WildLife_Sydney_Zoo.jpg') no-repeat center;"></div>
+                                                    <div class="t-desti">G'DAY MONO MELBOURNE + SYDNEY</div>
+                                                </a>
+                                                <!-- <div class="love-exp"><i class="fa fa-heart-o" aria-hidden="true"></i></div> -->
+                                            </div>
+                                            <div class="clear tab-desti-wrapper">
+                                                <div class="tab-desti">
+                                                    <ul>
+                                                                                                        <li class="nav-desti nav-kota">
+                                                            <a class="a-kota" data-id="2">
+                                                                <div class="i-kota"></div>
+                                                                <div class="t-kota" >City</div>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-desti nav-kalender">
+                                                            <a class="a-kalender" data-id="3">
+                                                                <div class="i-kalender"></div>
+                                                                <div class="t-kalender" >Departure</div>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="pos-rel">
+                                                <div class="in-desti active-kota" data-id="2">
+                                                    <div class="clear">
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Melbourne												</div>
+                                                                                                        <div class="w50">
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Sydney												</div>
+                                                                                                    </div>
+                                                </div>
+
+                                                <div class="in-desti active-kalender" data-id="3">
+                                                    <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="inline-block mr30">
+                                                                <div class="hide-ipad">
+                                                                    <img src="lib/images/icons/terbang.png"/>
+                                                                </div>
+                                                                <b>DEPARTURE</b>
+                                                            </div>
+                                                            <div class="inline-block">
+                                                                <img src="lib/images/icons/sampai.png"/>
+                                                                <b>DAYS</b>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div><b>FLIGHT</b></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38565/gday_mono_melbourne_sydney.html">
+                                                                    <div class="inline-block"><div class="w-date">19 Aug 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38580/gday_mono_melbourne_sydney.html">
+                                                                    <div class="inline-block"><div class="w-date">02 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38582/gday_mono_melbourne_sydney.html">
+                                                                    <div class="inline-block"><div class="w-date">23 Sep 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38586/gday_mono_melbourne_sydney.html">
+                                                                    <div class="inline-block"><div class="w-date">07 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                                                                <div class="tbl mb10">
+                                                        <div class="cell">
+                                                            <div class="link-date">
+                                                                <a href="tour/detail/38588/gday_mono_melbourne_sydney.html">
+                                                                    <div class="inline-block"><div class="w-date">28 Oct 2019</div> <div class="bdr-kalender"></div></div>
+                                                                    <div class="inline-block">6 days</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cell w55 text-center">
+                                                            <div>QF</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="abs-kalender">
+                                                        <div class="arrow"><a href="tour/detail/38565/gday_mono_melbourne_sydney.html#booking"><i class="fa fa-angle-double-down" aria-hidden="true"></i>More Tour Date</a></div>
+                                                        <div class="merk">
+                                                                                                                <div class="i-merk">
+                                                                <img src="images/airline/36%2c-531.png"/>
+                                                            </div>
+                                                                                                                <div class="n-merk">QANTAS AIRWAYS</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="desc-desti">
+                                                    <div class="s-desti">From</div>
+                                                    <div class="p-desti">IDR 16,890,000</div>
+                                                    <div class="l-desti">
+                                                        6 days											</div>
+                                                    <div class="bdy-desti">
+                                                        <p>Australia adalah sebuah negara di belahan selatan yang terdiri dari daratan utama benua Australia, Pulau Tasmania, dan berbagai pulau kecil di Samudra Hindia dan Samudra Pasifik. Negara-negara yang bertetanggaan dengannya&#8230;</p>
+                                                    </div>
+                                                    <a href="tour/detail/38565/gday_mono_melbourne_sydney.html" class="desti">VIEW DETAIL <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                                </div>
+                                                <!-- <div class="icon-desti clear">
+                                                    <ul>
+                                                        <li><a href="#"><div class="i-pesawat"></div></a></li>
+                                                        <li><a href="#"><div class="i-hotel"></div></a></li>
+                                                        <li><a href="#"><div class="i-makan"></div></a></li>
+                                                        <li><a href="#"><div class="i-bagasi"></div></a></li>
+                                                        <li><a href="#"><div class="i-asuransi"></div></a></li>
+                                                    </ul>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                                            </div>
+                                <ul class='pagination'><li class="active"><a>1</a></li><li><a href="search/9.html">2</a></li><li><a href="search/18.html">3</a></li><li><a href="search/27.html">4</a></li><li><a href="search/36.html">5</a></li><li><a href="search/45.html">6</a></li><li><a href="search/54.html">7</a></li><li><a href="search/63.html">8</a></li><li><a href="search/9.html"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li><li><a href="search/207.html">Last &rsaquo;</a></li></ul>
+                                <!--<ul class="pagination">
+                                    <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                                </ul>-->
+                            </div>
+                    </div>
+                </div>
+
+                
+                        
+                    </div>
+
+            <div id="bantuan" class="bg-help" style="background: url('lib/images/icons/bg-help.png') bottom no-repeat;">
+            <div class="contanier">
+                <div class="t-help bold">Anda Butuh Bantuan?</div>
+                <div class="bdy-help">Hubungi kami untuk bantuan atau informasi lebih lanjut melalui line telepon</div>
+                <div class="no-help">
+                                <a href="tel: 62-21 2450 8899"> 62-21 2450 8899</a><br/>
+                                <a href="tel: 62-21 422 3888"> 62-21 422 3888</a><br/>
+                            </div>
+                <div class="bdy-help mb30">atau online form yang kami sediakan melalui tombol dibawah ini</div>
+                <a class="contact"><button class="button button--wapasha btn-center">CONTACT US</button></a>
+            </div>
+            </div>
+                </div>
+            </section>
+        {% endblock main %}
+            
+    

@@ -2,8 +2,12 @@ from django.shortcuts import render
 from django.views.defaults import page_not_found, server_error
 from django.http import Http404
 
+from packages.models import Package 
+
 def index(request):
-    return render(request,'index.html')
+    populer = Package.objects.all()
+    context = {'populer': populer}
+    return render(request,'index.html',context)
 
 
 def handler_404(request, exception=None):
