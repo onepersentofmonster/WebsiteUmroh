@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block style %}
+<style type="text/css">
+    .gohide {
+        display: none;
+    }
+
+    .button.button--wapasha.btn-center {
+        margin-top: 150px;
+    }
+
+    div.iframe-embed-youtube iframe {
+        width: 100%;
+        height: 575px;
+        margin-bottom: 15px;
+    }
+
+    @media(max-width: 1200px) {
+        div.iframe-embed-youtube iframe {
+            height: 450px;
+        }
+    }
+
+    @media(max-width: 1023px) {
+        div.iframe-embed-youtube iframe {
+            height: 350px;
+        }
+    }
+
+    @media(max-width: 767px) {
+        div.iframe-embed-youtube iframe {
+            height: 400px;
+        }
+    }
+
+    @media(max-width: 500px) {
+        div.iframe-embed-youtube iframe {
+            height: 250px;
+        }
+    }
+</style>
+{% endblock style %}
+    
+{% block main %}
+<section id="main">
+        <div class="full-banner" style="background: url('{% if blog.banner %} {{ blog.banner.url }} {% endif %}'); center no-repeat;"></div>
+        <div class="pad-blog">
+            <div class="container">
+                <div class="hidden-sm hidden-md hidden-lg">
+                    <div class="input-search product-animated-bottom">
+                        <div class="i-search">
+                            <img src="{% static 'images/icons/search.png' %}" alt="icon_search"/>
+                        </div>
+                        <form method="GET" action="/blog">
+                            {% render_field filter.form.judul class="form-control" placeholder="Cari Artikel" %}
+                        </form>
+                    </div>
+                    <div class="bg-category product-animated-bottom">
+                        <div class="t-category">Categories</div>
+                        <ul>
+                            <li><a href="/blog/?kategori=kategori1">Category 1</a></li>
+                            <li><a href="/blog/?kategori=kategori1">Category 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row inline">
+                    <div class="col inline l-9 m-8 s-12">
+                        <div class="left-blog">
+                            <div class="detail-blog product-animated-bottom">
+                                {{ blog.judul }}
+                            </div>
+                            <ul class="list-detail-blog product-animated-bottom">
+                                <li>
+                                    <div class="inline-block v-middle">
+                                        <img src="{% static 'images/icons/calender.png' %}" style="height: 16px;" />
+                                    </div>
+                                    <div class="inline-block v-middle d-article">{{ blog.dibuat_pada|date }}</div>
+                                </li>
+                            </ul>
+                            <div class="txt-blog product-animated-bottom">
+                                {{ blog.konten|safe }}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col inline l-3 m-4 s-12 hidden-xs">
+                        <div class="right-blog">
+                            <div class="input-search product-animated-bottom">
+                                <div class="i-search">
+                                    <img src="{% static 'images/icons/search.png' %}" />
+                                </div>
+                                
+                                <form method="GET" action="/blog">
+                                    {% render_field filter.form.judul class="form-control" placeholder="Cari Artikel" %}
+                                </form>
+                            </div>
+
+                            <div class="pos-rel product-animated-bottom">
+                                <div class="slider-search">
+                                    <div class="item">
+                                        <div class="pos-rel">
+                                            <div class="img-search"
+                                                style="background: url('../../images/promo/QANTAS_AIRWAYS_SEP_2019-01.jpg') center no-repeat;">
+                                            </div>
+                                            <div class="abs-search">
+                                                <a href="#">
+                                                    <button
+                                                        class="button button--wapasha btn-center btn-blog">Explore
+                                                        Now</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="pos-rel">
+                                            <div class="img-search"
+                                                style="background: url('../../images/promo/205e500a-04be-46e3-8854-bc796982604b.jpg') center no-repeat;">
+                                            </div>
+                                            <div class="abs-search">
+                                                <a href="#">
+                                                    <button
+                                                        class="button button--wapasha btn-center btn-blog">Explore
+                                                        Now</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <style>
+                                    .slide-search i .fa-chevron-left {
+                                        box-shadow(-2px 4px 25px -5px #8f8f8f);
+                                    }
+                                </style>
+                                <div class="slide-search">
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                            <div class="bg-category product-animated-bottom">
+                                <br>
+                                <div class="t-category bold">Kategori</div>
+                                <ul>
+                                    <li><a href="/blog/?kategori=kategori1">Kategori 1</a></li>
+                                    <li><a href="/blog/?kategori=kategori2">Kategori 2</a></li>
+                                </ul>
+                            </div>  
+
+                            <div class="bg-article">
+                                <div class="t-article bold">Popular This Month</div>
+                                <div class="in-article">
+                                    <a href="view/buah_tangan_khas_negeri_tirai_bambu.html">
+                                        <div class="tbl">
+                                            <div class="cell w80 product-animated-left">
+                                                <div class="i-article"
+                                                    style="background: url('../../lib/images/blog/thumbnails/T3.jpg') center no-repeat;">
+                                                </div>
+                                            </div>
+                                            <div class="cell product-animated-right">
+                                                <div class="n-article">
+                                                    <div>Buah Tangan Khas Negeri Tirai Bambu. Apa Saja Ya?</div>
+                                                </div>
+                                                <div>
+                                                    <div class="inline-block v-middle">
+                                                        <img src="../../lib/images/icons/calender.png"
+                                                            style="height: 16px;" />
+                                                    </div>
+                                                    <div class="inline-block v-middle d-article">18 May 2018</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="in-article">
+                                    <a href="#">
+                                        <div class="tbl">
+                                            <div class="cell w80 product-animated-left">
+                                                <div class="i-article"
+                                                    style="background: url('../../lib/images/blog/thumbnails/T3.jpg') center no-repeat;">
+                                                </div>
+                                            </div>
+                                            <div class="cell product-animated-right">
+                                                <div class="n-article">
+                                                    <div>Buah Tangan Khas Negeri Tirai Bambu. Apa Saja Ya?</div>
+                                                </div>
+                                                <div>
+                                                    <div class="inline-block v-middle">
+                                                        <img src="../../lib/images/icons/calender.png"
+                                                            style="height: 16px;" />
+                                                    </div>
+                                                    <div class="inline-block v-middle d-article">18 May 2018</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="in-article">
+                                    <a href="#">
+                                        <div class="tbl">
+                                            <div class="cell w80 product-animated-left">
+                                                <div class="i-article"
+                                                    style="background: url('../../lib/images/blog/thumbnails/T3.jpg') center no-repeat;">
+                                                </div>
+                                            </div>
+                                            <div class="cell product-animated-right">
+                                                <div class="n-article">
+                                                    <div>Buah Tangan Khas Negeri Tirai Bambu. Apa Saja Ya?</div>
+                                                </div>
+                                                <div>
+                                                    <div class="inline-block v-middle">
+                                                        <img src="../../lib/images/icons/calender.png"
+                                                            style="height: 16px;" />
+                                                    </div>
+                                                    <div class="inline-block v-middle d-article">18 May 2018</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-next-article">
+                    {% if next_blog %}
+                    <div class="title bold">Next Articles</div>
+                    <!-- artikel selanjutnya -->
+                    <div class="row inline min-10">
+                        
+                        {% for next in next_blog %}
+                        <div class="col inline l-3 m-3 s-12 min-10 product-animated-bottom">
+                            <div class="item-article">
+                                <a href="#">
+                                    <div class="overlay-article"></div>
+                                    <div class="text">
+                                        <div class="name-article">{{ next.judul }}</div>
+                                        <div class="date-article">{{ next.dibuat_pada }}</div>
+                                    </div>
+                                    <div class="img-article"
+                                        style="background: url('{% if next.banner %} {{ next.banner.url }} {% endif %}') no-repeat center;">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>  
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                    <!-- end -->
+
+                </div>
+            </div>
+        </div>
+        </div>
+</section>
+{% endblock main %}
+
+{% block script %}
+<script type="text/javascript">
+    $('#main-menu ul li.menu-blog, ul.resp-menu li.menu-blog a').addClass('active');
+
+    $('.slider-search').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        dots: false,
+        speed: 1000,
+    });
+
+    $('.slide-search .fa-chevron-right').on('click', function () {
+        $('.slider-search').slick('slickNext');
+    });
+
+    $('.slide-search .fa-chevron-left').on('click', function () {
+        $('.slider-search').slick('slickPrev');
+    });
+</script>
+{% endblock script %}
+    
+    

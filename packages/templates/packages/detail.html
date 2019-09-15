@@ -1,0 +1,603 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'js/front/fancybox/jquery.fancybox.min.css' %}" />
+{% endblock style %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/front/fancybox/jquery.fancybox.min.js' %}"></script>
+{% endblock js %}
+    
+{% block main %}
+    <section id="main">
+        <div class="tour-slider">
+        <!-- banner -->
+        {% if package.packagebanner_set.count > 0 %}
+            {% for banner in package.packagebanner_set.all %}
+                <div class="tour-banner">
+                    <div class="item-tour">
+                        <div class="container">
+                            <div class="title-tour">{{ package.nama }}</div>
+                        </div>
+                    </div>
+                    <div class="img-tour" style="background: url('{{ banner.banner.url }}') center no-repeat;"></div>
+                </div>
+            {% endfor %}
+        {% else %}
+                <div class="tour-banner">
+                    <div class="item-tour">
+                        <div class="container">
+                            <div class="title-tour">{{ package.nama }}</div>
+                        </div>
+                    </div>
+                    <div class="img-tour" style="background: url('') center no-repeat;"></div>
+                </div>
+        {% endif %}
+        <!-- end banner -->
+        </div>
+
+        <!-- section1 -->
+        <div class="hdr-tour">
+            <div class="container hidden-xs hidden-sm">
+                <div class="top-tour parents-package">
+                    <div class="inline-block v-middle">
+                        <div class="inline-block v-middle">
+                            <div class="logo-tour">
+                                <a href="/">
+                                    <img src="{% static 'images/news/logo.png' %}" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="inline-block v-middle hidden-xs hidden-sm">
+                            <div class="name-package" title="{{ package.nama }}">{{ package.nama }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end section1 -->
+        <!--  -->
+        <div id="checkdiv"></div>
+        <div id="overview" class="container">
+            <div class="row inline mb30 text-center">
+                <div class="col inline l-8 m-8 s-12">
+                    <div class="schedule-time">
+                        <div class="tbl">
+                            <div class="cell l-time">
+                                <img src="{% static 'images/icons/time-big.png' %}" />
+                            </div>
+                            <div class="cell r-time">
+                                <div class="inline-block">
+                                    <img src="{% static 'images/icons/select-time.png' %}" />
+                                    {{ package.traveldetail_set.count }} Hari
+                                </div>
+                                <div class="inline-block margin30">
+                                    <img src="{% static 'images/icons/select-map.png' %}" />1 NEGARA
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pad0 box-service product-animated-bottom">
+                <div class="row inline mb30">
+                    <div class="col inline l-7 m-8 s-12">
+                        <div class="title bold"><span class="block">{{ package.nama }}</span></div>
+                        <div class="bdr-service"></div>
+                        {{ package.deskripsi|safe }}.
+                    </div>
+                </div>
+                <div class="button-read hide">
+                    <a href="#" class="read">READ MORE <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- rangkaian perjalanan -->
+        <div class="bg-itinerary" id="itinerary">
+            <div class="container">
+                <div class="t-itinerary">Rencana Perjalanan</div>
+                <div class="title bold">Rangkaian Perjalanan Anda</div>
+                <div class="bdr-itinerary"></div>
+                <div class="box-itinerary">
+                    
+                {% for travel in package.traveldetail_set.all reversed %}
+                    <div class="product-animated-bottom">
+                        <div class="d-itinerary">Hari {{ forloop.counter }}</div>
+                        <div class="tbl">
+                            <div class="cell desc-itinerary cell-top">
+                                <div class="active-itinerary"></div>
+                                <div class="j-itinerary">
+                                    <div>
+                                        <p>{{ travel.perjalanan }}
+                                            <br /><br /> 
+                                            {{ travel.deskripsi|safe }}
+                                            <br />
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="img-itinerary show991">
+                                    <a href="{% if travel.gambar %} {{ travel.gambar.url }} {% endif %}" data-fancybox="data-img-itinerary-1">
+                                        <img src="{% if travel.gambar %} {{ travel.gambar.url }} {% endif %}" />
+                                        <div class="overlay-itinerary"></div>
+                                        <div class="view-itinerary">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="bdy-itinerary">
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="cell img-itinerary cell-top hidden-xs hidden-sm">
+                                <a href="{% if travel.gambar %} {{ travel.gambar.url }} {% endif %}" data-fancybox="data-img-itinerary-2">
+                                    <img src="{% if travel.gambar %} {{ travel.gambar.url }} {% endif %}" />
+                                    <div class="overlay-itinerary"></div>
+                                    <div class="view-itinerary">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>        
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- end rangkaian perjalanan -->
+
+        <!-- travel hightlights -->
+        <div class="bg-what" id="what" style="background: url('{% static 'packages/images/bg-travel.jpg' %}') bottom no-repeat;">
+            <div class="container">
+                <div class="row inline min-20">
+                    <div class="col inline l-4 m-4 s-12 min-20 product-animated-left">
+                        <div class="img-what">
+                            <img src="{% static 'packages/images/whatsinclude.png' %}" alt="img_include" />
+                        </div>
+                    </div>
+                    <div class="col inline l-8 m-8 s-12 min-20 product-animated-right">
+                        <div class="title-what bold">Travel Highlights</div>
+                        <div class="bdr-what"></div>
+                        <div class="bdy-what" style="color:#fff;">
+                            AIR TERJUN LEMBAH ANAI - NGARAI SIANOK - JAM GADANG - DANAU MANINJAU - JEMBATAN SITI NURBAYA
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end travel hihtlights -->
+        
+        <!-- fasilitas -->
+        <div id="included_info" class="bg-plane" style="background: url('{% static 'images/icons/bg-plane.png' %}') bottom no-repeat">
+            <div class="container">
+                <div class="title bold">Fasilitas</div>
+                <div class="bdr-plane"></div>
+                <div class="row inline">
+                    <div class="col inline l-5 m-5 s-12 push-l-7 push-m-7 push-s-0 product-animated-right">
+                        <div class="pos-rel">
+                            <div class="img-plane">
+                                <img src="{% static 'images/whatsnotinclude.png' %}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col inline l-7 m-7 pull-l-5 pull-m-5 s-12 pull-s-0 product-animated-left">
+                        <div class="bdy-plane">
+                            <div>
+                                <p id="fs" style="display: none">{{ package.get_fasilitas_display }}</p>
+                                <ol id="fasilitas"></ol>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(function() {
+                            let fasilitas = $('#fs').text();
+                            let f_arry = fasilitas.split(',');
+
+                            f_arry.forEach((e) => {
+                                let node = document.createElement("li");
+                                let textnode = document.createTextNode(e);
+                                node.appendChild(textnode);
+                                document.getElementById("fasilitas").appendChild(node);
+                            });
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+        <!-- end fasilitas -->
+        <div class="bg-travel" id="travelling">
+            <div class="container">
+                <div class="title bold">Traveling with Avia Tour</div>
+                <div class="bdr-travel"></div>
+                <div class="slider-travel product-animated-bottom">
+
+                    <div class="item">
+                        <div class="row inline">
+                            <div class="col inline l-4 m-4 s-12">
+                                <div class="img-travel">
+                                    <div style="background-image: url(lib/images/why/pantai.jpg)" class="review-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col inline l-8 m-8 s-12">
+                                <div class="t-travel">Bebas dari masalah</div>
+                                <div class="bdy-travel">
+                                    <div>
+                                        <p>Melalui pelayanan yang menyeluruh dalam segala aspek, anda tidak perlu mengurus banyak hal dan menjadikan liburan anda seperti sebuah pekerjaan. Kami akan melakukannya untuk anda sehingga anda dapat menikmati setiap momen tanpa masalah.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row inline">
+                            <div class="col inline l-4 m-4 s-12">
+                                <div class="img-travel">
+                                    <div style="background-image: url(lib/images/why/kangguru.jpg)" class="review-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col inline l-8 m-8 s-12">
+                                <div class="t-travel">Pelayanan Terbaik dan Personal</div>
+                                <div class="bdy-travel">
+                                    <p>Kami mengetahui bahwa kepentingan anda lebih utama dari program apapun yang dapat kami tawarkan. Penyediaan layanan yang terbaik bagi setiap pribadi menjadi prinsip kami dalam menyempurnakan perjalanan anda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row inline">
+                            <div class="col inline l-4 m-4 s-12">
+                                <div class="img-travel">
+                                    <div style="background-image: url(lib/images/why/18514134_699802516873350_6954135892898349056_n1.jpg)" class="review-image"></div>
+                                </div>
+                            </div>
+                            <div class="col inline l-8 m-8 s-12">
+                                <div class="t-travel">Agent berpengalaman</div>
+                                <div class="bdy-travel">
+                                    <div>
+                                        <p>Pengalaman dan jam terbang kami telah membuktikan bahwa kepuasan pelanggan yang terus kembali serta berbagai hal yang kami lewati menjadi dasar kami dalam memberi yang terbaik dan selalu siap memberi solusi bagi anda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="row inline">
+                            <div class="col inline l-4 m-4 s-12">
+                                <div class="img-travel">
+                                    <div style="background-image: url(lib/images/why/DMMTt38W0AEczNR1.jpg)" class="review-image">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col inline l-8 m-8 s-12">
+                                <div class="t-travel">Penyedia perjalanan terbaik</div>
+                                <div class="bdy-travel">
+                                    <div>
+                                        <p>Memori dan cerita perjalanan anda adalah prioritas utama bagi kami. Kami memastikan keseluruhan proses liburan anda berjalan baik dan tak terlupakan.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-visa" id="visa">
+            <div class="container">
+                <div class="pos-rel">
+                    <div class="title bold">Visa & Other info</div>
+                    <div class="bdr-visa"></div>
+                    <div class="i-visa"><img src="lib/images/icons/visa.png" /></div>
+                    <div class="box-visa">
+                        <h3 class='fixedh3'>visa own arrangement / visa on arrival / visa not required, please contact us for more details</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="booking">
+            <div class="container">
+                <div class="bg-schedule">
+                    <div class="row inline">
+                        <div class="col inline l-3 m-12 s-12 sm30">
+                            <div class="l-schedule">
+                                <div class="t-schedule">2D1N SHORT FUN RANCAK BANA</div>
+                                <div class="in-schedule">
+                                    <div class="mb15">
+                                        <span>2 HARI 1 MALAM </span>
+                                        <span class="ml10"><img src="lib/images/icons/select-time.png"/></span>
+                                    </div>
+                                    <div class="mb15">
+                                        <span>1 NEGARA</span>
+                                        <span class="ml10"><img src="lib/images/icons/select-map.png"/></span>
+                                    </div>
+                                </div>
+                                <div class="box-share">
+                                    <div class="inline-block v-middle">
+                                        <div class="t-share">SHARE</div>
+                                    </div>
+                                    <div class="inline-block v-middle">
+                                        <script type="text/javascript" src="../s7.addthis.com/js/300/addthis_widget.js#pubid=ra-592bce46b3654438"></script>
+                                        <div class="addthis_inline_share_toolbox_0df5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="schedule" class="col inline l-9 m-12 s-12 parents-package">
+                            <div class="r-schedule mb10">
+                                <div class="t-schedule">
+                                    <div class="inline-block">DEPARTURE DATE</div>
+                                </div>
+                                <div class="in-schedule-package grey">
+                                    <div class="resp-pad">
+                                        <div class="inline-block v-middle b-white">
+                                            <div class="box-date-package">
+                                                <div class="icon-date-hotel"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                                                <input type="text" name="travel_date" id="departure_date_bawah" class="input-date mandatory departure_date_package" readonly required placeholder="Departure Date" value="12 September 2019">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="r-schedule">
+                                <div class="t-schedule hidden-xs">ROYAL DENAI</div>
+                                <div class="in-schedule grey package-schedule">
+                                    <div class="resp-pad">
+                                        <div class="show-xs">
+                                            <div class="inline-block v-middle bold">ROYAL DENAI</div>
+                                        </div>
+                                        <div class="inline-block w-package w190 text-left v-middle mh44">
+                                            <div class="block mb10">Single Supplement</div>
+                                            <div class="block mb10">Adult Twin Share</div>
+                                            <div class="block mb10">Child Twin Share</div>
+                                            <div class="block mb10">Child Without Bed</div>
+                                            <div class="block mb10">Child With Extra Bed</div>
+                                        </div>
+                                        <div class="inline-block w190 text-left v-middle mh44">
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 476,000</div>
+                                            </div>
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,476,000</div>
+                                            </div>
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,476,000</div>
+                                            </div>
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 976,000</div>
+                                            </div>
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,476,000</div>
+                                            </div>
+                                        </div>
+                                        <div class="inline-block w220 v-middle">
+                                            <form action="https://www.avia.travel/package/book" method="post">
+                                                <input type="hidden" name="booking_id" value="764">
+                                                <input type="hidden" name="hotel_id" value="742">
+                                                <input type="hidden" name="hotel_group" value="1">
+                                                <input type="hidden" class="hidden_input_date_selected" name="date_selected" value="12 September 2019">
+                                                <button type="submit" hotel_group="1" id="764" hotel_id="742" class="button button--wapasha btn-center booking submitform">BOOK NOW</button>
+                                            </form>
+                                        </div>
+                                        <div class="inline-block width-100 v-middle pt20"><strong>NOTE : HOTEL FARE 3* : ROYAL DENAI OR SIMILAR</strong></div>
+                                    </div>
+                                </div>
+                                <div class="t-schedule hidden-xs">
+                                    NOVOTEL </div>
+                                <div class="in-schedule grey package-schedule">
+                                    <div class="resp-pad">
+                                        <div class="show-xs">
+                                            <div class="inline-block v-middle bold">NOVOTEL</div>
+                                        </div>
+                                        <div class="inline-block w-package w190 text-left v-middle mh44">
+                                            <div class="block mb10">Single Supplement</div>
+
+                                            <div class="block mb10">Adult Twin Share</div>
+
+                                            <div class="block mb10">Child Twin Share</div>
+
+                                            <div class="block mb10">Child Without Bed</div>
+
+                                            <div class="block mb10">Child With Extra Bed</div>
+
+                                        </div>
+                                        <div class="inline-block w190 text-left v-middle mh44">
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 676,000</div>
+                                            </div>
+
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,676,000</div>
+                                            </div>
+
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,676,000</div>
+                                            </div>
+
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,076,000</div>
+                                            </div>
+
+                                            <div class="block w190">
+                                                <div class="p-schedule mb10 text-left">IDR 1,676,000</div>
+                                            </div>
+
+                                        </div>
+                                        <div class="inline-block w220 v-middle">
+                                            <form action="https://www.avia.travel/package/book" method="post">
+                                                <input type="hidden" name="booking_id" value="764">
+                                                <input type="hidden" name="hotel_id" value="743">
+                                                <input type="hidden" name="hotel_group" value="2">
+                                                <input type="hidden" class="hidden_input_date_selected" name="date_selected" value="12 September 2019">
+                                                <button type="submit" hotel_group="2" id="764" hotel_id="743" class="button button--wapasha btn-center booking submitform">BOOK NOW</button>
+                                            </form>
+                                        </div>
+                                        <div class="inline-block width-100 v-middle pt20"><strong>NOTE : HOTEL FARE 4* : NOVOTEL / GRAND ROCKY / GRAND ROYAL DENAI OR SIMILAR</strong></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bantuan" class="bg-help" style="background: url('lib/images/icons/bg-help.png') bottom no-repeat;">
+            <div class="contanier">
+                <div class="t-help bold">Anda Butuh Bantuan?</div>
+                <div class="bdy-help">Hubungi kami untuk bantuan atau informasi lebih lanjut melalui line telepon</div>
+                <div class="no-help">
+                    <a href="tel: 62-21 2450 8899"> 62-21 2450 8899</a>
+                    <br/>
+                    <a href="tel: 62-21 422 3888"> 62-21 422 3888</a>
+                    <br/>
+                </div>
+                <div class="bdy-help mb30">atau online form yang kami sediakan melalui tombol dibawah ini</div>
+                <a class="contact">
+                    <button class="button button--wapasha btn-center">CONTACT US</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        $('.tour-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            autoplay: true,
+            fade: true,
+            dots: true,
+            speed: 1000,
+            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+        });
+
+        $('.slider-travel').slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 1,
+            dots: true,
+            arrows: false,
+            focusOnSelect: false,
+            infinite: true,
+            slidesToScroll: 1,
+        });
+
+        $('.slider-testi').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            slidesToShow: 3,
+            centerPadding: '0',
+            centerMode: true,
+            dot: false,
+            arrows: true,
+            focusOnSelect: true,
+            infinite: true,
+            slidesToScroll: 1,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+        });
+
+        $('.slider-testi').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+            if (currentSlide != nextSlide) {
+                $('.show-less').parents('.bdy-testi').find('p').animate({
+                    maxHeight: '125px'
+                });
+                $('.show-less').hide();
+                $('.see-more').show();
+            }
+        });
+
+        function windowScroll() {
+            if ($(window).width() > 767) {
+                $(document).on("scroll", onScroll);
+                $('a[href^="#"]').on('click', function(e) {
+                    e.preventDefault();
+                    $(document).off("scroll");
+
+                    $('a').each(function() {
+                        $(this).removeClass('active');
+                    })
+                    $(this).addClass('active');
+
+                    var target = this.hash,
+                        menu = target;
+                    $target = $(target);
+                    $('html, body').stop().animate({
+                        'scrollTop': $target.offset().top - 119
+                    }, 500, 'swing', function() {
+                        $(document).on("scroll", onScroll);
+                    });
+                });
+
+                
+
+            }
+            if ($(window).width() < 767) {
+                $(document).on("scroll", onScroll);
+                $('a[href^="#"]').on('click', function(e) {
+                    e.preventDefault();
+                    $(document).off("scroll");
+
+                    $('a').each(function() {
+                        $(this).removeClass('active');
+                    })
+                    $(this).addClass('active');
+
+                    var target = this.hash,
+                        menu = target;
+                    $target = $(target);
+                    $('html, body').stop().animate({
+                        'scrollTop': $target.offset().top - 70
+                    }, 500, 'swing', function() {
+                        $(document).on("scroll", onScroll);
+                    });
+                });   
+            }
+        }
+
+        $(function() {
+            windowScroll();
+        });
+
+        $("[data-fancybox]").fancybox({
+            infobar: false,
+            buttons: [
+                'close'
+            ],
+            loop: true,
+        });
+
+        $(document).ready(function() {
+
+            if (window.location.hash) {
+                var hash = window.location.hash;
+                console.log(hash)
+                $('html, body').animate({
+                    scrollTop: $(hash.toString()).offset().top - $(".hdr-tour").outerHeight()
+                }, 1000);
+            }
+        });
+    </script>
+{% endblock main %}
+
+{% block script %}
+<script>
+        $(document).ready(function() {
+            $(".slider-hotel").slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
+        })
+    </script>
+{% endblock script %}
+    
+    

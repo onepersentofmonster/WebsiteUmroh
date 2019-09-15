@@ -48,7 +48,7 @@
                     <div class="abs-search-home active-tour">
                         <div class="container">
                             <!-- form -->
-                        <form action="#" method=post>
+                        <form action="{% url 'search_packages' %}" method="get">
                             <div class="container">
                                 <div class="tbl block480">
                                     <div class="cell">
@@ -75,21 +75,21 @@
                                                                 <img src="{% static 'images/icons/select-plan.png' %}" alt="icon_select_plan" />
                                                             </div>
                                                             <select 
-                                                                name="insurance_cover_type" 
+                                                                name="kategori" 
                                                                 id="insurance_cover_type"
                                                                 class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
                                                             >
-                                                            <option value="none" selected disabled hidden> 
-                                                                Pilih Paket 
-                                                            </option> 
-                                                            <option>Reguler</option>
-                                                            <option>Bisnis</option>
-                                                            <option>Eksekutif</option>
-                                                            <option>21Hari</option>
-                                                            <option>Arbain</option>
-                                                            <option>+ City Tour Dubai</option>
-                                                            <option>+ Turki Bursa</option>
-                                                            <option>+ Yordan</option>
+                                                                <option value="none" selected disabled hidden> 
+                                                                    Pilih Paket 
+                                                                </option> 
+                                                                <option value="R">Reguler</option>
+                                                                <option value="B">Bisnis</option>
+                                                                <option value="E">Eksekutif</option>
+                                                                <option value="S">12Hari</option>
+                                                                <option value="A">Arbain</option>
+                                                                <option value="C">+ City Tour Dubai</option>
+                                                                <option value="C">+ Turki Bursa</option>
+                                                                <option value="C">+ Yordan</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -107,9 +107,9 @@
                                                                     <input 
                                                                         type="text" 
                                                                         id="start-date-insurance"
-                                                                        name="start-date-insurance" 
+                                                                        name="m_tanggal" 
                                                                         class="form-control input-date"
-                                                                        placeholder="Start date" 
+                                                                        placeholder="Dari tanggal" 
                                                                         readonly
                                                                     />
                                                                     <div class="space-date">-</div>
@@ -118,9 +118,9 @@
                                                                     <input 
                                                                         type="text" 
                                                                         id="end-date-insurance" 
-                                                                        name="end-date-insurance"
+                                                                        name="a_tanggal"
                                                                         class="form-control input-date" 
-                                                                        placeholder="End date"
+                                                                        placeholder="Sampai tanggal"
                                                                         readonly 
                                                                     />
                                                                 </div>

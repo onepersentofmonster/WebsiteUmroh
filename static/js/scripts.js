@@ -776,7 +776,7 @@ $("#start-date-insurance").datepicker({
     changeMonth: true,
     changeYear: true,
     yearRange: '-10:+100',
-    dateFormat: "d M yy",
+    dateFormat: "yy-mm-d",
     minDate: 0,
     onSelect: function () {
         dailyanual = $('#daily_annual').val();
@@ -823,7 +823,7 @@ $('#end-date-insurance').datepicker({
     defaultDate: "+1d",
     changeMonth: true,
     changeYear: true,
-    dateFormat: 'd M yy',
+    dateFormat: 'yy-mm-d',
     minDate: "0d",
     yearRange: "-10:+100",
 });

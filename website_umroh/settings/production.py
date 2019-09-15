@@ -16,15 +16,10 @@ DEBUG = False
 ALLOWED_HOSTS = ['websiteumroh.herokuapp.com']
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'r.arifin123@gmail.com' #my gmail username
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD') #my gmail password
+EMAIL_HOST_USER = '' #my gmail username
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = "Ridwan <r.arifin123@gmail.com>"
-
-
-ADMINS = [('Ridwan', EMAIL_HOST_USER)]
-MANAGERS = ADMINS
 
 # Application definition
 
@@ -39,6 +34,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'django_summernote',
+    'djmoney',
+    'widget_tweaks',
+    'rangefilter',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'dj_pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'website_umroh.urls'
@@ -63,6 +62,9 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.request",
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -111,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'id'
+LANGUAGE_CODE = 'id-id'
 
 TIME_ZONE = 'UTC'
 
@@ -137,3 +139,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static-root')
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

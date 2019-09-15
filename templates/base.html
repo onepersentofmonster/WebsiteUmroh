@@ -6,7 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>TAUFIQ HT TOURS & TRAVEL</title>
+    
+    
+    <title>
+        {% block blockname %}TAUFIQ HT TOURS & TRAVEL{% endblock blockname %}
+    </title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/news/logo.png' %}" />
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/front/fonts.css' %}" />
@@ -19,11 +23,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'js/front/timepicker/jquery-ui-timepicker-addon.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/extend/vendor-extend.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/front/front.css' %}" />
-
-
+    
     {% block style %}
-
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% endblock style %}
+
+
 
     <!-- js -->
     <script type="text/javascript">
@@ -47,7 +52,12 @@
     <script type="text/javascript" src="{% static 'js/front/select/select2.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/bootstrap-select.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/instafeed.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery.ui.autocomplete.html.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'js/front/jquery.ui.autocomplete.html.js' %}"></script>
+    
+    {% block js %}
+        
+    {% endblock js %}
+        
 
 </head>
 
@@ -55,7 +65,8 @@
 {% block canvas %}
     {% include 'snippets/canvas.html' %}
 {% endblock canvas %}
-
+    
+    {% block root %}
     <section id="main-page">
         <div class="bg-dark"></div>
         {% block header %}
@@ -71,10 +82,10 @@
             {% include 'snippets/footer.html' %}
         </footer>
     </section>
-    
-    {% block script %}
+    {% endblock root %}
     <script type="text/javascript" src="{% static 'js/mobile.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+    {% block script %}
     {% endblock script %}
 </body>
 

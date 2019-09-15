@@ -6,11 +6,21 @@
                             <i class="fa fa-chevron-right" aria-hidden="true"></i>
                         </div>
                         <div class="slider-promo product-animated-bottom">
-                            
-                            {% for paket in populer  %}
+                        
+                        
+                        {% if package %}
+                            {% for paket in package  %}
                             <div class="item">
-                                <a href="paket-umroh/">
-                                    <img src="{{ paket.banner.url }}" class="img-responsive" alt="image1" />
+                                <a href="{% url 'detail' paket.slug %}">
+                                    <!-- paket kategori populer -->
+                                    {% if paket.kategori_lainnya == 'P' %}
+                                        {% if paket.packagebanner_set.count %}
+                                        <img src="{{ paket.packagebanner_set.first.banner.url }}" class="img-responsive" alt="paket_populer" />
+                                        {% else %}
+                                        <img src="{% static 'images/news/logo.png' %}" alt="image_default" />
+                                        {% endif %}
+                                    {% endif %}
+                                    <!-- end -->
                                     <div class="o-promo"></div>
                                     <div class="b-promo">
                                         <div class="t-promo">{{ paket.nama }}</div>
@@ -21,5 +31,10 @@
                                 </a>
                             </div>
                             {% endfor %}
+                        {% else %}
+                            <h2>Belum Ada Paket</h2>
+                        {% endif %}
+                            
+                            
                         </div>
                     </div>

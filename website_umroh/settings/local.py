@@ -29,6 +29,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'django_summernote',
+    'djmoney',
+    'django_filters',
+    'widget_tweaks',
+    'rangefilter',
+    'dj_pagination',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +45,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'dj_pagination.middleware.PaginationMiddleware',
 ]
 
 ROOT_URLCONF = 'website_umroh.urls'
@@ -53,6 +59,9 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.request",
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -70,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_taufiq',
-        'USER': 'ridwan',
-        'PASSWORD': 'arifin123',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -100,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'id'
+LANGUAGE_CODE = 'id-id'
 
 TIME_ZONE = 'UTC'
 
@@ -126,4 +135,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static-root')
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
-
