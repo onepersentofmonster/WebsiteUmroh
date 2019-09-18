@@ -21,6 +21,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'packages.apps.PackagesConfig',
+    'homes.apps.HomesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,8 +80,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_taufiq',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'ridwan',
+        'PASSWORD': 'arifin123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'id-id'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 

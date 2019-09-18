@@ -1,17 +1,14 @@
 
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import path, include
 from django.conf.urls import handler404, handler500
 from django.conf.urls.static import static
 from django.conf import settings
 
-from . import views
-
 urlpatterns = [
     path('blog/', include('blogs.urls')),
-    path('cari/', views.SearchPackageList.as_view(), name='search_packages'),
     path('paket/', include('packages.urls')),
-    path('', views.index, name='home'),
+    path('', include('homes.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
 ]

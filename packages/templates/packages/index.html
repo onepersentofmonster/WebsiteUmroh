@@ -44,7 +44,7 @@
                                                     </div> -->
                                                     <div 
                                                         class="img-desti" 
-                                                        style="background: url('{{ obj.packagebanner_set.first.banner.url }}') no-repeat center;"
+                                                        style="background: url('{{ obj.image_set.first.img.url }}') no-repeat center;"
                                                     >
                                                     </div>
                                                     <div class="t-desti">{{ obj.nama }}</div>
@@ -56,7 +56,7 @@
                                                     <div class="p-desti" style="color:#fdb813;">{{ obj.harga }}</div>                                                        
                                                     <div class="l-desti">{{ obj.traveldetail_set.count }} Hari </div>
                                                     <div class="bdy-desti">
-                                                        {{ obj.deskripsi|safe }}
+                                                        {{ obj.deskripsi |truncatechars:150|safe }}
                                                     </div>
                                                     <a href="{% url 'detail' obj.slug %}" class="desti">
                                                         Lihat Info <i class="fa fa-chevron-right" aria-hidden="true"></i>

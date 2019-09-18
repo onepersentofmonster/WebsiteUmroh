@@ -13,15 +13,15 @@
     <section id="main">
         <div class="tour-slider">
         <!-- banner -->
-        {% if package.packagebanner_set.count > 0 %}
-            {% for banner in package.packagebanner_set.all %}
+        {% if package.image_set.count > 0 %}
+            {% for obj in package.image_set.all %}
                 <div class="tour-banner">
                     <div class="item-tour">
                         <div class="container">
                             <div class="title-tour">{{ package.nama }}</div>
                         </div>
                     </div>
-                    <div class="img-tour" style="background: url('{{ banner.banner.url }}') center no-repeat;"></div>
+                    <div class="img-tour" style="background: url('{{ obj.img.url }}') center no-repeat;"></div>
                 </div>
             {% endfor %}
         {% else %}
@@ -146,7 +146,7 @@
         </div>
         <!-- end rangkaian perjalanan -->
 
-        <!-- travel hightlights -->
+        <!-- travel hightlights belum diubah -->
         <div class="bg-what" id="what" style="background: url('{% static 'packages/images/bg-travel.jpg' %}') bottom no-repeat;">
             <div class="container">
                 <div class="row inline min-20">
@@ -183,107 +183,100 @@
                     <div class="col inline l-7 m-7 pull-l-5 pull-m-5 s-12 pull-s-0 product-animated-left">
                         <div class="bdy-plane">
                             <div>
-                                <p id="fs" style="display: none">{{ package.get_fasilitas_display }}</p>
-                                <ol id="fasilitas"></ol>
+                                <p id="fs" style="display: none"></p>
+                                <ol id="fasilitas">
+                                    {% if package.fasilitas.all %}
+                                        {% for obj in package.fasilitas.all %}
+                                            <li>{{ obj.nama }}</li>
+                                        {% endfor %}
+                                    {% endif %}
+
+                                </ol>
                             </div>
                         </div>
                     </div>
-                    <script>
-                        $(function() {
-                            let fasilitas = $('#fs').text();
-                            let f_arry = fasilitas.split(',');
-
-                            f_arry.forEach((e) => {
-                                let node = document.createElement("li");
-                                let textnode = document.createTextNode(e);
-                                node.appendChild(textnode);
-                                document.getElementById("fasilitas").appendChild(node);
-                            });
-                        })
-                    </script>
                 </div>
             </div>
         </div>
         <!-- end fasilitas -->
+
+        <!-- akomodasi dan pesawat -->
         <div class="bg-travel" id="travelling">
             <div class="container">
-                <div class="title bold">Traveling with Avia Tour</div>
+                <div class="title bold">Akomodasi dan Pesawat</div>
                 <div class="bdr-travel"></div>
                 <div class="slider-travel product-animated-bottom">
+                
+                {% if package.akomodasi.all %}
+                    {% for obj in package.akomodasi.all %}
+                    <div class="item">
+                        <div class="row inline">
+                            <div class="col inline l-4 m-4 s-12">
+                                <div class="img-travel">
+                                    {% if obj.hotelimage_set.all %}
+                                    <div 
+                                        style="background-image: url('{{ obj.hotelimage_set.first.img.url }}')" 
+                                        class="review-image"
+                                    >
+                                    </div>
+                                    {% else %}
+                                    <div class="review-image">Belum Ada Gambar Hotel</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col inline l-8 m-8 s-12">
+                                <div class="t-travel">{{ obj.nama }}</div>
+                                <div class="bdy-travel">
+                                    {% if obj.deskripsi %}
+                                        {{ obj.deskripsi|safe }}
+                                    {% else %}
+                                        <p>Belum Ada Deskripsi Hotel</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                
+                {% if package.penerbangan.all %}
+                    {% for obj in package.penerbangan.all %}
+                    <div class="item">
+                        <div class="row inline">
+                            <div class="col inline l-4 m-4 s-12">
+                                <div class="img-travel">
+                                {% if obj.airlineimage_set.all %}
+                                    <div 
+                                        style="background-image: url('{{ obj.airlineimage_set.first.img.url }}')" class="review-image"
+                                    >
+                                    </div>
+                                {% else %}
+                                    <div class="review-image">Belum Ada Gambar Airline/Maskapai</div>
+                                {% endif %}                                        
+                                </div>
+                            </div>
+                            <div class="col inline l-8 m-8 s-12">
+                                <div class="t-travel">{{ obj.nama }}</div>
+                                <div class="bdy-travel">
+                                    {% if obj.deskripsi %}
+                                        {{ obj.deskripsi|safe }}
+                                    {% else %}
+                                        <p>Belum Ada Deskripsi Penerbangan</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                    
 
-                    <div class="item">
-                        <div class="row inline">
-                            <div class="col inline l-4 m-4 s-12">
-                                <div class="img-travel">
-                                    <div style="background-image: url(lib/images/why/pantai.jpg)" class="review-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col inline l-8 m-8 s-12">
-                                <div class="t-travel">Bebas dari masalah</div>
-                                <div class="bdy-travel">
-                                    <div>
-                                        <p>Melalui pelayanan yang menyeluruh dalam segala aspek, anda tidak perlu mengurus banyak hal dan menjadikan liburan anda seperti sebuah pekerjaan. Kami akan melakukannya untuk anda sehingga anda dapat menikmati setiap momen tanpa masalah.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row inline">
-                            <div class="col inline l-4 m-4 s-12">
-                                <div class="img-travel">
-                                    <div style="background-image: url(lib/images/why/kangguru.jpg)" class="review-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col inline l-8 m-8 s-12">
-                                <div class="t-travel">Pelayanan Terbaik dan Personal</div>
-                                <div class="bdy-travel">
-                                    <p>Kami mengetahui bahwa kepentingan anda lebih utama dari program apapun yang dapat kami tawarkan. Penyediaan layanan yang terbaik bagi setiap pribadi menjadi prinsip kami dalam menyempurnakan perjalanan anda.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row inline">
-                            <div class="col inline l-4 m-4 s-12">
-                                <div class="img-travel">
-                                    <div style="background-image: url(lib/images/why/18514134_699802516873350_6954135892898349056_n1.jpg)" class="review-image"></div>
-                                </div>
-                            </div>
-                            <div class="col inline l-8 m-8 s-12">
-                                <div class="t-travel">Agent berpengalaman</div>
-                                <div class="bdy-travel">
-                                    <div>
-                                        <p>Pengalaman dan jam terbang kami telah membuktikan bahwa kepuasan pelanggan yang terus kembali serta berbagai hal yang kami lewati menjadi dasar kami dalam memberi yang terbaik dan selalu siap memberi solusi bagi anda.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="row inline">
-                            <div class="col inline l-4 m-4 s-12">
-                                <div class="img-travel">
-                                    <div style="background-image: url(lib/images/why/DMMTt38W0AEczNR1.jpg)" class="review-image">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col inline l-8 m-8 s-12">
-                                <div class="t-travel">Penyedia perjalanan terbaik</div>
-                                <div class="bdy-travel">
-                                    <div>
-                                        <p>Memori dan cerita perjalanan anda adalah prioritas utama bagi kami. Kami memastikan keseluruhan proses liburan anda berjalan baik dan tak terlupakan.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+        <!-- end akomodasi dan pesawat -->
 
+        <!-- visa belum diubah -->
         <div class="bg-visa" id="visa">
             <div class="container">
                 <div class="pos-rel">
@@ -462,142 +455,134 @@
         </div>
     </section>
     <script type="text/javascript">
-        $('.tour-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            autoplay: true,
-            fade: true,
-            dots: true,
-            speed: 1000,
-            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-        });
-
-        $('.slider-travel').slick({
-            autoplay: true,
-            autoplaySpeed: 4000,
-            slidesToShow: 1,
-            dots: true,
-            arrows: false,
-            focusOnSelect: false,
-            infinite: true,
-            slidesToScroll: 1,
-        });
-
-        $('.slider-testi').slick({
-            autoplay: true,
-            autoplaySpeed: 5000,
-            slidesToShow: 3,
-            centerPadding: '0',
-            centerMode: true,
-            dot: false,
-            arrows: true,
-            focusOnSelect: true,
-            infinite: true,
-            slidesToScroll: 1,
-            responsive: [{
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1
-                }
-            }]
-        });
-
-        $('.slider-testi').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-            if (currentSlide != nextSlide) {
-                $('.show-less').parents('.bdy-testi').find('p').animate({
-                    maxHeight: '125px'
-                });
-                $('.show-less').hide();
-                $('.see-more').show();
-            }
-        });
-
-        function windowScroll() {
-            if ($(window).width() > 767) {
-                $(document).on("scroll", onScroll);
-                $('a[href^="#"]').on('click', function(e) {
-                    e.preventDefault();
-                    $(document).off("scroll");
-
-                    $('a').each(function() {
-                        $(this).removeClass('active');
-                    })
-                    $(this).addClass('active');
-
-                    var target = this.hash,
-                        menu = target;
-                    $target = $(target);
-                    $('html, body').stop().animate({
-                        'scrollTop': $target.offset().top - 119
-                    }, 500, 'swing', function() {
-                        $(document).on("scroll", onScroll);
-                    });
-                });
-
-                
-
-            }
-            if ($(window).width() < 767) {
-                $(document).on("scroll", onScroll);
-                $('a[href^="#"]').on('click', function(e) {
-                    e.preventDefault();
-                    $(document).off("scroll");
-
-                    $('a').each(function() {
-                        $(this).removeClass('active');
-                    })
-                    $(this).addClass('active');
-
-                    var target = this.hash,
-                        menu = target;
-                    $target = $(target);
-                    $('html, body').stop().animate({
-                        'scrollTop': $target.offset().top - 70
-                    }, 500, 'swing', function() {
-                        $(document).on("scroll", onScroll);
-                    });
-                });   
-            }
-        }
-
-        $(function() {
-            windowScroll();
-        });
-
-        $("[data-fancybox]").fancybox({
-            infobar: false,
-            buttons: [
-                'close'
-            ],
-            loop: true,
-        });
-
-        $(document).ready(function() {
-
-            if (window.location.hash) {
-                var hash = window.location.hash;
-                console.log(hash)
-                $('html, body').animate({
-                    scrollTop: $(hash.toString()).offset().top - $(".hdr-tour").outerHeight()
-                }, 1000);
-            }
-        });
+       
     </script>
 {% endblock main %}
 
 {% block script %}
 <script>
-        $(document).ready(function() {
-            $(".slider-hotel").slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear'
+     $('.tour-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        fade: true,
+        dots: true,
+        speed: 1000,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+    });
+
+    $('.slider-travel').slick({
+        autoplay: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 1,
+        dots: true,
+        arrows: false,
+        focusOnSelect: false,
+        infinite: true,
+        slidesToScroll: 1,
+    });
+
+    $('.slider-testi').slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        slidesToShow: 3,
+        centerPadding: '0',
+        centerMode: true,
+        dot: false,
+        arrows: true,
+        focusOnSelect: true,
+        infinite: true,
+        slidesToScroll: 1,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1
+            }
+        }]
+    });
+
+    $('.slider-testi').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        if (currentSlide != nextSlide) {
+            $('.show-less').parents('.bdy-testi').find('p').animate({
+                maxHeight: '125px'
             });
-        })
-    </script>
+            $('.show-less').hide();
+            $('.see-more').show();
+        }
+    });
+
+    function windowScroll() {
+        if ($(window).width() > 767) {
+            $(document).on("scroll", onScroll);
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                $(document).off("scroll");
+
+                $('a').each(function() {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+
+                var target = this.hash,
+                    menu = target;
+                $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top - 119
+                }, 500, 'swing', function() {
+                    $(document).on("scroll", onScroll);
+                });
+            });
+
+            
+
+        }
+        if ($(window).width() < 767) {
+            $(document).on("scroll", onScroll);
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                $(document).off("scroll");
+
+                $('a').each(function() {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+
+                var target = this.hash,
+                    menu = target;
+                $target = $(target);
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top - 70
+                }, 500, 'swing', function() {
+                    $(document).on("scroll", onScroll);
+                });
+            });   
+        }
+    }
+
+    $(function() {
+        windowScroll();
+    });
+
+    $("[data-fancybox]").fancybox({
+        infobar: false,
+        buttons: [
+            'close'
+        ],
+        loop: true,
+    });
+
+    $(document).ready(function() {
+
+        if (window.location.hash) {
+            var hash = window.location.hash;
+            console.log(hash)
+            $('html, body').animate({
+                scrollTop: $(hash.toString()).offset().top - $(".hdr-tour").outerHeight()
+            }, 1000);
+        }
+    });
+</script>
 {% endblock script %}
     
     

@@ -235,7 +235,7 @@
                         {% for next in next_blog %}
                         <div class="col inline l-3 m-3 s-12 min-10 product-animated-bottom">
                             <div class="item-article">
-                                <a href="#">
+                                <a href="{% url 'detail-blog' next.slug next.id %}">
                                     <div class="overlay-article"></div>
                                     <div class="text">
                                         <div class="name-article">{{ next.judul }}</div>

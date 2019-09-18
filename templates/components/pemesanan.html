@@ -19,7 +19,7 @@
                                                 <img src="{% static 'images/banner/icon2.png' %}" alt="icon_umroh" />
                                             </div>
                                         </div>
-                                        <div class="inline-block v-middle">Tour</div>
+                                        <div class="inline-block v-middle">Cari Paket</div>
                                     </a>
                                 </li>
                                 <li class="">
@@ -44,7 +44,8 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- demo2 -->
+                    
+                    <!-- cari paket -->
                     <div class="abs-search-home active-tour">
                         <div class="container">
                             <!-- form -->
@@ -80,16 +81,17 @@
                                                                 class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
                                                             >
                                                                 <option value="none" selected disabled hidden> 
-                                                                    Pilih Paket 
-                                                                </option> 
-                                                                <option value="R">Reguler</option>
-                                                                <option value="B">Bisnis</option>
-                                                                <option value="E">Eksekutif</option>
-                                                                <option value="S">12Hari</option>
-                                                                <option value="A">Arbain</option>
-                                                                <option value="C">+ City Tour Dubai</option>
-                                                                <option value="C">+ Turki Bursa</option>
-                                                                <option value="C">+ Yordan</option>
+                                                                    Pilih Kategori Paket 
+                                                                </option>
+                                                                
+                                                                {% if category_package %}
+                                                                    {% for obj in category_package %}
+                                                                    <option value="{{obj.id}}">{{obj}}</option>
+                                                                    {% endfor %}
+                                                                {% else %}
+                                                                    <option value="None">Belum Ada Kategori Paket</option>
+                                                                {% endif %}
+                                                                    
                                                             </select>
                                                         </div>
                                                     </div>
@@ -157,7 +159,8 @@
                         <!-- end form -->
                         </div>
                     </div>
-                    <!-- end demo2 -->
+                    <!-- end cari paket-->
+
                     <!-- demo3 -->
                     <div class="abs-search-home active-attraction">
                         <!-- form -->

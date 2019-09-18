@@ -1,68 +1,66 @@
 {% load static %}
                 <div class="container">
+                    {% if blog %}
                     <div class="banner">
                         <div class="product-animated-bottom hidden-sm hidden-md hidden-lg">
-                            <div class="t-blog">Blog Mobile</div>
+                            <div class="t-blog">Blog</div>
                             <div class="b-blog">
                                 <div>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Dignissimos architecto laborum ullam id earum quae,
-                                        impedit modi blanditiis perferendis expedita repellat in.
-                                        Aperiam repellendus quaerat, aut quidem architecto totam officia?
+                                        Ini manual ditampilkan untuk mobile
                                     </p>
                                 </div>
                                 <div>&nbsp;</div>
                                 <div>
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                        Dignissimos architecto laborum ullam id earum quae,
-                                        impedit modi blanditiis perferendis expedita repellat in.
-                                        Aperiam repellendus quaerat, aut quidem architecto totam officia?
+                                        Ini manual ditampilkan untuk mobile
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="row inline">
-                            <!-- konten1 -->
+                            
                             <div class="col inline l-6 m-6 s-12 product-animated-bottom">
                                 <div class="banner1">
                                     <div class="slider-home1">
                                         <div class="item">
-                                            <a href="#">
+                                            <a href="{% url 'detail-blog' blog.last.slug blog.last.id %}">
                                                 <div class="overlay-slider"></div>
+
                                                 <div class="text">
                                                     <div class="t-slider">
-                                                        Konten1
+                                                        {{ blog.last.judul }}
                                                     </div>
-                                                    <div class="d-slider">created at</div>
+                                                    <div class="d-slider">{{ blog.last.dibuat_pada|date:"D, d M Y" }}</div>
                                                 </div>
-                                                <div class="img-banner1" style="background: url('{% static 'images/section5/01_image_1688x625.jpg' %}') no-repeat center;"></div>
+                                                {% if blog_last.banner %}  
+                                                <div class="img-banner1" style="background: url('{{ blog.last.banner.url }}') no-repeat center;"></div>
+                                                {% else %} 
+                                                <div class="img-banner1">Belum Mempunyai Gambar</div>
+                                                {% endif %}    
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- end konten1 -->
+                            
+
                             <div class="col inline l-6 m-6 s-12">
                                 <div class="product-animated-bottom hidden-xs">
-                                    <div class="t-blog">Blog</div>
+                                    <div class="t-blog">
+                                        <a href="blog/">Blog</a>
+                                    </div>
                                     <div class="b-blog">
                                         <div>
                                             <p>
-                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                                Dignissimos architecto laborum ullam id earum quae,
-                                                impedit modi blanditiis perferendis expedita repellat in.
-                                                Aperiam repellendus quaerat, aut quidem architecto totam officia?
+                                                Ini manual
                                             </p>
                                         </div>
                                         <div>&nbsp;</div>
                                         <div>
                                             <p>
-                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                                Dignissimos architecto laborum ullam id earum quae,
-                                                impedit modi blanditiis perferendis expedita repellat in.
-                                                Aperiam repellendus quaerat, aut quidem architecto totam officia?
+                                                Ini manual
                                             </p>
                                         </div>
                                     </div>
@@ -77,93 +75,90 @@
                                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                                         </div>
                                     </div>
+
+                                    
                                     <div class="row inline">
                                         <div class="col inline l-6 m-6 s-6 product-animated-left resp-pad0">
                                             <div class="banner2">
                                                 <div class="slider-home2">
-                                                    <!-- konten2 -->
+                                                    
+                                                    {% for obj in blog_filter %}
                                                     <div class="item">
-                                                        <a href="#">
+                                                        <a href="{% url 'detail-blog' obj.slug obj.id %}">
                                                             <div class="overlay-slider"></div>
                                                             <div class="text2">
                                                                 <div class="t-slider">
-                                                                    Konten2
+                                                                    {{ obj.judul }}
                                                                 </div>
-                                                                <div class="d-slider">created at</div>
+                                                                <div class="d-slider">{{ obj.dibuat_pada|date:"D, d M Y" }}</div>
                                                             </div>
-                                                            <div class="img-banner2" style="background: url('{% static 'images/section5/02_image_1688x625.jpg' %}') no-repeat center;"></div>
+                                                            {% if obj.img %}  
+                                                            <div class="img-banner2" style="background: url('{{ obj.img.url }}') no-repeat center;"></div>
+                                                            {% else %}
+                                                            <div class="img-banner2" style="">Belum Ada Gambar Blog</div>                                                            
+                                                            {% endif %}
                                                         </a>
                                                     </div>
-                                                    <!-- end konten2 -->
-                                                    <!-- konten3 -->
-                                                    <div class="item">
-                                                        <a href="#">
-                                                            <div class="overlay-slider"></div>
-                                                            <div class="text2">
-                                                                <div class="t-slider">
-                                                                    Konten3
-                                                                </div>
-                                                                <div class="d-slider">created at</div>
-                                                            </div>
-                                                            <div class="img-banner2" style="background: url('{% static 'images/section5/03_image_1688x625.jpg' %}') no-repeat center;"></div>
-                                                        </a>
-                                                    </div>
-                                                    <!-- end konten3 -->
+                                                    {% endfor %}
+                                                    
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        {% if blog_filter.count > 2 %}
                                         <div class="col inline l-6 m-6 s-6 product-animated-right resp-pad0">
                                             <div class="banner3">
                                                 <div class="slider-home3">
-                                                    <!-- konten4 -->
+                                                    
+                                                    {% for obj in blog reversed %}
                                                     <div class="item">
-                                                        <a href="#">
+                                                        <a href="{% url 'detail-blog' obj.slug obj.id %}">
                                                             <div class="overlay-slider"></div>
                                                             <div class="text2">
                                                                 <div class="t-slider">
-                                                                    Konten4
+                                                                    {{ obj.judul }}
                                                                 </div>
-                                                                <div class="d-slider">created at</div>
+                                                                <div class="d-slider">{{ obj.dibuat_pada|date:"D, d M Y" }}</div>
                                                             </div>
-                                                            <div class="img-banner3" style="background: url('{% static 'images/section5/04_image_1688x625.jpg' %}') no-repeat center;"></div>
+                                                            {% if obj.img %}  
+                                                            <div class="img-banner3" style="background: url('{{ obj.img.url }}') no-repeat center;"></div>
+                                                            {% else %}
+                                                            <div class="img-banner3" style="background: url('') no-repeat center;">Belum Ada Img Blog</div>                                                            
+                                                            {% endif %}
                                                         </a>
                                                     </div>
-                                                    <!-- end konten4 -->
-                                                    <!-- konten5 -->
-                                                    <div class="item">
-                                                        <a href="#">
-                                                            <div class="overlay-slider"></div>
-                                                            <div class="text2">
-                                                                <div class="t-slider">
-                                                                    Konten5
-                                                                </div>
-                                                                <div class="d-slider">created at</div>
-                                                            </div>
-                                                            <div class="img-banner3" style="background: url('{% static 'images/section5/05_image_1688x625.jpg' %}') no-repeat center;"></div>
-                                                        </a>
-                                                    </div>
-                                                    <!-- end konten5 -->
-                                                    <!-- konten6 -->
-                                                    <div class="item">
-                                                        <a href="#">
-                                                            <div class="overlay-slider"></div>
-                                                            <div class="text2">
-                                                                <div class="t-slider">
-                                                                    Konten6
-                                                                </div>
-                                                                <div class="d-slider">created at</div>
-                                                            </div>
-                                                            <div class="img-banner3" style="background: url('{% static 'images/section5/06_image_1688x625.jpg' %}') no-repeat center;"></div>
-                                                        </a>
-                                                    </div>
-                                                    <!-- end konten6 -->
+                                                    {% endfor %}
+                                                    
                                                 </div>
                                             </div>
                                         </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <!-- end konten slider-->
                             </div>
                         </div>
                     </div>
+                    {% else %}
+                    <div class="banner" style="display: flex">
+                        <div class="col inline l-12" align='center'>
+                            <div class="product-animated-bottom hidden-xs">
+                                <div class="t-blog">
+                                    <a href="blog/">Blog</a>
+                                    <div class="b-blog">
+                                        <div>&emsp13;</div>
+                                        <div>
+                                            <p>
+                                                Belum Mempunyai Blog
+                                            </p>&emsp14;
+                                            <p>
+                                                <a href="admin/blogs/blog/add/">Blog disini</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>

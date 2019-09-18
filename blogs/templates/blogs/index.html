@@ -36,24 +36,29 @@
 {% block main %}
 <section id="main">
 	<div class="slider-blog">
+	{% if blog_banner %}
+		{% for obj in blog_banner %}
 		<div class="banner-blog">
 			<div class="item-blog">
 				<div class="container">
-					<div class="title-blog">Cara Unik Abadikan Perjalananmu Agar Semakin Berkesan</div>
+					<div class="title-blog"> {{ obj.judul }} </div>
 				</div>
 			</div>
-			<div class="img-blog" style="background: url('../images/banner/banner-blog.jpg') center no-repeat;">
+			<div class="img-blog" style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% endif %}') center no-repeat;">
 			</div>
 		</div>
+		{% endfor %}
+	{% else %}
 		<div class="banner-blog">
 			<div class="item-blog">
 				<div class="container">
-					<div class="title-blog">Cara Unik Abadikan Perjalananmu Agar Semakin Berkesan</div>
+					<div class="title-blog"> Silahkan Atur Judul dan Banner Blog di<a href="/admin/blogs/header/add/">sini</a></div>
 				</div>
 			</div>
-			<div class="img-blog" style="background: url('../images/banner/banner-blog1.jpg') center no-repeat;">
+			<div class="img-blog" style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% endif %}') center no-repeat;">
 			</div>
 		</div>
+	{% endif %}
 	</div>
 
 
@@ -71,8 +76,8 @@
 				<div class="bg-category product-animated-bottom">
 					<div class="t-category">Categories</div>
 					<ul>
-						<li><a href="category/1.html">Category 1</a></li>
-						<li><a href="category/2.html">Category 2</a></li>
+						<li><a href="#">Category 1</a></li>
+						<li><a href="#">Category 2</a></li>
 					</ul>
 				</div>
 			</div>
@@ -104,7 +109,7 @@
 																	<img src="{% static 'images/icons/calender.png' %}" />
 																</div>
 																<div class="inline-block v-middle t-desc-blog">
-																	{{ obj.dibuat_pada|date }}
+																	{{ obj.dibuat_pada|date:"D, d M Y" }}
 																</div>
 															</li>
 															<li>
@@ -112,7 +117,7 @@
 																	<img src="{% static 'images/icons/tag.png' %}" style="position: relative; top: 2px;" />
 																</div>
 																<div class="inline-block v-middle t-desc-blog blue">
-																	Category 1
+																	{{ obj.kategori.nama }}
 																</div>
 															</li>
 														</ul>
@@ -126,7 +131,7 @@
 													</a>
 												</div>
 												<div class="bdy-blog">
-													{{ obj.konten|safe }}
+													{{ obj.konten |truncatechars:277|safe }}
 												</div>
 												<div class="button-read">
 													<a href="{% url 'detail-blog' obj.slug obj.id %}"
@@ -137,7 +142,7 @@
 									</div>
 								{% endfor %}
 						{% else %}
-							<h4 class="text-center" style="margin-top: 5rem; color: #666">Paket belum ada</h4>								
+							<h4 class="text-center" style="margin-top: 5rem; color: #666">Belum Ada Artikel</h4>								
 						{% endif %}
 								
 
@@ -201,83 +206,49 @@
 						<div class="bg-category product-animated-bottom">
 							<br />
 							<div class="t-category bold">Kategori</div>
+							<form action="GET">
 							<ul>
-								<li><a href="?kategori=kategori1">Category 1</a></li>
-								<li><a href="?kategori=kategori2">Category 2</a></li>
+							{% if category %}
+								{% for obj in category %}
+								<li><a>{{ obj.nama }}</a></li>
+								{% endfor %}
+							{% endif %}
 							</ul>
+							</form>
 						</div>
-
+						
 						<div class="bg-article">
 							<div class="t-article bold">Populer Bulan Ini</div>
-							<div class="in-article">
-								<a href="view/buah_tangan_khas_negeri_tirai_bambu.html">
-									<div class="tbl">
-										<div class="cell w80 product-animated-left">
-											<div class="i-article"
-												style="background: url('../lib/images/blog/thumbnails/T3.jpg') center no-repeat;">
-											</div>
-										</div>
-										<div class="cell product-animated-right">
-											<div class="n-article">
-												<div>Blog 1</div>
-											</div>
-											<div>
-												<div class="inline-block v-middle">
-													<img src="../lib/images/icons/calender.png"
-														style="height: 16px;" />
-												</div>
-												<div class="inline-block v-middle d-article">18 May 2018</div>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
+						
+					{% for obj in blog_list %}
+						
+						{% if obj.dibuat_pada.month == today.month %}
 							<div class="in-article">
 								<a href="#">
 									<div class="tbl">
 										<div class="cell w80 product-animated-left">
 											<div class="i-article"
-												style="background: url('../lib/images/blog/thumbnails/T3.jpg') center no-repeat;">
+												style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% else %} {% static 'images/news/logo.png' %} {% endif %}') center no-repeat;">
 											</div>
 										</div>
 										<div class="cell product-animated-right">
 											<div class="n-article">
-												<div>Blog 2</div>
+												<div>{{ obj.judul }}</div>
 											</div>
 											<div>
 												<div class="inline-block v-middle">
 													<img src="../lib/images/icons/calender.png"
 														style="height: 16px;" />
 												</div>
-												<div class="inline-block v-middle d-article">18 May 2018</div>
+												<div class="inline-block v-middle d-article">{{ obj.dibuat_pada|date:"D, d M y" }}</div>
 											</div>
 										</div>
 									</div>
 								</a>
 							</div>
-							<div class="in-article">
-								<a href="#">
-									<div class="tbl">
-										<div class="cell w80 product-animated-left">
-											<div class="i-article"
-												style="background: url('../lib/images/blog/thumbnails/T3.jpg') center no-repeat;">
-											</div>
-										</div>
-										<div class="cell product-animated-right">
-											<div class="n-article">
-												<div>Blog 3</div>
-											</div>
-											<div>
-												<div class="inline-block v-middle">
-													<img src="../lib/images/icons/calender.png"
-														style="height: 16px;" />
-												</div>
-												<div class="inline-block v-middle d-article">18 May 2018</div>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
+						{% endif %}
+							
+						{% endfor %}
 						</div>
 					</div>
 				</div>

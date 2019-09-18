@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import pre_save
 from django.utils import timezone
 from django.urls import reverse
 from autoslug import AutoSlugField
@@ -9,81 +8,100 @@ from djmoney.models.fields import MoneyField
 
 
 
-FASILITAS = (
-    (1, 'Tiket Pesawat PP'),
-    (2, 'Hotel Madinah & Makkah, Makan 3x sehari'),
-    (3, 'Transportasi Bus Full AC'),
-    (4, 'Manasik Umroh Teori dan Praktik'),
-    (5, 'Tour Leader & Mutawwif Profesional'),
-    (6, 'City Tour Sesuai Program'),
-    (7, 'Airport Handling'),
-    (8, 'Air Zam-Zam'),
-    (9, 'Perlengkapan Umroh Standar (Kain Ihram (pria), Mukena (wanita), Baju Seragam, Tas Troley/Koper, Hand Bag, Buku Manasik; label bagasi dll)'),
-    (10, 'Biaya kelebihan bagasi (max 25 kg/orang)'),
-    (11, 'Biaya pembuatan paspor dengan 3 suku kata'),
-    (12, 'Biaya suntik meningitis dan atau flu'),
-    (13, 'Pembuatan surat mahram (bagi yang memerlukan mahram)'),
-    (14, 'Airport Tax Handling'),
-    (15, 'Pengeluaran pribadi : kelebihan bagasi (max 25 kg/orang), telepon, laundry dll'),
+class Category(models.Model):
+    nama = models.CharField(max_length=225)
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
 
-)
+    def __str__(self):
+        return self.nama
 
-HOTEL = [
-    ('Madinah', (
-            ('asaha', 'A Saha Hotel Madinah'),
-            ('bahauddin', 'Bahauddin Hotel Madinah'),
-            ('alharam', 'Al Haram Hotel Madinah'),
-        )
-    ),
-    ('Makkah', (
-            ('ajyadmakarem', 'Ajyad Makarem Hotel Makkah'),
-            ('lemeriddien', 'Le Meriddien Hotel Makkah'),
-            ('daralleman', 'Dar Al Leman Hotel Makkah'),
-        )
-    ),
-    (None, 'Pilih Hotel'),
-]
+    class Meta:
+        ordering = ('nama',)
+        verbose_name_plural = 'package categories'  
 
-MASKAPAI = [
-    ('etihad', 'Etihad'),('saudiarabia', 'Saudi Arabia'),
-    ('emirates', 'Emirates'),('turish', 'Turish Airlines'),
-    (None, 'Pilih Maskapai')
-]
+
+class Facility(models.Model):
+    nama = models.CharField(max_length=225)
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.nama
+
+    class Meta:
+        ordering = ('nama',)
+        verbose_name_plural = 'package facilities'
+
+
+class Airline(models.Model):
+    nama = models.CharField(max_length=225)
+    deskripsi = models.TextField(null=True, blank=True, help_text='Deskripsi airline / maskapai. Optional')
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.nama
+    
+    class Meta:
+        ordering = ('nama',)
+        verbose_name_plural = 'package airlines'
+
+
+class AirlineImage(models.Model):
+    airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='package/airline/img/', blank=True)
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return 'Image %s - %s' % (self.id, self.airline.nama)
+
+    class Meta:
+        ordering = ('id',)
+
+
+class Hotel(models.Model):
+    nama = models.CharField(max_length=225)
+    deskripsi = models.TextField(null=True, blank=True, help_text='Deskripsi hotel. Optional')
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.nama
+
+    class Meta:
+        ordering = ('nama',)
+        verbose_name_plural = 'package hotel'
+
+
+class HotelImage(models.Model):
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='package/hotel/img/', blank=True)
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return 'Image %s - %s' % (self.id, self.hotel.nama)
+
+    class Meta:
+        ordering = ('id',)
+
 
 class Package(models.Model):
-    NORMAL = 'N'
-    POPULER = 'P'
-    DISKON = 'D'
-    REGULER = 'R'
-    BISNIS = 'B'
-    EKSEKUTIF = 'E'
-    SEMINGGU = 'S'
-    ARBAIN = 'A'
-    CITYTOUR = 'C'
-    KATEGORI = [
-        (REGULER, 'REGULER'),
-        (BISNIS, 'BISNIS'),
-        (EKSEKUTIF, 'EKSEKUTIF'),
-        (SEMINGGU, '12 HARI'),
-        (ARBAIN, 'ARBAIN'),
-        (CITYTOUR, 'CITY TOUR'),
-    ]
-    KATEGORI_LAINYA = [
-        (NORMAL, 'NONE/NORMAL'),
-        (POPULER, 'POPULER'),
-        (DISKON, 'DISKON'),
-    ]
-    
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    LABEL = [('populer', 'POPULER'),('promo', 'PROMO' )]
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='penulis')
     nama = models.CharField(max_length=250)
-    slug = AutoSlugField(populate_from='nama')
-    kategori = models.CharField(max_length=1, choices=KATEGORI, default=REGULER)
+    kategori = models.ForeignKey(Category, on_delete=models.CASCADE)
+    label = models.CharField(max_length=7, choices=LABEL, blank=True, help_text='Optional')
     harga = MoneyField(max_digits=14, decimal_places=2, default_currency='IDR')
     deskripsi = models.TextField(blank=True)
-    fasilitas = MultiSelectField(choices=FASILITAS)
-    kategori_lainnya = models.CharField(max_length=1, choices=KATEGORI_LAINYA, default=NORMAL)
-    dibuat_pada = models.DateField(auto_now_add=True)
-    diperbarui_pada = models.DateField(auto_now=True)
+    fasilitas = models.ManyToManyField(Facility, blank=True)
+    penerbangan = models.ManyToManyField(Airline, through='Flight', blank=True)
+    akomodasi = models.ManyToManyField(Hotel, through='Accommodation', blank=True)
+    dibuat_pada = models.DateTimeField(auto_now_add=True)
+    diperbarui_pada = models.DateTimeField(auto_now=True)
+    slug = AutoSlugField(populate_from='nama')
 
     def __str__(self):
         return self.nama
@@ -91,42 +109,59 @@ class Package(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'slug': self.slug})
 
-class PackageBanner(models.Model):
-    paket = models.ForeignKey('Package', on_delete=models.CASCADE)
-    banner = models.ImageField(upload_to='paket_umroh/banner/%Y/%m/%d', blank=True) 
+    class Meta:
+        ordering = ('id',)
+
+
+class Image(models.Model):
+    paket = models.ForeignKey(Package, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='package/img/', blank=True) 
 
     def __str__(self):
         return 'Gambar %s' % (self.id)
 
+    class Meta:
+        ordering = ('id',)
+        verbose_name_plural = 'package images'
+
+
 class Flight(models.Model):
-    STATUS = [('berangkat', 'Berangkat'), ('kembali', 'Kembali'), (None, 'Unknown')]
-    paket = models.ForeignKey('Package', on_delete=models.CASCADE)
-    maskapai = models.CharField(choices=MASKAPAI, max_length=11)
-    status = models.CharField(choices=STATUS, max_length=9)
-    tanggal = models.DateField(null=True, blank=True)
+    STATUS = [('berangkat', 'Berangkat'), ('kembali', 'Kembali')]
+    paket = models.ForeignKey(Package, on_delete=models.CASCADE)
+    maskapai = models.ForeignKey(Airline, on_delete=models.CASCADE, null=True, blank=True)
+    status = models.CharField(choices=STATUS, max_length=9, null=True, blank=True, help_text='Status penerbangan berangkat / kembali. Optional')
+    tanggal = models.DateField(null=True, blank=True, help_text='Tanggal penerbangan. Optional')
 
     def __str__(self):
-        return self.maskapai
+        return '%s - %s' % (self.paket.nama, self.maskapai.nama)
+
+    class Meta:
+        ordering = ('paket',)
+        verbose_name_plural = 'package flights'
+
 
 class Accommodation(models.Model):
-    paket = models.ForeignKey('Package', on_delete=models.CASCADE)
-    hotel = models.CharField(choices=HOTEL, max_length=12)
-    mulai_tanggal = models.DateField(null=True, blank=True)
-    akhir_tanggal = models.DateField(null=True, blank=True)
+    paket = models.ForeignKey(Package, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+    mulai_tanggal = models.DateField(null=True, blank=True, help_text='Tanggal mulai penginapan. Optional')
+    akhir_tanggal = models.DateField(null=True, blank=True, help_text='Tanggal akhir penginapan. Optional')
     
-
     def __str__(self):
-        return self.hotel
+        return '%s - %s' % (self.paket.nama, self.hotel.nama)
 
+    class Meta:
+        ordering = ('paket',)
+        verbose_name_plural = 'package accomodations'
 
-def paket_travel_directory_path(instance, filename):
-    return 'paket_umroh/{0}/{1}/{2}'.format(instance.paket.id, instance.id, filename)
 
 class TravelDetail(models.Model):
-    paket = models.ForeignKey('Package', on_delete=models.CASCADE)
+    paket = models.ForeignKey(Package, on_delete=models.CASCADE)
     perjalanan = models.CharField(max_length=250)
-    gambar = models.ImageField(upload_to=paket_travel_directory_path, blank=True)
+    img = models.ImageField(upload_to='package/traveldetail/img', blank=True)
     deskripsi = models.TextField(blank=True)
 
     def __str__(self):
         return "Perjalan: %s" % (self.perjalanan)
+
+    class Meta:
+        ordering = ('id',)

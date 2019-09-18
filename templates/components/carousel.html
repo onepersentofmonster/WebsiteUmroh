@@ -1,5 +1,7 @@
 {% load static %}
                 <div class="carousel">
+                    
+                    {% for obj in home %}
                     <div class="bg_carousel">
                         <div class="item_carousel">
                             <div class="container">
@@ -9,60 +11,35 @@
                             </div>
                         </div>
                         <!-- img -->
-                        <a href="#">
-                            <div class="img-banner"
-                                style="background: url('{% static 'images/banner_header/banner1.jpg' %}') center no-repeat;"></div>
-                        </a>
-                    </div>
-                    <div class="bg_carousel">
-                        <div class="item_carousel">
-                            <div class="container">
-                                <div class="t-banner"></div>
-                                <div class="n-banner"></div>
-                                <div class="bdr-banner"></div>
+                        <a href="{{obj}}">
+                            <div 
+                                class="img-banner"
+                                style="background: url('{{ obj }}') center no-repeat;"
+                            >
                             </div>
-                        </div>
-                        <!-- img -->
-                        <a href="#">
-                            <div class="img-banner"
-                                style="background: url('{% static 'images/banner_header/banner2.jpg' %}') center no-repeat;"></div>
                         </a>
-                    </div>
-                    <div class="bg_carousel">
-                        <div class="item_carousel">
-                            <div class="container">
-                                <div class="t-banner"></div>
-                                <div class="n-banner"></div>
-                                <div class="bdr-banner"></div>
-                            </div>
-                        </div>
-                        <!-- img -->
-                        <a href="#">
-                            <div class="img-banner"
-                                style="background: url('{% static 'images/banner_header/banner3.jpg' %}') center no-repeat;"></div>
-                        </a>
-                    </div>
-                    <div class="bg_carousel">
-                        <div class="item_carousel">
-                            <div class="container">
-                                <div class="t-banner"></div>
-                                <div class="n-banner"></div>
-                                <div class="bdr-banner"></div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="img-banner"
-                                style="background: url('{% static 'images/banner_header/banner4.jpg' %}') center no-repeat;"></div>
-                        </a>
-                    </div>
+                    </div>                        
+                    {% endfor %}                        
                 </div>
                 <div class="abs-banner">
                     <div class="container">
                         <div class="nav-banner">
+                            {% for obj in home %}
                             <div class="l-banner"></div>
-                            <div class="l-banner"></div>
-                            <div class="l-banner"></div>
-                            <div class="l-banner"></div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
+                <code id="slick-slide-size" style="display: none">{{ home.count }}</code>
+                
+                <script>
+                    $(function() {
+                        'use strict'
+
+                        var s = int($('#slick-slide-size').text());
+                        var width = 100/s;
+                        $('.nav-banner .slick-slide').css(
+                            {'width': `${width}%` }
+                        );
+                    })
+                </script>

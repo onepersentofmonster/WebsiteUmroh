@@ -10,3 +10,4 @@ class BlogFilter(django_filters.FilterSet):
         model = Blog
         fields = ['judul', 'kategori']
         order_by = ['-dibuat_pada']
+        

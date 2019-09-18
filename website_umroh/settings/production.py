@@ -26,6 +26,7 @@ EMAIL_USE_TLS = True
 INSTALLED_APPS = [
     'blogs.apps.BlogsConfig',
     'packages.apps.PackagesConfig',
+    'homes.apps.HomesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'djmoney',
     'widget_tweaks',
     'rangefilter',
+    'dj_pagination',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'id-id'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
@@ -141,3 +143,9 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# A list of hex-encoded 32 byte keys
+FIELD_ENCRYPTION_KEYS = [
+    "f164ec6bd6fbc4aef5647abc15199da0f9badcc1d2127bde2087ae0d794a9a0b"
+]
+
