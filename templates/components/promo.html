@@ -2,13 +2,13 @@
 <div class="pad-promo">
     <div class="title bold mb50">Paket Terpopuler</div>
     {% if package %}
-    {% if package_populer %}
+        {% if package_populer %}
     <div class="slide">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
     </div>
     <div class="slider-promo product-animated-bottom">
-        {% for obj in package_populer  %}
+            {% for obj in package_populer  %}
         <div class="item">
             <a href="{% url 'detail' obj.slug %}">
                 <!-- paket kategori populer -->
@@ -27,15 +27,15 @@
                 </div>
             </a>
         </div>
-        {% endfor %}
+            {% endfor %}
     </div>
-    {% else %}
+        {% else %}
     <div class="slider-promo product-animated-bottom" align='center' style="margin: 5rem 0">
         <div class="col inline l-12" style="color:#888;font-weight:normal;font-size:14px">
             <p>Belum Ada Paket Populer</p>
         </div>
     </div>
-    {% endif %}
+        {% endif %}
     {% else %}
     <div class="slider-promo product-animated-bottom" align='center' style="margin: 5rem 0">
         <div class="col inline l-12" style="color:#888;font-weight:normal;font-size:14px">
