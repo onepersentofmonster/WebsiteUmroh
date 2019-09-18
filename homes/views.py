@@ -18,6 +18,7 @@ def index(request):
     context = {
         'home': home,
         'package': package,
+        'package_populer': package_populer,
         'category_package': category_package, 
         'blog': blog, 
         'blog_filter': blog_filter

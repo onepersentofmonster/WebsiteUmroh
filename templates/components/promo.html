@@ -1,46 +1,46 @@
 {% load static %}
-                    <div class="pad-promo">
-                        <div class="title bold mb50">Paket Terpopuler</div>
-                    {% if package %}
-                        {% if package_promo %}
-                        <div class="slide">
-                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                        </div>
-                        <div class="slider-promo product-animated-bottom">                        
-                            {% for obj in package_promo  %}
-                            <div class="item">
-                                <a href="{% url 'detail' obj.slug %}">
-                                    <!-- paket kategori populer -->
-                                    {% if obj.image_set.count %}
-                                    <img src="{{ obj.image_set.first.img.url }}" class="img-responsive" alt="paket_populer" />
-                                    {% else %}
-                                    <img src="{% static 'images/news/logo.png' %}" alt="image_default" />
-                                    {% endif %}
-                                    <!-- end -->
-                                    <div class="o-promo"></div>
-                                    <div class="b-promo">
-                                        <div class="t-promo">{{ obj.nama }}</div>
-                                        <div class="btn-promo">
-                                            Lihat Selengkapnya <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            {% endfor %}
-                        </div>
-                        {% else %}
-                        <div class="slider-promo product-animated-bottom" align='center' style="margin: 5rem 0">
-                            <div class="col inline l-12" style="color:#888;font-weight:normal;font-size:14px">
-                                <p>Belum Ada Paket Populer</p>
-                            </div>
-                        </div>
-                        {% endif %}
-                    {% else %}
-                        <div class="slider-promo product-animated-bottom" align='center' style="margin: 5rem 0">
-                            <div class="col inline l-12" style="color:#888;font-weight:normal;font-size:14px">
-                                <p>Belum Ada Paket</p>
-                            </div>
-                        </div>
-                    {% endif %}
+<div class="pad-promo">
+    <div class="title bold mb50">Paket Terpopuler</div>
+    {% if package %}
+    {% if package_populer %}
+    <div class="slide">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+    <div class="slider-promo product-animated-bottom">
+        {% for obj in package_populer  %}
+        <div class="item">
+            <a href="{% url 'detail' obj.slug %}">
+                <!-- paket kategori populer -->
+                {% if obj.image_set.count %}
+                <img src="{{ obj.image_set.first.img.url }}" class="img-responsive" alt="paket_populer" />
+                {% else %}
+                <img src="{% static 'images/news/logo.png' %}" alt="image_default" />
+                {% endif %}
+                <!-- end -->
+                <div class="o-promo"></div>
+                <div class="b-promo">
+                    <div class="t-promo">{{ obj.nama }}</div>
+                    <div class="btn-promo">
+                        Lihat Selengkapnya <i class="fa fa-chevron-right" aria-hidden="true"></i>
                     </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="slider-promo product-animated-bottom" align='center' style="margin: 5rem 0">
+        <div class="col inline l-12" style="color:#888;font-weight:normal;font-size:14px">
+            <p>Belum Ada Paket Populer</p>
+        </div>
+    </div>
+    {% endif %}
+    {% else %}
+    <div class="slider-promo product-animated-bottom" align='center' style="margin: 5rem 0">
+        <div class="col inline l-12" style="color:#888;font-weight:normal;font-size:14px">
+            <p>Belum Ada Paket</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
