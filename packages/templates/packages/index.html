@@ -5,93 +5,92 @@
 
 {% block main %}
 <section id="main">
-        <div class="pad-global">
-            <div class="container">
-                <div class="box-desti">
-                    <div class="title bold capitalize" id="result_destination">Semua Paket</div>
-                    <div class="bdr-desti"></div>
-                    <div class="row inline">
+    <div class="pad-global">
+        <div class="container">
+            <div class="box-desti">
+                <div class="title bold capitalize" id="result_destination">Semua Paket</div>
+                <div class="bdr-desti"></div>
+                <div class="row inline">
 
-                        <div class="col inline l-3 m-12 s-12 sm30">
+                    <div class="col inline l-3 m-12 s-12 sm30">
                         {% include './filter.html' %}
-                        </div>
+                    </div>
 
-                        <div class="col inline l-9 m-12 s-12">
-                            <div class="clear mb10">
-                                <div class="float-left">
-                                    <div class="h34">
-                                        <div class="tbl">
-                                            <div class="cell">
-                                                <div class="r-desti">{{ filter.qs.count }} Paket</div>
-                                            </div>
+                    <div class="col inline l-9 m-12 s-12">
+                        <div class="clear mb10">
+                            <div class="float-left">
+                                <div class="h34">
+                                    <div class="tbl">
+                                        <div class="cell">
+                                            <div class="r-desti">{{ filter.qs.count }} Paket</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row inline min-10">
-                                    
-                        {% if filter.qs %}
+                        <div class="row inline min-10">
+
+                            {% if filter.qs %}
                             {% autopaginate filter.qs 9 as filter_list %}
-                                {% for obj in filter_list  %}
-                                <div class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer wrapLimited">
-                                        <div class=" item-desti">
-                                            <div class="pos-rel">
-                                                <a href="{% url 'detail' obj.slug %}">
-                                                    <div class="overlay-desti"></div>
-                                                    <!-- <div class="disc-desti">
+                            {% for obj in filter_list  %}
+                            <div
+                                class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer wrapLimited">
+                                <div class=" item-desti">
+                                    <div class="pos-rel">
+                                        <a href="{% url 'detail' obj.slug %}">
+                                            <div class="overlay-desti"></div>
+                                            <!-- <div class="disc-desti">
                                                         <img src="lib/images/icons/discount.png" alt="image_diskon" />
                                                     </div> -->
-                                                    <div 
-                                                        class="img-desti" 
-                                                        style="background: url('{{ obj.packageimage_set.first.img.url }}') no-repeat center;"
-                                                    >
-                                                    </div>
-                                                    <div class="t-desti">{{ obj.nama }}</div>
-                                                </a>
+                                            <div class="img-desti"
+                                                style="background: url('{{ obj.packageimage_set.first.img.url }}') no-repeat center;">
                                             </div>
-                                            <div class="pos-rel">
-                                                <div class="desc-desti">
-                                                    <div class="s-desti">Mulai</div><br/>
-                                                    <div class="p-desti" style="color:#fdb813;">{{ obj.harga }}</div>                                                        
-                                                    <div class="l-desti">{{ obj.traveldetail_set.count }} Hari </div>
-                                                    <div class="bdy-desti">
-                                                        {{ obj.deskripsi |truncatechars:150|safe }}
-                                                    </div>
-                                                    <a href="{% url 'detail' obj.slug %}" class="desti">
-                                                        Lihat Info <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                                    </a>
-                                                </div>
+                                            <div class="t-desti">{{ obj.nama }}</div>
+                                        </a>
+                                    </div>
+                                    <div class="pos-rel">
+                                        <div class="desc-desti">
+                                            <div class="s-desti">Mulai</div><br />
+                                            <div class="p-desti" style="color:#fdb813;">{{ obj.harga }}</div>
+                                            <div class="l-desti">{{ obj.traveldetail_set.count }} Hari </div>
+                                            <div class="bdy-desti">
+                                                {{ obj.deskripsi |truncatechars:150|safe }}
                                             </div>
+                                            <a href="{% url 'detail' obj.slug %}" class="desti">
+                                                Lihat Info <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                            </a>
                                         </div>
-                                    </div>  
-                                {% endfor %}
-                        {% else %}
-                                <h4 class="text-center" style="margin-top: 5rem; color: #666">Paket belum ada</h4>
-                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <style>
-                            
-                        </style>
-                        <div id="pagination" class="col inline l-9 m-12 s-12">
-                                {% paginate %}
+                            {% endfor %}
+                            {% else %}
+                            <h4 class="text-center" style="margin-top: 5rem; color: #666">Paket belum ada</h4>
+                            {% endif %}
                         </div>
                     </div>
+                    <style>
+
+                    </style>
+                    <div id="pagination" class="col inline l-9 m-12 s-12">
+                        {% paginate %}
+                    </div>
                 </div>
-            </div>		
-        </div>
-        <div id="bantuan" class="bg-help" style="background: url('lib/images/icons/bg-help.png') bottom no-repeat;">
-            <div class="contanier">
-                <div class="t-help bold">Anda Butuh Bantuan?</div>
-                <div class="bdy-help">Hubungi kami untuk bantuan atau informasi lebih lanjut melalui line telepon</div>
-                <div class="no-help">
-                    <a href="tel: 62-21 2450 8899"> 62-xx xxxx xxxx</a><br/>
-                    <a href="tel: 62-21 422 3888"> 62-xx xxx xxxx</a><br/>
-                </div>
-                <div class="bdy-help mb30">atau online form yang kami sediakan melalui tombol dibawah ini</div>
-                <a class="contact"><button class="button button--wapasha btn-center">KONTAK KAMI</button></a>
             </div>
         </div>
+    </div>
+    <div id="bantuan" class="bg-help" style="background: url('lib/images/icons/bg-help.png') bottom no-repeat;">
+        <div class="contanier">
+            <div class="t-help bold">Anda Butuh Bantuan?</div>
+            <div class="bdy-help">Hubungi kami untuk bantuan atau informasi lebih lanjut melalui line telepon</div>
+            <div class="no-help">
+                <a href="tel:6285863087879"> +6285863087879 </a><br />
+                <a href="tel:6285797511206"> +6285797511206 </a><br />
+            </div>
+            <div class="bdy-help mb30">atau online form yang kami sediakan melalui tombol dibawah ini</div>
+            <a class="contact"><button class="button button--wapasha btn-center">KONTAK KAMI</button></a>
+        </div>
+    </div>
 </section>
 {% endblock main %}
