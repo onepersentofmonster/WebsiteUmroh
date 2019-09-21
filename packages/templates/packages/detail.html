@@ -13,8 +13,8 @@
     <section id="main">
         <div class="tour-slider">
         <!-- banner -->
-        {% if package.image_set.count > 0 %}
-            {% for obj in package.image_set.all %}
+        {% if package.packageimage_set.count > 0 %}
+            {% for obj in package.packageimage_set.all %}
                 <div class="tour-banner">
                     <div class="item-tour">
                         <div class="container">
@@ -70,7 +70,7 @@
                             <div class="cell r-time">
                                 <div class="inline-block">
                                     <img src="{% static 'images/icons/select-time.png' %}" />
-                                    {{ package.traveldetail_set.count }} Hari
+                                    {{ package.packagetraveldetail_set.count }} Hari
                                 </div>
                                 <div class="inline-block margin30">
                                     <img src="{% static 'images/icons/select-map.png' %}" />1 NEGARA
@@ -101,7 +101,7 @@
                 <div class="bdr-itinerary"></div>
                 <div class="box-itinerary">
                     
-                {% for travel in package.traveldetail_set.all reversed %}
+                {% for travel in package.packagetraveldetail_set.all reversed %}
                     <div class="product-animated-bottom">
                         <div class="d-itinerary">Hari {{ forloop.counter }}</div>
                         <div class="tbl">

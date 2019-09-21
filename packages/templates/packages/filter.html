@@ -1,7 +1,8 @@
 {% load static %}
 {% load widget_tweaks %}
 
-<form method="GET" class="form">
+<form method="POST" class="form">
+    {% csrf_token %}
     <div class="jv-desti">
         <div class="mb-desti">
             <div class="pos-rel">

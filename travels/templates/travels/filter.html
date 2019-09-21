@@ -1,0 +1,59 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<form method="GET" class="form">
+    <div class="jv-desti">
+        <div class="mb-desti">
+            <div class="pos-rel">
+                {% render_field filter.form.nama class="form-control" placeholder="Nama Travel" %}
+                <div class="icon-cari">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+            </div><br/><br/>
+
+            <div class="clear">
+                <div class="inline992 pr20 mb-desti">
+                    <div class="pos-rel">
+                        <div class="icon-tag">
+                            <img src="{% static 'images/icons/tag.png' %}" alt="icon_tag" />
+                        </div>
+                        <div class="kategori">
+                            <span class="filter-option pull-left">Kategori</span>
+                        </div>
+                        {% render_field filter.form.kategori class="form-control" placeholder="Kategori" %}
+                    </div>
+                </div>
+            </div><br/>
+
+            <div class="clear">
+                <div class="inline992 pr20 mb-desti">
+                    <div class="pos-rel">
+                        <div class="icon-kalender">
+                            <img src="{% static 'images/icons/select-kalender.png' %}" alt="icon_kalender" />
+                        </div>
+                        <div class="dibuat_pada">
+                            <span class="filter-option pull-left">Rentang tanggal pembuatan</span>
+                        </div>
+                        {% render_field filter.form.dibuat_pada class="form-control" readonly="true" style="background:#fff" %}
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <input type="submit" value="Cari Paket" class="button button--wapasha" />
+            </div>
+        </div>
+    </div>    
+</form>
+<script>
+    $(function() {
+        $("#id_dibuat_pada_0").datepicker({
+            dateFormat: 'dd-mm-yy',
+            autoSize: true
+        });
+        $("#id_dibuat_pada_1").datepicker({
+            dateFormat: 'dd-mm-yy',
+            autoSize: true
+        })
+    })
+</script>
+        

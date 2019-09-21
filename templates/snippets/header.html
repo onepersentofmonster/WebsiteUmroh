@@ -20,7 +20,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col inline l-8 m-3 s-3 min-5 text-right hidden-xs hidden-sm">
+            <div class="col inline l-10 m-3 s-3 min-5 text-right hidden-xs hidden-sm">
                 <div class="inline-block v-middle" id="main-menu">
                     <div class="h60">
                         <div class="tbl">
@@ -28,21 +28,27 @@
                                 <ul>
                                     <li class="menu-tour ">
                                         <div class="dropdown">
-                                            <a href="{% url 'package' %}">Umroh</a>
+                                            <a href="{% url 'index-package' %}">Umroh</a>
                                             <div class="dropdown-content">
-                                                {% if category_package %}
+                                            {% if category_package %}
                                                 {% for obj in category_package %}
-                                                <a href="/cari/?kategori={{obj.id}}">{{ obj.nama }}</a>
+                                                <a href="/paket/?kategori={{obj.id}}">{{ obj.nama }}</a>
                                                 {% endfor %}
-                                                {% endif %}
+                                            {% endif %}
                                             </div>
                                         </div>
                                     </li>
                                     <li class="menu-other ">
                                         <div class="dropdown">
-                                            <a>Travel</a>
+                                            <a href="{% url 'index-travel' %}">Travel</a>
+                                            
+                                            
                                             <div class="dropdown-content">
-                                                <a href="#">Asia</a>
+                                            {% if category_travel %}
+                                                {% for obj in category_travel %}
+                                                <a href="/travel/?kategori={{obj.id}}">{{ obj.nama }}</a>                                                    
+                                                {% endfor %}
+                                            {% endif %}
                                             </div>
                                         </div>
                                     </li>
@@ -51,10 +57,6 @@
                         </div>
                     </div>
                 </div>
-
-
-            </div>
-            <div class="col inline l-2">
                 <div class="inline-block v-middle">
                     <div class="h60">
                         <div class="tbl">

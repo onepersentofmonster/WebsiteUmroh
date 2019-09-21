@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path('tentang-kami/', include('abouts.urls')),
+    path('travel/', include('travels.urls')),
     path('blog/', include('blogs.urls')),
     path('paket/', include('packages.urls')),
     path('', include('homes.urls')),

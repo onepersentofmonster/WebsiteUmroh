@@ -7344,6 +7344,39 @@ header #main-menu ul.submenu li:hover {
     left: 0;
     background: url("../../images/icons/check3.png") repeat
 }
+/* ========= */
+#main .pad-global .bg-about .bdy-not-include ul {
+    margin: 0;
+    padding: 0
+}
+
+#main .pad-global .bg-about .bdy-not-include ul li {
+    padding-left: 25px;
+    margin-bottom: 5px;
+    text-align: left;
+    position: relative;
+    font-size: 16px;
+    color: #666;
+    line-height: 30px;
+    font-weight: normal
+}
+
+#main .pad-global .bg-about .bdy-not-include ul li:last-child {
+    margin-bottom: 0
+}
+
+#main .pad-global .bg-about .bdy-not-include ul li:after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url("../../images/icons/close2.png") no-repeat center
+}
+
+
+
 
 #main .pad-global #accordion {
     text-align: left
@@ -18137,6 +18170,16 @@ footer .footer-bottom .social-btns .btn:hover .fa {
         line-height: 25px
     }
 
+    #main .pad-global .bg-about .bdy-not-include ul {
+        margin: 0;
+        padding: 0
+    }
+
+    #main .pad-global .bg-about .bdy-not-include ul li {
+        font-size: 14px;
+        line-height: 25px
+    }
+
     #main .bg-travel {
         padding: 40px 0
     }
@@ -22462,6 +22505,10 @@ footer .footer-bottom .social-btns .btn:hover .fa {
 
 .uppercase {
     text-transform: uppercase
+}
+
+.mt-5 {
+    margin-top: 5em
 }
 
 .mt50 {

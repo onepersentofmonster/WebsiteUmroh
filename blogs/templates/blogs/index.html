@@ -52,7 +52,7 @@
 		<div class="banner-blog">
 			<div class="item-blog">
 				<div class="container">
-					<div class="title-blog"> Silahkan Atur Judul dan Banner Blog di<a href="/admin/blogs/header/add/">sini</a></div>
+					<div class="title-blog">Atur Judul dan Banner Blog <a href="/admin/blogs/header/add/">disini</a></div>
 				</div>
 			</div>
 			<div class="img-blog" style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% endif %}') center no-repeat;">
@@ -76,7 +76,15 @@
 				<div class="bg-category product-animated-bottom">
 					<div class="t-category">Categories</div>
 					<ul>
-						<li><a href="#">Category 1</a></li>
+						
+						{% if category %}
+							
+							{% for obj in category %}
+							<li><a href="{{obj}}">{{obj}}</a></li>								
+							{% endfor %}
+							
+						{% endif %}
+							
 						<li><a href="#">Category 2</a></li>
 					</ul>
 				</div>
@@ -210,7 +218,7 @@
 							<ul>
 							{% if category %}
 								{% for obj in category %}
-								<li><a>{{ obj.nama }}</a></li>
+								<li><a href="blog/?kategori={{obj.id}}">{{ obj.nama }}</a></li>
 								{% endfor %}
 							{% endif %}
 							</ul>

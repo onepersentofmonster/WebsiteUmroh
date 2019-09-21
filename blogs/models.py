@@ -1,7 +1,5 @@
 from django.db import models
-from django.shortcuts import redirect
 from django.contrib.auth.models import User
-from django.utils import timezone
 from multiselectfield import MultiSelectField
 from django.urls import reverse
 from autoslug import AutoSlugField

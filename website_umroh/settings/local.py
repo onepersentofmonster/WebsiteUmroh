@@ -19,6 +19,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'abouts.apps.AboutsConfig',
+    'travels.apps.TravelsConfig',
     'blogs.apps.BlogsConfig',
     'packages.apps.PackagesConfig',
     'homes.apps.HomesConfig',
@@ -80,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_taufiq',
-        'USER': 'richoandika',
-        'PASSWORD': 'richo123',
+        'USER': 'ridwan',
+        'PASSWORD': 'arifin123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

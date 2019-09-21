@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
                 <div class="box-search-home">
                     <div class="abs-icon">
                         <div class="container">
@@ -49,7 +50,8 @@
                     <div class="abs-search-home active-tour">
                         <div class="container">
                             <!-- form -->
-                        <form action="{% url 'search_packages' %}" method="get">
+                        <form action="{% url 'search_packages' %}" method="post">
+                            {% csrf_token %}
                             <div class="container">
                                 <div class="tbl block480">
                                     <div class="cell">
@@ -76,7 +78,7 @@
                                                                 <img src="{% static 'images/icons/select-plan.png' %}" alt="icon_select_plan" />
                                                             </div>
                                                             <select 
-                                                                name="kategori" 
+                                                                name="paket_kategori" 
                                                                 id="insurance_cover_type"
                                                                 class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
                                                             >
@@ -108,9 +110,9 @@
                                                                 <div class="col inline l-6 m-6 s-6 min-5">
                                                                     <input 
                                                                         type="text" 
-                                                                        id="start-date-insurance"
-                                                                        name="m_tanggal" 
-                                                                        class="form-control input-date"
+                                                                        id="paket-mulai-tanggal"
+                                                                        name="dibuat_pada_after" 
+                                                                        class="form-control input-date tanggal-picker"
                                                                         placeholder="Dari tanggal" 
                                                                         readonly
                                                                     />
@@ -119,9 +121,9 @@
                                                                 <div class="col inline l-6 m-6 s-6 min-5">
                                                                     <input 
                                                                         type="text" 
-                                                                        id="end-date-insurance" 
-                                                                        name="a_tanggal"
-                                                                        class="form-control input-date" 
+                                                                        id="paket-akhir-tanggal" 
+                                                                        name="dibuat_pada_before"
+                                                                        class="form-control input-date tanggal-picker" 
                                                                         placeholder="Sampai tanggal"
                                                                         readonly 
                                                                     />
@@ -161,10 +163,10 @@
                     </div>
                     <!-- end cari paket-->
 
-                    <!-- demo3 -->
+                    <!-- cari travel -->
                     <div class="abs-search-home active-attraction">
                         <!-- form -->
-                        <form action="#" method=post>
+                        <form action="{% url 'search_travels' %}" method='GET'>
                             <div class="container">
                                 <div class="tbl block480">
                                     <div class="cell">
@@ -191,16 +193,20 @@
                                                                 <img src="{% static 'images/icons/select-plan.png' %}" alt="icon_select_plan" />
                                                             </div>
                                                             <select 
-                                                                name="insurance_cover_type" 
+                                                                name="travel_kategori" 
                                                                 id="insurance_cover_type"
                                                                 class="form-control selectpicker custom-select select-attraction select-disabled yellow-hover"
                                                             >
                                                             <option value="none" selected disabled hidden> 
                                                                 Pilih Paket 
                                                             </option> 
-                                                            <option>Malaysia</option>
-                                                            <option>Singapura</option>
-                                                            <option>Thailand</option>
+                                                            {% if category_travel %}
+                                                                {% for obj in category_travel %}
+                                                                <option value="{{obj.id}}">{{obj}}</option>
+                                                                {% endfor %}
+                                                            {% else %}
+                                                                <option value="None">Belum Ada Kategori Paket</option>
+                                                            {% endif %}
                                                             </select>
                                                         </div>
                                                     </div>
@@ -217,10 +223,10 @@
                                                                 <div class="col inline l-6 m-6 s-6 min-5">
                                                                     <input 
                                                                         type="text" 
-                                                                        id="start-date-insurance"
-                                                                        name="start-date-insurance" 
-                                                                        class="form-control input-date"
-                                                                        placeholder="Start date" 
+                                                                        id="travel-mulai-tanggal"
+                                                                        name="dibuat_pada_after" 
+                                                                        class="form-control input-date tanggal-picker"
+                                                                        placeholder="Dari tanggal" 
                                                                         readonly
                                                                     />
                                                                     <div class="space-date">-</div>
@@ -228,10 +234,10 @@
                                                                 <div class="col inline l-6 m-6 s-6 min-5">
                                                                     <input 
                                                                         type="text" 
-                                                                        id="end-date-insurance" 
-                                                                        name="end-date-insurance"
-                                                                        class="form-control input-date" 
-                                                                        placeholder="End date"
+                                                                        id="travel-akhir-tanggal" 
+                                                                        name="dibuat_pada_before"
+                                                                        class="form-control input-date tanggal-picker" 
+                                                                        placeholder="Sampai tanggal"
                                                                         readonly 
                                                                     />
                                                                 </div>
@@ -267,5 +273,5 @@
                         </form>
                         <!-- end form -->
                     </div>
-                    <!-- end demo3 -->
+                    <!-- end cari travel -->
                 </div>

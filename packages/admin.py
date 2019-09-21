@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
 from django_summernote.admin import SummernoteModelAdmin, SummernoteInlineModelAdmin
 from rangefilter.filter import DateRangeFilter, DateTimeRangeFilter
@@ -16,22 +15,22 @@ class HotelImageInline(admin.StackedInline):
 
 
 class ImageInline(admin.StackedInline):
-    model = Image
+    model = PackageImage
     extra = 1
 
 
-class AccommodationInline(admin.TabularInline):
-    model = Accommodation
+class PackageAccommodationInline(admin.TabularInline):
+    model = PackageAccommodation
     extra = 1
 
 
-class FlightInline(admin.TabularInline):
-    model = Flight
+class PackageFlightInline(admin.TabularInline):
+    model = PackageFlight
     extra = 1
 
 
-class TravelDetailInline(admin.StackedInline,SummernoteInlineModelAdmin):
-    model = TravelDetail
+class PackageTravelDetailInline(admin.StackedInline,SummernoteInlineModelAdmin):
+    model = PackageTravelDetail
     extra = 1
 
 
@@ -43,9 +42,9 @@ class PackageAdmin(SummernoteModelAdmin):
     )
     inlines = [
         ImageInline,
-        AccommodationInline,
-        FlightInline,
-        TravelDetailInline,
+        PackageAccommodationInline,
+        PackageFlightInline,
+        PackageTravelDetailInline,
     ]
     list_display = ('nama', 'kategori', 'label', 'harga', 'maskapai_penerbangan', 'hotel_akomodasi','author', 'dibuat_pada', 'diperbarui_pada')
     search_fields = ('nama',)
@@ -63,8 +62,8 @@ class PackageAdmin(SummernoteModelAdmin):
         js = ('admin/js/jquery.multi-select.js', 'admin/js/myscript.js')
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+@admin.register(PackageCategory)
+class PackageCategoryAdmin(admin.ModelAdmin):
     list_filter = (
         ('dibuat_pada', DateRangeFilter), ('diperbarui_pada', DateRangeFilter),
     )
@@ -72,8 +71,8 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('nama',)
 
 
-@admin.register(Facility)
-class FacilityAdmin(admin.ModelAdmin):
+@admin.register(PackageFacility)
+class PackageFacilityAdmin(admin.ModelAdmin):
     list_filter = (
         ('dibuat_pada', DateRangeFilter), ('diperbarui_pada', DateRangeFilter),
     )
@@ -81,8 +80,8 @@ class FacilityAdmin(admin.ModelAdmin):
     search_fields = ('nama',)
 
 
-@admin.register(Hotel)
-class HotelAdmin(admin.ModelAdmin):
+@admin.register(PackageHotel)
+class PackageHotelAdmin(admin.ModelAdmin):
     list_filter = (
         ('dibuat_pada', DateRangeFilter), ('diperbarui_pada', DateRangeFilter),
     )
@@ -93,8 +92,8 @@ class HotelAdmin(admin.ModelAdmin):
     search_fields = ('nama',)
 
 
-@admin.register(Airline)
-class AirlineAdmin(admin.ModelAdmin):
+@admin.register(PackageAirline)
+class PackageAirlineAdmin(admin.ModelAdmin):
     list_filter = (
         ('dibuat_pada', DateRangeFilter), ('diperbarui_pada', DateRangeFilter)
     )

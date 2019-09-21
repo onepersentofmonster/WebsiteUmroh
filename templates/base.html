@@ -34,15 +34,15 @@
     <script type="text/javascript">
         var base_url = 'index.html';
     </script>
-    <script type="text/javascript" src="{% static 'js/front/jquery-3.2.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery-ui.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery-migrate-1.4.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery.lib.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery.run.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery.ui.touch-punch.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery-ui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery-migrate-1.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery.lib.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery.run.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery.ui.touch-punch.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/jquery.gomap-1.3.3.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/scrollReveal/scrollreveal.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery.validate.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery.validate.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'css/extend/src/js/extend.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/global.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/timepicker/jquery-ui-timepicker-addon.js' %}"></script>
@@ -52,7 +52,7 @@
     <script type="text/javascript" src="{% static 'js/front/select/select2.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/bootstrap-select.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/instafeed.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/front/jquery.ui.autocomplete.html.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery.ui.autocomplete.html.js' %}"></script>
     
     {% block js %}
         
@@ -64,7 +64,7 @@
 <body>
 {% block canvas %}
     {% include 'snippets/canvas.html' %}
-{% endblock canvas %}
+{% endblock canvas %}    
     
     {% block root %}
     <section id="main-page">

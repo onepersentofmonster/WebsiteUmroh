@@ -1,6 +1,7 @@
 {% load static %}
                 <div class="carousel">
                     
+                {% if home %}
                     {% for obj in home %}
                     <div class="bg_carousel">
                         <div class="item_carousel">
@@ -19,7 +20,12 @@
                             </div>
                         </a>
                     </div>                        
-                    {% endfor %}                        
+                    {% endfor %}
+                {% else %}
+                    <div class="bg_carousel" style="background-color: rgba(0, 0, 0, 0.6); height: 38vw;">
+                    </div>
+                {% endif %}
+                        
                 </div>
                 <div class="abs-banner">
                     <div class="container">

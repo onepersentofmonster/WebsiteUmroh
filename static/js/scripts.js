@@ -722,39 +722,6 @@ $(".place").select2({
 });
 /* End Tour */
 
-/* Attraction */
-$(".click-domestic").click(function (event) {
-    event.preventDefault();
-    $(this).addClass('active');
-    $('ul.l-flight li a.click-international').removeClass('active');
-
-    var select = $('#ATTR_COUNTRY');
-    select.val(15);
-    select.attr('disabled', true);
-    select.selectpicker('refresh');
-    select.trigger('change');
-});
-
-$(".click-international").click(function (event) {
-    event.preventDefault();
-    $(this).addClass('active');
-    $('ul.l-flight li a.click-domestic').removeClass('active');
-
-    var select = $('#ATTR_COUNTRY');
-    select.val('');
-    select.attr('disabled', false);
-    select.selectpicker('refresh');
-    select.trigger('change');
-});
-
-$(document).on('click', '.i-plane', function () {
-    var icon = $(this);
-    setTimeout(function () {
-        icon.parent().find('.select-attraction .dropdown-toggle').trigger('click');
-    }, 100)
-});
-/* End Attraction */
-
 /* Insurance */
 $('ul.l-flight li a.click-daily').on('click', function () {
     $(this).addClass('active');
@@ -767,80 +734,80 @@ $('ul.l-flight li a.click-annual').on('click', function () {
     daily_annual('Annual');
 });
 
-$("#start-date-insurance").datepicker({
-    // dateFormat: "D d/m",
-    // numberOfMonths: 2,
-    // minDate: 0,
-    defaultDate: '0d',
-    minDate: '0d',
+$('.tanggal-picker').datepicker({
     changeMonth: true,
     changeYear: true,
     yearRange: '-10:+100',
-    dateFormat: "yy-mm-d",
-    minDate: 0,
-    onSelect: function () {
-        dailyanual = $('#daily_annual').val();
-        date = $(this).datepicker('getDate');
+    dateFormat: "d-mm-yy",
+})
 
-        get_date = date.getDate();
-        get_month = date.getMonth();
-        get_year = date.getFullYear();
+// $("#paket-mulai-tanggal").datepicker({
+//     // dateFormat: "D d/m",
+//     // numberOfMonths: 2,
+//     // minDate: 0,
+//     defaultDate: '0d',
+//     minDate: '0d',
+//     changeMonth: true,
+//     changeYear: true,
+//     yearRange: '-10:+100',
+//     dateFormat: "yy-mm-d",
+//     minDate: 0,
+//     onSelect: function () {
+//         dailyanual = $('#daily_annual').val();
+//         date = $(this).datepicker('getDate');
 
-
-        if (dailyanual == 'Annual') {
-            d = $(this).datepicker('getDate');
-            d.setFullYear(d.getFullYear() + 1);
-
-            $('#end-date-insurance').datepicker('setDate', d);
-            $('#end-date-insurance').datepicker('option', 'minDate', d);
-            $('#end-date-insurance').datepicker('option', 'maxDate', d);
-        } else {
-            if (date) {
-                date.setDate(date.getDate() + 1);
-
-                return_date = $(this).datepicker('getDate');
-                return_date.setFullYear(return_date.getFullYear() + 1);
-                return_date.setDate(return_date.getDate() - 1);
-
-                $('#end-date-insurance').datepicker('option', 'minDate', date);
-                $('#end-date-insurance').datepicker('setDate', date);
-                $('#end-date-insurance').datepicker('option', 'maxDate', return_date);
-
-                get_date = date.getDate();
-                get_month = date.getMonth();
-                get_year = date.getFullYear();
-                // $('#iReturn').html('Return Date: ' + get_date + ' ' + m_names[get_month] + ' ' + get_year);
-            }
-        }
+//         get_date = date.getDate();
+//         get_month = date.getMonth();
+//         get_year = date.getFullYear();
 
 
-    }
-});
+//         if (dailyanual == 'Annual') {
+//             d = $(this).datepicker('getDate');
+//             d.setFullYear(d.getFullYear() + 1);
 
-$('#end-date-insurance').datepicker({
-    // dateFormat: "D d/m",
-    // numberOfMonths: 2,
-    defaultDate: "+1d",
-    changeMonth: true,
-    changeYear: true,
-    dateFormat: 'yy-mm-d',
-    minDate: "0d",
-    yearRange: "-10:+100",
-});
+//             $('#paket-akhir-tanggal').datepicker('setDate', d);
+//             $('#paket-akhir-tanggal').datepicker('option', 'minDate', d);
+//             $('#paket-akhir-tanggal').datepicker('option', 'maxDate', d);
+//         } else {
+//             if (date) {
+//                 date.setDate(date.getDate() + 1);
+
+//                 return_date = $(this).datepicker('getDate');
+//                 return_date.setFullYear(return_date.getFullYear() + 1);
+//                 return_date.setDate(return_date.getDate() - 1);
+
+//                 $('#paket-akhir-tanggal').datepicker('option', 'minDate', date);
+//                 $('#paket-akhir-tanggal').datepicker('setDate', date);
+//                 $('#paket-akhir-tanggal').datepicker('option', 'maxDate', return_date);
+
+//                 get_date = date.getDate();
+//                 get_month = date.getMonth();
+//                 get_year = date.getFullYear();
+//                 // $('#iReturn').html('Return Date: ' + get_date + ' ' + m_names[get_month] + ' ' + get_year);
+//             }
+//         }
+
+
+//     }
+// });
+
+// $('#paket-akhir-tanggal').datepicker({
+//     // dateFormat: "D d/m",
+//     // numberOfMonths: 2,
+//     defaultDate: "+1d",
+//     changeMonth: true,
+//     changeYear: true,
+//     dateFormat: 'yy-mm-d',
+//     minDate: "0d",
+//     yearRange: "-10:+100",
+// });
 
 var today = new Date();
-// $("#start-date-insurance").datepicker( "setDate", today );
-// $("#end-date-insurance").datepicker( "setDate", '+1d' );
+// $("#paket-mulai-tanggal").datepicker( "setDate", today );
+// $("#paket-akhir-tanggal").datepicker( "setDate", '+1d' );
 
 $('.box-select').click(function () {
     $('.in-select').toggleClass('open');
-});
-
-$("html").click(function (a) {
-    if (!$(a.target).is(".box-select") && !$(a.target).parents().is(".box-select") && !$(a.target)
-        .parents().is(".select-attraction")) {
-        $('.in-select').removeClass('open');
-    }
 });
 
 $('.plus').on('click', function (event) {
@@ -908,11 +875,11 @@ $('ul.l-icon li a').on('click', function () {
             $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'flight_international.html');
+                $('ul.l-icon li a').attr('href', '');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'flight_international.html');
+                    $('ul.l-icon li a').attr('href', '');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
@@ -922,11 +889,11 @@ $('ul.l-icon li a').on('click', function () {
             $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'tour.html');
+                $('ul.l-icon li a').attr('href', 'paket/');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'tour.html');
+                    $('ul.l-icon li a').attr('href', 'paket/');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
@@ -936,11 +903,11 @@ $('ul.l-icon li a').on('click', function () {
             $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'attractions.html');
+                $('ul.l-icon li a').attr('href', 'travel/');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'attractions.html');
+                    $('ul.l-icon li a').attr('href', 'travel/');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
@@ -950,11 +917,11 @@ $('ul.l-icon li a').on('click', function () {
             $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'insurance.html');
+                $('ul.l-icon li a').attr('href', '');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'insurance.html');
+                    $('ul.l-icon li a').attr('href', '');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
@@ -1130,14 +1097,14 @@ function daily_annual(tipe) {
     $('#insurance_destination').trigger('change');
     $('#insurance_destination').selectpicker('refresh');
 
-    $('#start-date-insurance').attr('disabled', false);
-    $('#end-date-insurance').attr('disabled', false);
-    $('#start-date-insurance').attr('readonly', true);
-    $('#end-date-insurance').attr('readonly', true);
-    $('#start-date-insurance').datepicker('setDate', '');
-    $('#end-date-insurance').datepicker('setDate', '');
-    $('#end-date-insurance').datepicker('option', 'minDate', '0d');
-    $('#end-date-insurance').datepicker('option', 'maxDate', '');
+    $('#paket-mulai-tanggal').attr('disabled', false);
+    $('#paket-akhir-tanggal').attr('disabled', false);
+    $('#paket-mulai-tanggal').attr('readonly', true);
+    $('#paket-akhir-tanggal').attr('readonly', true);
+    $('#paket-mulai-tanggal').datepicker('setDate', '');
+    $('#paket-akhir-tanggal').datepicker('setDate', '');
+    $('#paket-akhir-tanggal').datepicker('option', 'minDate', '0d');
+    $('#paket-akhir-tanggal').datepicker('option', 'maxDate', '');
 }
 
 $('#insurance_destination').change(function () {

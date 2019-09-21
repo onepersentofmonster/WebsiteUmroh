@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <style>
+        .responsive {
+            width: 100%;
+            height: auto
+        }
+    </style>
+{% endblock style %}
+    
+{% block main %}
+<section id="main">
+        <div class="pad-global">
+            <div class="container" style="height: 30vw">
+                <div class="row inline text-center">
+                    <div class="col inline l-9 m-10 s-12 product-animated-bottom">
+                        <div class="t-global bold">Tentang Kami</div>
+                        <div class="bdy-global">
+                        {% if abouts %}
+                            {% for obj in abouts %}
+                                {{ obj.deskripsi|safe }}
+                            {% endfor %}
+                        {% else %}
+                        <p>Belum Ada Deskripsi</p>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pad-about">
+                <div class="img-about product-animated-top">
+                    <!-- <img src="https://www.avia.travel/lib/images/photo/bg-about.jpg" /> -->
+                </div>
+                <div class="container mt-5">
+                    <div class="text-center product-animated-bottom">
+                        <div class="t-global bold">Foto Kegiatan</div>
+                        
+                        
+                    {% if photos_activity %}
+                        <div class="slider-kegiatan">
+                        {% for obj in photos_activity %}
+                            <div class="item">
+                                <a href="{{obj.img.url}}">
+                                    <div style="height: 30vw">
+                                        <img src="{{obj.img.url}}" class="responsive" width="400" height="200"/>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    {% else %}
+                        <div style="color: #666; margin: 5em 0">
+                            <h5>Belum Ada Foto Kegiatan</h5>
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="bg-about" style="margin-bottom: 10rem">
+                    <div class="container">
+                        <div class="t-global bold">Layanan</div>
+                        <div class="tbl">
+                            <div class="cell product-animated-left cell-top">
+                                <div class="title-about">Termasuk</div>
+                                <div class="bdy-tour">
+                                    <div class="bdy-about">
+                                        <ul>
+                                {% if abouts %}
+                                    {% for about in abouts %}
+                                        {% for obj in about.service_set.all %}
+                                            
+                                            {% if obj.status == 'termasuk' %}
+                                            <li>{{obj.nama}}</li>
+                                            {% endif %}
+                                                
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endif %}     
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cell product-animated-right cell-top">
+                                <div class="title-about">Belum termasuk</div>
+                                <div class="bdy-tour">
+                                    <div class="bdy-not-include">
+                                        <ul>
+                                {% if abouts %}
+                                    {% for about in abouts %}
+                                        {% for obj in about.service_set.all %}
+                                            
+                                            {% if obj.status == 'tidaktermasuk' %}
+                                            <li>{{obj.nama}}</li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endif %}     
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="background-about" style="background: url('https://www.avia.travel/lib/images/photo/bg-about2.jpg') no-repeat center;">
+                    <div class="container">
+                        <div class="row inline text-center">
+                            <div class="col inline l-9 m-10 s-12 product-animated-bottom">
+                                <div class="t-global bold">Kekuatan Perusahaan</div>
+                                <div class="bdy-global center">
+                                    <p>Berlokasi strategis di pusat kota, terkenal dan telah memenuhi standard international sebuah perusahaan travel agent, dengan staff yang profesional dan ramah. Membuat anda merasa nyaman dalam menentukan pilihan layanan perusahaan. Kurang lebih selama lima belas tahun Avia Tour berpengalaman dalam memanajemen perjalanan dan memilliki hubungan erat dengan berbagai penerbangan lokal dan internasional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="pad-about">
+                    <div class="container mb30">
+                        <div class="row inline text-center">
+                            <div class="col inline l-9 m-10 s-12 product-animated-bottom">
+                                <div class="t-global bold">Mitra Kami</div>
+                                <div class="bdy-global center lh24">
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="l-anggota product-animated-bottom">
+                            <li>
+                                <div class="i-anggota"><img class="img-anggota" src="{% static 'images/mitra/1.png' %}" /></div>
+                            </li>
+                            <li>
+                                <div class="i-anggota"><img class="img-anggota" src="{% static 'images/mitra/2.png' %}" /></div>
+                            </li>
+                            <li>
+                                <div class="i-anggota"><img class="img-anggota" src="{% static 'images/mitra/3.png' %}" /></div>
+                            </li>
+                            <li>
+                                <div class="i-anggota"><img class="img-anggota" src="{% static 'images/mitra/4.png' %}" /></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <script type="text/javascript">
+        $('header').addClass('sky');
+
+        $('#main-menu ul li.menu-about, ul.resp-menu li.menu-about a').addClass('active');
+
+        $('.slider-kegiatan').slick({
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 3,
+            centerPadding: '0',
+            // centerMode: true,
+            dot: false,
+            arrows: true,
+            focusOnSelect: false,
+            infinite: true,
+            slidesToScroll: 1,
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 4
+                }
+            }, {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            }]
+        });
+        $("[data-fancybox]").fancybox({
+            caption: function(instance, item) {
+                return $(this).attr('title');
+            },
+            infobar: false,
+            buttons: [
+                'close'
+            ],
+            loop: true,
+        });
+    </script>
+{% endblock main %}
+    

@@ -16,7 +16,7 @@
                                 <div class="h34">
                                     <div class="tbl">
                                         <div class="cell">
-                                            <div class="r-desti">{{ package_list.count }} Paket</div>
+                                            <div class="r-desti">{{ packages.count }} Paket</div>
                                         </div>
                                     </div>
                                 </div>
@@ -25,8 +25,8 @@
 
                         <div class="row inline min-10">
 
-                            {% if package_list %}
-                            {% autopaginate package_list 9 as filter_list 10 %}
+                            {% if packages %}
+                            {% autopaginate packages 9 as filter_list 10 %}
                             {% for obj in filter_list  %}
                             <div
                                 class="col inline l-4 m-6 s-12 min-10 product-animated-bottom bevyup-top bevyup_product wrapHotOffer wrapLimited">
