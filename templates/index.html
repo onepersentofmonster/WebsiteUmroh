@@ -6,49 +6,44 @@
 {% endblock style %}
 
 {% block main %}
-    {% include 'snippets/promo_pop.html' %}
-    <section id="main">
-        <div class="pos-rel">
-            <!-- banner slider -->
-            {% include 'components/carousel.html' %}
-            <!-- end banner slider -->
+<section id="main">
+    <div class="pos-rel">
+        <!-- banner slider -->
+        {% include 'components/carousel.html' %}
+        <!-- end banner slider -->
 
-            <!-- pemesanan -->
-            {% include 'components/pemesanan.html' %}
-            <!-- end pemesanan -->
+        <!-- pemesanan -->
+        {% include 'components/pemesanan.html' %}
+        <!-- end pemesanan -->
+    </div>
+
+    <div class="section-1">
+        <div class="container">
+            <!-- service -->
+            {% include 'components/section-1.html' %}
+            <!-- end service -->
         </div>
+    </div>
 
-        <div class="section-1">
-            <div class="container">
-                <!-- promo -->
-                {% include 'components/promo.html' %}
-                <!-- end promo -->
+    <div class="section-3" style="margin-top:5em">
+        {% include 'components/section-3.html' %}
+    </div>
 
-                <!-- service -->
-                {% include 'components/section-1.html' %}
-                <!-- end service -->
-            </div>
-        </div>
+    <div class="section-4">
+        {% include 'components/section-4.html' %}
+    </div>
 
-        <div class="section-3" style="margin-top:5em">
-            {% include 'components/section-3.html' %}
-        </div>
-
-        <div class="section-4">
-            {% include 'components/section-4.html' %}
-        </div>
-
-        <div class="section-5">
-            {% include 'components/section-5.html' %}
-        </div>
-    </section>
+    <div class="section-5">
+        {% include 'components/section-5.html' %}
+    </div>
+</section>
 {% endblock main %}
 
 {% block script %}
 <script src="{% static 'js/vendor/instafeed/jquery.instagramFeed.min.js' %}"></script>
 <script>
-    (function($) {
-        $(document).ready(function(){
+    (function ($) {
+        $(document).ready(function () {
             if ($(window).width() < 480) {
                 $.instagramFeed({
                     'username': 'taufiqht_travel',
@@ -72,13 +67,12 @@
                     'styling': true,
                     'items': 9,
                     'items_per_row': 3,
-                    'margin': 1 
+                    'margin': 1
                 });
             }
-            
+
         });
 
     })(jQuery);
 </script>
 {% endblock script %}
-    

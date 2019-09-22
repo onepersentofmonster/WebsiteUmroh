@@ -6,37 +6,42 @@
 
 {% block style %}
 <style type="text/css">
-    .container-head-filter{
-        margin-bottom: 20px;
-    }
-    .container-head-filter p{
-        font-size: 20px;
-    }
-    .container-head-filter p b{
-        font-weight: bold;
-        font-style: italic;
-        color: #297cbb;
-    }
-    h1.empty-class{
-        text-align: center;
-    }
-    #main .pad-blog .bg-category ul li a.active{
-        left:5px;
-        background-color:#5c9bcb;
-        background-image:-webkit-linear-gradient(-180deg, #5c9bcb,#297cbb 90%);
-        background-image:linear-gradient(-90deg,#5c9bcb,#297cbb 90%);
-        color:white
-    }
-    .button.button--wapasha.btn-center{
-        margin-top: 150px;
-    }
+	.container-head-filter {
+		margin-bottom: 20px;
+	}
+
+	.container-head-filter p {
+		font-size: 20px;
+	}
+
+	.container-head-filter p b {
+		font-weight: bold;
+		font-style: italic;
+		color: #297cbb;
+	}
+
+	h1.empty-class {
+		text-align: center;
+	}
+
+	#main .pad-blog .bg-category ul li a.active {
+		left: 5px;
+		background-color: #5c9bcb;
+		background-image: -webkit-linear-gradient(-180deg, #5c9bcb, #297cbb 90%);
+		background-image: linear-gradient(-90deg, #5c9bcb, #297cbb 90%);
+		color: white
+	}
+
+	.button.button--wapasha.btn-center {
+		margin-top: 150px;
+	}
 </style>
 {% endblock style %}
-    
+
 {% block main %}
 <section id="main">
 	<div class="slider-blog">
-	{% if blog_banner %}
+		{% if blog_banner %}
 		{% for obj in blog_banner %}
 		<div class="banner-blog">
 			<div class="item-blog">
@@ -44,21 +49,24 @@
 					<div class="title-blog"> {{ obj.judul }} </div>
 				</div>
 			</div>
-			<div class="img-blog" style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% endif %}') center no-repeat;">
+			<div class="img-blog"
+				style="background: url('{% if obj.img %} {{ obj.img.url }} {% endif %}') center no-repeat;">
 			</div>
 		</div>
 		{% endfor %}
-	{% else %}
+		{% else %}
 		<div class="banner-blog">
 			<div class="item-blog">
 				<div class="container">
-					<div class="title-blog">Atur Judul dan Banner Blog <a href="/admin/blogs/header/add/">disini</a></div>
+					<div class="title-blog">Atur Judul dan Banner Blog <a href="/admin/blogs/header/add/">disini</a>
+					</div>
 				</div>
 			</div>
-			<div class="img-blog" style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% endif %}') center no-repeat;">
+			<div class="img-blog"
+				style="background: url('{% if obj.img %} {{ obj.img.url }} {% endif %}') center no-repeat;">
 			</div>
 		</div>
-	{% endif %}
+		{% endif %}
 	</div>
 
 
@@ -67,25 +75,20 @@
 			<div class="hidden-sm hidden-md hidden-lg">
 				<div class="input-search product-animated-bottom">
 					<div class="i-search">
-						<img src="../lib/images/icons/search.png" />
+						<img src="{% static 'images/icons/search.png' %}" alt="icon_search" />
 					</div>
 					<form method="GET">
 						{% render_field filter_form.judul class="form-control" placeholder="Cari Artikel" %}
 					</form>
 				</div>
 				<div class="bg-category product-animated-bottom">
-					<div class="t-category">Categories</div>
+					<div class="t-category">Kategori</div>
 					<ul>
-						
 						{% if category %}
-							
-							{% for obj in category %}
-							<li><a href="{{obj}}">{{obj}}</a></li>								
-							{% endfor %}
-							
+						{% for obj in category %}
+						<li><a href="/blog/?kategori={{obj.id}}">{{obj}}</a></li>
+						{% endfor %}
 						{% endif %}
-							
-						<li><a href="#">Category 2</a></li>
 					</ul>
 				</div>
 			</div>
@@ -94,149 +97,110 @@
 				<div class="col inline l-9 m-8 s-12">
 					<div class="left-blog">
 						<div class="row inline min-10">
-							
-							
-						{% if filter.qs %}
+
+
+							{% if filter.qs %}
 							{% autopaginate filter.qs 6 as filter_list %}
-								
-								{% for obj in filter_list %}
-									<div class="col inline l-6 m-6 s-12 min-10  product-animated-bottom">
-										<div class="box-blog">
-											<div class="pos-rel overhidden">
-												<a href="{% url 'detail-blog' obj.slug obj.id %}">
-													<div class="overlay-blog"></div>
-													<div class="i-blog"
-														style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% endif %}') center no-repeat;">
-													</div>
-												</a>
-												<div class="desc-blog">
-													<div class="abs-blog">
-														<ul>
-															<li>
-																<div class="inline-block v-middle">
-																	<img src="{% static 'images/icons/calender.png' %}" />
-																</div>
-																<div class="inline-block v-middle t-desc-blog">
-																	{{ obj.dibuat_pada|date:"D, d M Y" }}
-																</div>
-															</li>
-															<li>
-																<div class="inline-block v-middle">
-																	<img src="{% static 'images/icons/tag.png' %}" style="position: relative; top: 2px;" />
-																</div>
-																<div class="inline-block v-middle t-desc-blog blue">
-																	{{ obj.kategori.nama }}
-																</div>
-															</li>
-														</ul>
-													</div>
-												</div>
+
+							{% for obj in filter_list %}
+							<div class="col inline l-6 m-6 s-12 min-10  product-animated-bottom">
+								<div class="box-blog">
+									<div class="pos-rel overhidden">
+										<a href="{% url 'detail-blog' obj.slug obj.id %}">
+											<div class="overlay-blog"></div>
+											<div class="i-blog"
+												style="background: url('{% if obj.img %} {{ obj.img.url }} {% endif %}') center no-repeat;">
 											</div>
-											<div class="in-blog">
-												<div class="n-blog">
-													<a href="{% url 'detail-blog' obj.slug obj.id %}">
-														<div>{{ obj.judul }}</div>
-													</a>
-												</div>
-												<div class="bdy-blog">
-													{{ obj.konten |truncatechars:277|safe }}
-												</div>
-												<div class="button-read">
-													<a href="{% url 'detail-blog' obj.slug obj.id %}"
-														class="read">Baca Selengkapnya</a>
-												</div>
+										</a>
+										<div class="desc-blog">
+											<div class="abs-blog">
+												<ul>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="{% static 'images/icons/calender.png' %}" />
+														</div>
+														<div class="inline-block v-middle t-desc-blog">
+															{{ obj.dibuat_pada|date:"D, d M Y" }}
+														</div>
+													</li>
+													<li>
+														<div class="inline-block v-middle">
+															<img src="{% static 'images/icons/tag.png' %}"
+																style="position: relative; top: 2px;" />
+														</div>
+														<div class="inline-block v-middle t-desc-blog blue">
+															{{ obj.kategori.nama }}
+														</div>
+													</li>
+												</ul>
 											</div>
 										</div>
 									</div>
-								{% endfor %}
-						{% else %}
-							<h4 class="text-center" style="margin-top: 5rem; color: #666">Belum Ada Artikel</h4>								
-						{% endif %}
-								
+									<div class="in-blog">
+										<div class="n-blog">
+											<a href="{% url 'detail-blog' obj.slug obj.id %}">
+												<div>{{ obj.judul }}</div>
+											</a>
+										</div>
+										<div class="bdy-blog">
+											{{ obj.konten |truncatechars:277|safe }}
+										</div>
+										<div class="button-read">
+											<a href="{% url 'detail-blog' obj.slug obj.id %}" class="read">Baca
+												Selengkapnya</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							{% else %}
+							<h4 class="text-center" style="margin-top: 5rem; color: #666">Belum Ada Artikel</h4>
+							{% endif %}
+
 
 						</div>
 						<ul class="pagination">{% paginate %}</ul>
 					</div>
 				</div>
 				<!-- end -->
-				
+
 				<!-- blog populer -->
 				<div class="col inline l-3 m-4 s-12 hidden-xs">
 					<div class="right-blog">
 						<div class="input-search product-animated-bottom">
 							<div class="i-search">
-								<img src="{% static 'images/icons/search.png' %}" />
+								<img src="{% static 'images/icons/search.png' %}" alt="icon_search" />
 							</div>
 							<form method="GET" action="">
 								{% render_field filter.form.judul class="form-control" placeholder="Cari Artikel" %}
 							</form>
-						</div>
-						
-						<div class="pos-rel product-animated-bottom">
-							<div class="slider-search">
-								<div class="item">
-									<div class="pos-rel">
-										<div class="img-search"
-											style="background: url('../images/promo/QANTAS_AIRWAYS_SEP_2019-01.jpg') center no-repeat;">
-										</div>
-										<div class="abs-search">
-											<a href="#">
-												<button class="button button--wapasha btn-center btn-blog">Explore Now</button>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="item">
-									<div class="pos-rel">
-										<div class="img-search"
-											style="background: url('../images/promo/205e500a-04be-46e3-8854-bc796982604b.jpg') center no-repeat;">
-										</div>
-										<div class="abs-search">
-											<a href="#">
-												<button class="button button--wapasha btn-center btn-blog">Explore
-													Now</button>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<style>
-								.slide-search i .fa-chevron-left {
-									box-shadow(-2px 4px 25px -5px #8f8f8f);
-								}
-							</style>
-							<div class="slide-search">
-								<i class="fa fa-chevron-left" aria-hidden="true"></i>
-								<i class="fa fa-chevron-right" aria-hidden="true"></i>
-							</div>
 						</div>
 
 						<div class="bg-category product-animated-bottom">
 							<br />
 							<div class="t-category bold">Kategori</div>
 							<form action="GET">
-							<ul>
-							{% if category %}
-								{% for obj in category %}
-								<li><a href="blog/?kategori={{obj.id}}">{{ obj.nama }}</a></li>
-								{% endfor %}
-							{% endif %}
-							</ul>
+								<ul>
+									{% if category %}
+									{% for obj in category %}
+									<li><a href="/blog/?kategori={{obj.id}}">{{ obj.nama }}</a></li>
+									{% endfor %}
+									{% endif %}
+								</ul>
 							</form>
 						</div>
-						
+
 						<div class="bg-article">
 							<div class="t-article bold">Populer Bulan Ini</div>
-						
-					{% for obj in blog_list %}
-						
-						{% if obj.dibuat_pada.month == today.month %}
+							{% if blogs %}
+							{% for obj in blogs %}
+							{% if obj.dibuat_pada.month == today.month %}
 							<div class="in-article">
 								<a href="#">
 									<div class="tbl">
 										<div class="cell w80 product-animated-left">
 											<div class="i-article"
-												style="background: url('{% if obj.banner %} {{ obj.banner.url }} {% else %} {% static 'images/news/logo.png' %} {% endif %}') center no-repeat;">
+												style="background: url('{% if obj.img %} {{ obj.img.url }} {% else %} {% static 'images/news/logo.png' %} {% endif %}') center no-repeat;">
 											</div>
 										</div>
 										<div class="cell product-animated-right">
@@ -245,18 +209,19 @@
 											</div>
 											<div>
 												<div class="inline-block v-middle">
-													<img src="../lib/images/icons/calender.png"
+													<img src="{% static 'images/icons/calender.png' %}"
 														style="height: 16px;" />
 												</div>
-												<div class="inline-block v-middle d-article">{{ obj.dibuat_pada|date:"D, d M y" }}</div>
+												<div class="inline-block v-middle d-article">
+													{{ obj.dibuat_pada|date:"D, d M y" }}</div>
 											</div>
 										</div>
 									</div>
 								</a>
 							</div>
-						{% endif %}
-							
-						{% endfor %}
+							{% endif %}
+							{% endfor %}
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -301,5 +266,3 @@
 	});
 </script>
 {% endblock script %}
-	
-    

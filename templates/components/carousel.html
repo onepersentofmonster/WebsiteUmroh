@@ -1,51 +1,35 @@
 {% load static %}
-                <div class="carousel">
-                    
-                {% if home %}
-                    {% for obj in home %}
-                    <div class="bg_carousel">
-                        <div class="item_carousel">
-                            <div class="container">
-                                <div class="t-banner"></div>
-                                <div class="n-banner"></div>
-                                <div class="bdr-banner"></div>
-                            </div>
-                        </div>
-                        <!-- img -->
-                        <a href="{{obj}}">
-                            <div 
-                                class="img-banner"
-                                style="background: url('{{ obj }}') center no-repeat;"
-                            >
-                            </div>
-                        </a>
-                    </div>                        
-                    {% endfor %}
-                {% else %}
-                    <div class="bg_carousel" style="background-color: rgba(0, 0, 0, 0.6); height: 38vw;">
-                    </div>
-                {% endif %}
-                        
-                </div>
-                <div class="abs-banner">
-                    <div class="container">
-                        <div class="nav-banner">
-                            {% for obj in home %}
-                            <div class="l-banner"></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <code id="slick-slide-size" style="display: none">{{ home.count }}</code>
-                
-                <script>
-                    $(function() {
-                        'use strict'
+<div class="carousel">
 
-                        var s = int($('#slick-slide-size').text());
-                        var width = 100/s;
-                        $('.nav-banner .slick-slide').css(
-                            {'width': `${width}%` }
-                        );
-                    })
-                </script>
+    {% if home %}
+    {% for obj in home %}
+    <div class="bg_carousel">
+        <div class="item_carousel">
+            <div class="container">
+                <div class="t-banner"></div>
+                <div class="n-banner"></div>
+                <div class="bdr-banner"></div>
+            </div>
+        </div>
+        <!-- img -->
+        <!-- <a href="{{obj}}"> -->
+        <div class="img-banner" style="background: url('{{ obj }}') center no-repeat;">
+        </div>
+        <!-- </a> -->
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="bg_carousel" style="background-color: rgba(0, 0, 0, 0.6); height: 38vw;">
+    </div>
+    {% endif %}
+
+</div>
+<div class="abs-banner">
+    <div class="container">
+        <div class="nav-banner">
+            {% for obj in home %}
+            <div class="l-banner"></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,130 +1,87 @@
 {% load static %}
-    <div id="offcanvas-menu">
-        <div class="clearfix mb20">
-              <div class="close-resp">
-                  <div class="close-menu">
-                    <i class="fa fa-times"></i>
-                  </div>
-              </div>
-          </div>
-          <div class="input-search">
-              <div class="i-search">
-                <img src="{% static 'images/icons/search.png' %}"/></div>
-              <input type="text" class="form-control" placeholder="Search"/>
-          </div>
-          <div class="pos-rel">
-              <ul class="resp-menu">
-                <li class="menu-nav1">
-                  <div class="click-menu">
-                    <a href="#">Nav1</a>
-                    <i class=" fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  <div class="box-child-menu">
-                    <div class="back-menu">
-                      <i class="click-menu fa fa-chevron-left" aria-hidden="true"></i> Kembali
-                    </div>
-                    <ul class="child-menu" id="nav_header">
-                      <li>
-                        <a href="#">Linkl</a>
-                      </li>
-                      <li>
-                        <a href="#">Link2</a>
-                      </li>
-                      <li>
-                        <a href="#">Link3</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-nav2">
-                  <div class="click-menu">
-                    <a>Nav2</a>
-                    <i class=" fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  <div class="box-child-menu">
-                    <div class="back-menu">
-                      <i class="click-menu fa fa-chevron-left" aria-hidden="true"></i> Kembali
-                    </div>
-                    <ul class="child-menu">
-                      <li>
-                        <a href="#">Link4</a>
-                      </li>
-                      <li>
-                        <a href="#">Link5</a>
-                      </li>
-                      <li>
-                        <a href="#">Link6</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-nav3">
-                  <div class="click-menu">
-                    <a>Nav3</a>
-                    <i class=" fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  <div class="box-child-menu">
-                    <div class="back-menu">
-                      <i class="click-menu fa fa-chevron-left" aria-hidden="true"></i> Kembali
-                    </div>
-                    <ul class="child-menu">
-                      <li>
-                        <a href="#">Link7</a>
-                      </li>
-                      <li>
-                        <a href="#">Link8</a>
-                      </li>
-                      <li>
-                        <a href="#">Link9</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="menu-nav4">
-                  <a href="#">Namv4</a>
-                </li>
-                <li class="menu-nav4">
-                  <div class="click-menu">
-                    <a>Nav5</a>
-                    <i class=" fa fa-chevron-right" aria-hidden="true"></i>
-                  </div>
-                  <div class="box-child-menu">
-                    <div class="back-menu">
-                      <i class="click-menu fa fa-chevron-left" aria-hidden="true"></i> Kembali
-                    </div>
-                    <ul class="child-menu">
-                      <li>
-                        <a href="#">Link10</a>
-                      </li>
-                      <li>
-                        <a href="#">Link11</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a class="contact">Hubungi Kami</a>
-                </li>
-              </ul>
-              <ul class="l-contact">
-                <li>
-                  <a href="#">
-                    <i class="fa fa-phone" aria-hidden="true"></i> 
-                    62-21 ...
-                  </a><br />
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-phone" aria-hidden="true"></i> 
-                    62-21 ...
-                  </a><br />
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    admin@admin.com
-                  </a>
-                </li>
-              </ul>
-          </div>
+<div id="offcanvas-menu">
+  <div class="clearfix mb20">
+    <div class="close-resp">
+      <div class="close-menu">
+        <i class="fa fa-times"></i>
+      </div>
     </div>
+  </div>
+  <div class="input-search">
+    <div class="i-search">
+      <img src="{% static 'images/icons/search.png' %}" /></div>
+    <input type="text" class="form-control" placeholder="Search" />
+  </div>
+  <div class="pos-rel">
+    <ul class="resp-menu">
+      <li class="menu-nav1">
+        <div class="click-menu">
+          <a href="{% url 'index-package' %}">Umroh</a>
+          <i class=" fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="box-child-menu">
+          <div class="back-menu">
+            <i class="click-menu fa fa-chevron-left" aria-hidden="true"></i> Kembali
+          </div>
+          <ul class="child-menu" id="nav_header">
+            {% if category_package %}
+            {% for obj in category_package %}
+            <li>
+              <a href="/paket/?kategori={{obj.id}}">{{ obj.nama }}</a>
+            </li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </li>
+      <li class="menu-nav2">
+        <div class="click-menu">
+          <a href="{% url 'index-travel' %}">Travel</a>
+          <i class=" fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="box-child-menu">
+          <div class="back-menu">
+            <i class="click-menu fa fa-chevron-left" aria-hidden="true"></i> Kembali
+          </div>
+          <ul class="child-menu">
+            {% if category_travel %}
+            {% for obj in category_travel %}
+            <li>
+              <a href="/travel/?kategori={{obj.id}}">{{ obj.nama }}</a>
+            </li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </li>
+      <li class="menu-nav3">
+        <div class="click-menu">
+          <a href="{% url 'index-about' %}">Tentang Kami</a>
+        </div>
+      </li>
+      <li>
+        <a class="contact">Temukan Kami</a>
+      </li>
+    </ul>
+    <ul class="l-contact">
+      <li>
+        <a href="https://api.whatsapp.com/send?phone=6285863087879&text=Hi, taufiqht_travel">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          6285863087879
+        </a><br />
+      </li>
+      <li>
+        <a href="https://api.whatsapp.com/send?phone=6285797511206&text=Hi, taufiqht_travel">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          6285797511206
+        </a><br />
+      </li>
+      <li>
+        <a href="mailto:taufiqht29@gmail.com">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          taufiqht29@gmail.com
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

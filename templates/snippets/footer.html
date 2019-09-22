@@ -69,9 +69,9 @@
                         <div class="f2">
                             <div class="t-footer">Informasi</div>
                             <ul class="l-footer">
-                                <li><a href="tentang-kami/">Tentang Kami</a></li>
+                                <li><a href="{% url 'index-about' %}">Tentang Kami</a></li>
                                 <!-- <li><a href="#">Promo</a></li> -->
-                                <li><a href="blog/">Blog</a></li>
+                                <li><a href="{% url 'index-blog' %}">Blog</a></li>
                                 <!-- <li><a href="#">Brosur</a></li> -->
                                 <!-- <li><a href="#">Syarat & Ketentuan</a></li> -->
                                 <!-- <li><a href="#">FAQ</a></li> -->
@@ -173,7 +173,7 @@
                             <div class="inline-block v-middle block767">
                                 <div id="logo">
                                     <a href="/">
-                                        <img src="{% static 'images/news/logo.png' %}" alt="logo" />
+                                        <img src="{% static 'images/news/logo-2.png' %}" alt="logo" />
                                     </a>
                                 </div>
                             </div>
@@ -184,6 +184,12 @@
                                     </li>
                                     <li>
                                         <a href="{% url 'index-travel' %}">Travel</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'index-blog' %}">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'index-about' %}">Tentang Kami</a>
                                     </li>
                                 </ul>
                             </div>

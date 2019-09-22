@@ -16,7 +16,7 @@
             <div class="col inline l-2 m-12 s-12 min-5">
                 <div id="logo">
                     <a href="/">
-                        <img src="{% static 'images/news/logo.png' %}" alt="logo" />
+                        <img src="{% static 'images/news/logo-2.png' %}" alt="logo" />
                     </a>
                 </div>
             </div>
@@ -30,26 +30,36 @@
                                         <div class="dropdown">
                                             <a href="{% url 'index-package' %}">Umroh</a>
                                             <div class="dropdown-content">
-                                            {% if category_package %}
+                                                {% if category_package %}
                                                 {% for obj in category_package %}
                                                 <a href="/paket/?kategori={{obj.id}}">{{ obj.nama }}</a>
                                                 {% endfor %}
-                                            {% endif %}
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </li>
                                     <li class="menu-other ">
                                         <div class="dropdown">
                                             <a href="{% url 'index-travel' %}">Travel</a>
-                                            
-                                            
+
+
                                             <div class="dropdown-content">
-                                            {% if category_travel %}
+                                                {% if category_travel %}
                                                 {% for obj in category_travel %}
-                                                <a href="/travel/?kategori={{obj.id}}">{{ obj.nama }}</a>                                                    
+                                                <a href="/travel/?kategori={{obj.id}}">{{ obj.nama }}</a>
                                                 {% endfor %}
-                                            {% endif %}
+                                                {% endif %}
                                             </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-other ">
+                                        <div class="dropdown">
+                                            <a href="{% url 'index-blog' %}">Blog</a>
+                                        </div>
+                                    </li>
+                                    <li class="menu-other ">
+                                        <div class="dropdown">
+                                            <a href="{% url 'index-about' %}">Tentang Kami</a>
                                         </div>
                                     </li>
                                 </ul>

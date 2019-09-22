@@ -1,124 +1,97 @@
 {% load static %}
 <div class="pad50 box-why">
-    <div class="title bold mb50">UMROH</div>
+    {% if descriptions %}
+    <div class="title bold mb50">{{descriptions.header}}</div>
     <div class="tbl ">
-        <!-- judul1 -->
+        {% if item1 %}
         <div class="cell product-animated-left">
             <div class="tbl r-why">
                 <div class="cell cell-top xs20 cell-why">
                     <div class="i-why hidden-sm hidden-md hidden-lg">
-                        <img src="{% static 'images/section1/02.jpg' %}" alt="image1_4x5" />
+                        <img src="{% if item1.img %} {{ item1.img.url}} {% else %} {% static 'images/section1/02.jpg' %} {% endif %}" alt="image1_4x5" />
                     </div>
-                    <div class="t-why">Pengertian</div>
+                    <div class="t-why">{{item1.judul}}</div>
                     <div>
-                        <p align="left">
-                            &emsp;Mengunjungi Ka'bah (biatullah) untuk melaksanakan serangkaian kegiatan ibadah (thawaf,
-                            sa'i,
-                            tahallul) dengan syarat dan ketentuan yang telah ditetapkan dalam al-Qur'an maupun sunnah
-                            Rasulillah SAW
-                        </p>
+                        {{ item1.deskripsi |safe }}
                     </div>
                 </div>
                 <div class="cell cell-top left-why hidden-xs">
                     <div class="i-why">
-                        <img src="{% static 'images/section1/02.jpg' %}" alt="image1_4x5" />
+                        <img src="{% if item1.img %} {{ item1.img.url}} {% else %} {% static 'images/section1/02.jpg' %} {% endif %}" alt="image1_4x5" />
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- end judul1 -->
         <div class="cell w60">
             <div class="bdr-why"></div>
         </div>
         <!-- judul2 -->
+        {% if item2 %}
         <div class="cell xs20 product-animated-right">
             <div class="tbl">
                 <div class="cell cell-top right-why">
                     <div class="i-why">
-                        <img src="{% static 'images/section1/02.jpg' %}" alt="image2_4x5" />
+                        <img src="{% if item2.img %} {{ item2.img.url}} {% else %} {% static 'images/section1/02.jpg' %} {% endif %}" alt="image2_4x5" />
                     </div>
                 </div>
                 <div class="cell cell-top">
-                    <div class="t-why">Hukum</div>
+                    <div class="t-why">{{item2.judul}}</div>
                     <div>
-                        <p>
-                            1. &emsp;Umroh yang pertama kali dilakukkan seorang muslim
-                        </p><br />
-                        <p>
-                            2. &emsp;Umroh yang dilakukan Karena nazar seseorang
-                        </p><br />
-                        <p>
-                            3. &emsp;Umroh yang dilakukan dalam rangkaian ibadah haji
-                        </p>
+                        {{ item2.deskripsi |safe }}
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- end judul2 -->
     </div>
     <div class="tbl marginwhy">
         <!-- judul3 -->
+        {% if item3 %}
         <div class="cell product-animated-left">
             <div class="tbl r-why">
                 <div class="cell cell-top xs20 cell-why">
                     <div class="i-why hidden-sm hidden-md hidden-lg">
-                        <img src="{% static 'images/section1/02.jpg' %}" alt="image3_4x5" />
+                        <img src="{% if item3.img %} {{ item3.img.url}} {% else %} {% static 'images/section1/02.jpg' %} {% endif %}" alt="image3_4x5" />
                     </div>
-                    <div class="t-why">Rukun</div>
-                    <div align="left">
-                        <p>
-                            1. &emsp;<strong class="text-strong">Berihram</strong> serta niat umrah dari miqat yang
-                            ditentukan
-                        </p><br />
-                        <p>
-                            2. &emsp;<strong class="text-strong">Tawaf</strong> - mengelilingi ka’bah sebanyak 7x
-                            putaran
-                        </p><br />
-                        <p>
-                            3. &emsp;<strong class="text-strong">Sai</strong> - berlari kecil dari bukit shafa dan
-                            berakhir di bukit marwah sebanyak 7x balikan
-                        </p><br />
-                        <p>
-                            4. &emsp;<strong class="text-strong">Tahallul</strong> - mencukur sebagian rambut sebagai
-                            tanda berakhir ibadah umrah
-                        </p>
+                    <div class="t-why">{{item3.judul}}</div>
+                    <div>
+                        {{ item3.deskripsi |safe }}
                     </div>
                 </div>
                 <div class="cell cell-top left-why hidden-xs">
                     <div class="i-why">
-                        <img src="{% static 'images/section1/02.jpg' %}" alt="image3_4x5" />
+                        <img src="{% if item3.img %} {{ item3.img.url}} {% else %} {% static 'images/section1/02.jpg' %} {% endif %}" alt="image3_4x5" />
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- end judul3 -->
         <div class="cell w60">
             <div class="bdr-why"></div>
         </div>
         <!-- judul4 -->
+        {% if item4 %}
         <div class="cell xs20 product-animated-right">
             <div class="tbl">
                 <div class="cell cell-top right-why">
                     <div class="i-why">
-                        <img src="{% static 'images/section1/02.jpg' %}" alt="image4_4x5" />
+                        <img src="{% if item4.img %} {{ item4.img.url}} {% else %} {% static 'images/section1/02.jpg' %} {% endif %}" alt="image4_4x5" />
                     </div>
                 </div>
                 <div class="cell cell-top">
-                    <div class="t-why">Wajib</div>
+                    <div class="t-why">{{item4.judul}}</div>
                     <div>
-                        <p>
-                            &bull; &emsp;Berihram dari miqat
-                        </p>
-                        <p>
-                            &bull; &emsp;Meninggalkan larangan ihram
-                        </p>
-                        <p>
-                            &bull; &emsp;Tawaf wada
-                        </p>
+                        {{ item4.deskripsi |safe }}
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- end judul4 -->
     </div>
+    {% endif %}
 </div>

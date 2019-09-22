@@ -24,7 +24,7 @@ code,
 del,
 dfn,
 em,
-img,
+/* img, */
 ins,
 kbd,
 q,
@@ -23583,4 +23583,9 @@ textarea {
         padding-bottom: 15px !important;
         text-align: center
     }
+}
+
+.responsive {
+    max-width: 50%;
+    height: auto
 }

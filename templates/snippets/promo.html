@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<link rel="shortcut icon" type="image/x-icon" href="lib/images/favicon/favicon.png" />
+	<link rel="apple-touch-icon" href="lib/images/favicon/favicon_60x60.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="lib/images/favicon/favicon_76x76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="lib/images/favicon/favicon_120x120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="lib/images/favicon/favicon_152x152.png">
+	<link rel="stylesheet" type="text/css" href="lib/css/front/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="lib/extend/css/extend.css" />
+	<link rel="stylesheet" type="text/css" href="lib/css/front/front.css" />
+	<link rel="stylesheet" type="text/css" href="lib/css/front/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="lib/js/front/slick/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="lib/js/front/slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="lib/css/front/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/js/front/select/select2.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/css/front/bootstrap-select.min.css" />
+	<link rel="stylesheet" type="text/css" href="lib/js/front/timepicker/jquery-ui-timepicker-addon.css" />
+	<link rel="stylesheet" type="text/css" href="css/gol_ibe/flights.css" />
+	<link rel="stylesheet" type="text/css" href="lib/extend/css/vendor-extend.css" />
+	<script type="text/javascript" src="lib/js/front/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery-ui.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery-migrate-1.4.1.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery.lib.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery.run.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery.ui.touch-punch.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery.gomap-1.3.3.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/scrollReveal/scrollreveal.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="lib/extend/src/js/extend.js"></script>
+	<script type="text/javascript" src="lib/js/front/global.js"></script>
+	<script type="text/javascript" src="lib/js/front/timepicker/jquery-ui-timepicker-addon.js"></script>
+	<script type="text/javascript" src="lib/js/front/slick/slick.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/sticky-kit.js"></script>
+	<script type="text/javascript" src="lib/js/front/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/select/select2.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/instafeed.min.js"></script>
+	<script type="text/javascript" src="lib/js/front/jquery.ui.autocomplete.html.js"></script>
+
+</head>
+
+<body>
+	<div class="modal fade bs-example-modal-lg in" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myModal" style="display: block;">
+		<div class="custom-modal">
+			<div class="modal-content">
+				<div class="xtclose" style="color:#fff;position:absolute;top:5px;right:5px;width:40px;height:40px;padding:10px;background-color:rgba(255,255,255,.0);font-size:20px;line-height:20px;z-index:4000;background-image:url('https://www.avia.travel/lib/images/icons/close.png');background-repeat:no-repeat;background-position:6px 6px;cursor:pointer;"></div>
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/87bfba2d-574e-43f7-992c-98c6b2ec49af.JPG" alt="hero product tour" style="">
+							</a>
+						</div>
+						<div class="item">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/a0da69da-a8b2-4ba6-b6b2-9f0588af61f9.JPG" alt="program discount permata bank" style="">
+							</a>
+						</div>
+						<div class="item">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/emirates_airlines_ticket_BISNIS_sep_2019-01-01.jpg" alt="emirates business class" style="">
+							</a>
+						</div>
+						<div class="item active">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/QANTAS_AIRWAYS_SEP_2019-01.jpg" alt="qantas airways" style="">
+							</a>
+						</div>
+						<div class="item ">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/ANA_AGUSTUS-01.jpg" alt="all nippon airways economy" style="">
+							</a>
+						</div>
+						<div class="item ">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/sosmed_quantum_of_the_seas_rev-01-02-01.jpg" alt="quantum of the seas" style="">
+							</a>
+						</div>
+						<div class="item ">
+							<a>
+								<img class="img-responsive" src="https://www.avia.travel/images/promo/vietnam_air-01.jpg" alt="vietnam airlines" style="">
+							</a>
+						</div>
+					</div>
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<i class="fa fa-2x fa-chevron-left custom_carousel_navigation navigation-left" aria-hidden="true"></i>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<i class="fa fa-2x fa-chevron-right custom_carousel_navigation navigation-right" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<style>
+.modal-center{
+	position:fixed;
+	top:10%;
+	left:10%;
+	overflow: hidden;
+}
+</style>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$('.lazy').slick({
+		  lazyLoad: 'progressive',
+		  slidesToScroll: 1,
+		  infinite: true,
+		});
+
+		$('.widget-asia').trigger('click');
+
+		load_options('', 'COUNTRY', '15');
+
+
+		// hide arrow & btn close on change
+		$('.lazy').on('beforeChange', function(event, slick, direction){
+			$('.lazy .slick-arrow, .lazy .slick-arrow, #home-pop .box-close').css('opacity', '0');
+		});
+
+		// set arrow left, right, and btn close
+		$('.lazy').on('afterChange', function(event, slick, direction){
+			var imgContainerLeft = $(".lazy .slick-current .image").offset().left,
+				imgLeft = $(".lazy .slick-current .image img").offset().left,
+				distance = imgLeft - imgContainerLeft - 50,
+				closeRight = distance;;
+
+			if ($(window).width() <= 769) {
+				closeRight += 50;
+			}
+
+			$('.lazy .slick-prev').css({'left': distance, 'opacity': '1'});
+			$('.lazy .slick-next, #home-pop .box-close').css({'right': distance, 'opacity': '1'});
+			$('#home-pop .box-close').css({'right': closeRight, 'opacity': '1'});
+
+			if ($(window).width() <= 769) {
+				var imgCurrent = $(".lazy .slick-current .image img").height(),
+					wHeight = $(window).height(),
+					closeTop = ((wHeight - imgCurrent) / 2) - 70;
+				$('#home-pop .box-close').css('top', closeTop);
+			}
+		});
+				// show popup if content has been loaded
+		var interval = setInterval(function() {
+		    if(document.readyState === 'complete') {
+		        clearInterval(interval);
+		        // fix bug slider not centered
+				$('#home-pop .slick-next').trigger('click');
+				setTimeout(function(){ 
+					$('#home-pop .slick-prev').trigger('click');
+
+					$('#home-pop').fadeIn("slow", function() {
+						
+						// set arrow left, right, and btn close
+						var intervalDistance = setInterval(function(){
+							var imgContainerLeft = $(".lazy .slick-current .image").offset().left,
+								imgLeft = $(".lazy .slick-current .image img").offset().left,
+								distance = imgLeft - imgContainerLeft - 50,
+								closeRight = distance;
+
+							if ($(window).width() <= 769) {
+								closeRight += 50;
+							}
+
+							$('.lazy .slick-prev').css({'left': distance, 'opacity': '1'});
+							$('.lazy .slick-next, #home-pop .box-close').css({'right': distance, 'opacity': '1'});
+							$('#home-pop .box-close').css({'right': closeRight, 'opacity': '1'});
+								clearInterval(intervalDistance);
+
+							if ($(window).width() <= 769) {
+								var imgCurrent = $(".lazy .slick-current .image img").height(),
+									wHeight = $(window).height(),
+									closeTop = ((wHeight - imgCurrent) / 2) - 70;
+								$('#home-pop .box-close').css('top', closeTop);
+							}
+						}, 100);
+					});
+
+					// clearInterval(intervalBack);
+				}, 1000);
+		    }    
+		}, 100);
+			});
+
+	$(document).on('click', function(e) {
+		var container = $('#home-pop .box-pop .slick-active img'),
+			arrow = $('#home-pop .box-pop .slick-arrow');
+		if ((!container.is(e.target) && container.has(e.target).length === 0 && !arrow.is(e.target)) || !$(e.target).parents('#home-pop .box-pop .slick-active img')) {
+			$('#home-pop').fadeOut("slow");
+			$('body').removeClass('no-scroll');
+	    }
+	});
+</script>
+<style type="text/css">
+.nav-banner .slick-slide{
+width: 9.0909090909091%;
+}
+</style>
+<script type="text/javascript">
+/* counter banner data */
+
+function banner_counter()
+{
+	$('.banner_counter').bind('click',function(e){
+        $.post(base_url+'banner_counter/counter',JSON.parse($(this).attr('count-data')));
+    })
+}
+banner_counter()
+
+
+$('.slider-banner').slick({
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	arrows: false,
+	autoplay: true,
+	fade: true,
+	dots: true,
+	speed: 1000,
+	cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+	asNavFor: '.nav-banner'
+});
+var slide_to_show = 11;
+
+$('.nav-banner').slick({
+	slidesToShow: slide_to_show,
+	slidesToScroll: 1,
+	asNavFor: '.slider-banner',
+	dots: false,
+	arrows: false,
+	centerMode: false,
+	infinite: true,
+	focusOnSelect: true,
+	variableWidth: true,
+	responsive: [
+	    {
+	      breakpoint: 1024,
+	      settings: {
+	        slidesToShow: slide_to_show
+	      }
+	    },
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        slidesToShow: slide_to_show
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: slide_to_show
+	      }
+	    }
+    ]
+});
+
+$('.slider-promo').slick({
+	slidesToShow: 4,
+	slidesToScroll: 1,
+	dots: false,
+	centerMode: false,
+	arrows: false,
+	infinite: true,
+	responsive: [
+	    {
+	      breakpoint: 1024,
+	      settings: {
+	        slidesToShow: 3
+	      }
+	    },
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {
+	        slidesToShow: 1
+	      }
+	    }
+    ]
+});
+$('.slide .fa-chevron-right').on('click', function(){
+	$('.slider-promo').slick('slickNext');
+});
+
+$('.slide .fa-chevron-left').on('click', function(){
+	$('.slider-promo').slick('slickPrev');
+});
+
+$('.nav-exp').slick({
+	slidesToShow: 5,
+	slidesToScroll: 1,
+	dots: false,
+	centerMode: true,
+	focusOnSelect: true,
+	arrows: false,
+	responsive: [
+	    {
+	      breakpoint: 1024,
+	      settings: {
+	        slidesToShow: 5
+	      }
+	    },
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        slidesToShow: 4
+	      }
+	    },
+	    {
+	      breakpoint: 480,
+	      settings: {	      	
+	        slidesToShow: 1
+	      }
+	    }
+    ]
+});
+
+$('.xtclose').bind('click',function(){
+	$('#myModal').modal('hide');
+})
+
+function check_sticky() {
+	if($(window).width() >= 768) {
+		$("[data-sticky_column]").stick_in_parent({
+     		parent: "[data-sticky_parent]"
+	   	});
+	} else {
+		$("[data-sticky_column]").trigger("sticky_kit:detach");
+	}
+}
+
+var first_content_show;
+var fixedRight = ($(window).width() - $('.full-tour').width())/2;
+$(document).ready(function() 
+{
+	first_content_show = $('[sticky-id=0]').html();
+	check_sticky();
+	$(window).on('resize', function(){
+		check_sticky();
+	});
+
+	$('.abs-arrow.right-arrow').css('right', '15px');
+});
+
+$('.arrow-exp .slider-right').on('click', function(){
+	$('.nav-exp').slick('slickNext');
+});
+
+$('.arrow-exp .slider-left').on('click', function(){
+	$('.nav-exp').slick('slickPrev');
+});
+
+$('.nav-exp').on('afterChange', function(event, slick, currentSlide){
+	var slide = $(slick.$slides[currentSlide]);
+	var data_id = slide.attr('data-id');
+
+	$('.content-show.active').fadeOut();
+	if (data_id == 1) {
+		$('.content-show.active').html(first_content_show);
+	}
+	else {
+		$('.content-show.active').html($('[sticky-id='+data_id+']').html());
+	}
+	$('.content-show.active').fadeIn();
+	$(document.body).trigger("sticky_kit:recalc");
+	check_sticky();
+
+	$("[data-sticky_column]").stick_in_parent().on("sticky_kit:bottom", function(e) {
+		$('.abs-arrow').removeClass('fixed');
+		$('.abs-arrow').addClass('bottom-abs');
+		$('.abs-arrow.right-arrow').css('right', '20px');
+	}).on("sticky_kit:unbottom", function(e) {
+		$('.abs-arrow').addClass('fixed');
+		$('.abs-arrow').removeClass('bottom-abs');
+		$('.abs-arrow.right-arrow').css('right', fixedRight);
+	}).on("sticky_kit:stick", function(e) {
+		$('.abs-arrow').addClass('fixed');
+		$('.abs-arrow.right-arrow').css('right', fixedRight);
+	}).on("sticky_kit:unstick", function(e) {
+		$('.abs-arrow').removeClass('fixed');
+		$('.abs-arrow.right-arrow').css('right', '20px');
+	});
+});
+
+$("[data-sticky_column]").stick_in_parent().on("sticky_kit:bottom", function(e) {
+		$('.abs-arrow').removeClass('fixed');
+		$('.abs-arrow').addClass('bottom-abs');
+		$('.abs-arrow.right-arrow').css('right', '15px');
+	}).on("sticky_kit:unbottom", function(e) {
+		$('.abs-arrow').addClass('fixed');
+		$('.abs-arrow').removeClass('bottom-abs');
+		$('.abs-arrow.right-arrow').css('right', fixedRight);
+	}).on("sticky_kit:stick", function(e) {
+		$('.abs-arrow').addClass('fixed');
+		$('.abs-arrow.right-arrow').css('right', fixedRight);
+	}).on("sticky_kit:unstick", function(e) {
+		$('.abs-arrow').removeClass('fixed');
+		$('.abs-arrow.right-arrow').css('right', '15px');
+	});
+
+var heightcontent = $(".h-content").height();
+$('.abs-arrow').height(heightcontent);
+
+$('.love-exp').each(function() {
+	$(this).click(function(event) {
+		event.preventDefault();
+		if(!$(this).parents('.for-exp').find('.love-exp').hasClass('active')) {
+			$(this).find('.fa-heart-o').addClass('fa-heart').removeClass('fa-heart-o');
+			$(this).parents('.for-exp').find('.love-exp').addClass('active');
+		}else {
+			$(this).parents('.for-exp').find('.love-exp').removeClass('active');
+			$(this).find('.fa-heart').addClass('fa-heart-o').removeClass('fa-heart');
+		}
+	});
+});
+
+$('.slider-home2').slick({
+	dots: false,
+	speed: 1000,
+	arrows: false,
+	autoplay: false,
+	autoplaySpeed: 3000,
+	asNavFor: '.slider-home3',
+});
+$('.slider-home3').slick({
+	dots: false,
+	arrows: false,
+	speed: 1000,
+	autoplay: false,
+	autoplaySpeed: 3000,
+	asNavFor: '.slider-home2',
+});
+
+$('.arrow-blog .slider-right').on('click', function(){
+		$('.slider-home2').slick('slickNext');
+	});
+
+	$('.arrow-blog .slider-left').on('click', function(){
+		$('.slider-home2').slick('slickPrev');
+	});
+</script>
+</body>
+
+</html>

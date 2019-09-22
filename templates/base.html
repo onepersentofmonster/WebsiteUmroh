@@ -6,14 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-    
+
+
     <title>
         {% block blockname %}TAUFIQ HT TOURS & TRAVEL{% endblock blockname %}
     </title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/news/logo.png' %}" />
+
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/front/fonts.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/extend/extend.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/front/front.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/front/jquery-ui.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'js/front/slick/slick-theme.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'js/front/slick/slick.css' %}" />
@@ -22,13 +25,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/front/bootstrap-select.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'js/front/timepicker/jquery-ui-timepicker-addon.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/extend/vendor-extend.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/front/front.css' %}" />
-    
+
     {% block style %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% endblock style %}
-
-
 
     <!-- js -->
     <script type="text/javascript">
@@ -53,29 +53,29 @@
     <script type="text/javascript" src="{% static 'js/front/bootstrap-select.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/front/instafeed.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/vendor/jquery/jquery.ui.autocomplete.html.js' %}"></script>
-    
+
     {% block js %}
-        
+
     {% endblock js %}
-        
+
 
 </head>
 
 <body>
-{% block canvas %}
+    {% block canvas %}
     {% include 'snippets/canvas.html' %}
-{% endblock canvas %}    
-    
+    {% endblock canvas %}
+
     {% block root %}
     <section id="main-page">
         <div class="bg-dark"></div>
         {% block header %}
-            {% include 'snippets/header.html' %}
-            {% include 'snippets/contact_pop.html' %}
+        {% include 'snippets/header.html' %}
+        {% include 'snippets/contact_pop.html' %}
         {% endblock header %}
-    
+
         {% block main %}
-            
+
         {% endblock main %}
 
         <footer>

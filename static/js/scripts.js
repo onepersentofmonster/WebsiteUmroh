@@ -1,54 +1,4 @@
 // validate form
-$("#formContact").validate({
-    rules: {
-        name: {
-            required: true
-        },
-        subject: {
-            required: true
-        },
-        email: {
-            required: true,
-            email: true
-        },
-        phone: {
-            required: true,
-            number: true
-        },
-        message: {
-            required: true,
-            minlength: 20,
-            maxlength: 300
-        },
-        gRecaptchaResponseContact: {
-            required: function () {
-                if (grecaptcha.getResponse() == '') {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
-    },
-    messages: {
-        name: "Silakan masukkan nama Anda",
-        subject: "Silakan masukkan subjek Anda",
-        email: "Silakan masukkan email Anda yang valid",
-        phone: "Silakan masukkan nomor telepon Anda yang valid",
-        message: "Silakan masukkan pesan Anda antara 20 dan 300 karakter",
-        gRecaptchaResponseContact: {
-            required: "Recaptcha is required",
-        }
-    }
-});
-
-function onSubmitContact(data) {
-    if ($("#hiddenRecaptchaContact").val() == '') {
-        $("#hiddenRecaptchaContact").val(data);
-    }
-
-
-}
 
 function onTestChange() {
     var key = window.event.keyCode || window.event.charCode;
@@ -120,8 +70,9 @@ $("#amount-1").val("Rp. " + numberThousand($("#slider-range").slider("values", 0
 $("#amount-2").val("Rp. " + numberThousand($("#slider-range").slider("values", 1)));
 
 $('ul.l-pop li a').on('click', function () {
+    $('.xdanger').slideUp(300);
+    let li_tab = $(this);
 
-    var li_tab = $(this);
     var parents = li_tab.parents('.popup');
 
     if (!li_tab.parent().hasClass('active')) {
@@ -133,14 +84,6 @@ $('ul.l-pop li a').on('click', function () {
         parents.find('.box-pop').each(function () {
             $(this).removeClass('active');
         });
-        if (li_tab.attr('data-contact') == '1') {
-            parents.find('.active-booking').addClass('active');
-        } else if (li_tab.attr('data-contact') == '2') {
-            parents.find('.active-contact').addClass('active');
-        } else if (li_tab.attr('data-contact') == '3') {
-            parents.find('.active-find').addClass('active');
-            /* here we go */
-        }
     }
 });
 
@@ -1143,244 +1086,21 @@ $('#insurance_cover_type').change(function () {
     }
 
     $('#insurance_benefit').selectpicker('refresh');
-
-    // $("#iCover").hide();
-    // $("#iCover").html('Cover Type: '+ cover_text);
-    // $("#iCover").fadeIn();
 });
-
-
-///flight JS///
-// var touchable = "ontouchend" in document;
-// var showOnFocusLoc = false;
-// if (!window.parametr) window.parametr = {};
-
-
-// function DestinationsList(dests, searchOtherOption, parentDestinationSuffix) {
-//     var self = this;
-//     var list = dests;
-
-//     function addClassNameByIndex(item, index) {
-//         item.className = (index & 1) ? 'odd' : 'even';
-//         return item;
-//     }
-
-//     function addSearchOtherOption(list) {
-//         list.push(addClassNameByIndex({
-//             value: '',
-//             label: searchOtherOption
-//         }, list.length));
-//     }
-
-//     function prepareDestination(destArray, isParent, isChild, withCountry) {
-//         var code = '';
-//         var label = '';
-//         var text = '';
-//         for (var destIndex in destArray) {
-//             var destCurrent = destArray[destIndex];
-//             var currText = destCurrent.name + ' (' + destCurrent.code + ')';
-//             code += (code ? '/' : '') + destCurrent.code;
-//             text += (text ? ', ' : '') + currText;
-//             if (!isChild) {
-//                 label += (label ? ', ' : '') + currText;;
-//                 if (isParent) {
-//                     label += parentDestinationSuffix;
-//                 }
-//                 if (withCountry && destCurrent.country.name) {
-//                     label += ', ' + destCurrent.country.name;
-//                 }
-//             }
-//         }
-//         if (isChild) {
-//             label = '<span class="child">' + text + '</span>';
-//         }
-//         return {
-//             value: code,
-//             label: label,
-//             text: text
-//         };
-//     }
-
-//     function prepareChildDestination(destArray) {
-//         return prepareDestination(destArray, false, true, false);
-//     }
-
-//     function prepareDestinationsList(withCountry, excludedKey) {
-
-//         function fillCountryList(dests) {
-//             if (!window.parametr.countryList) {
-//                 window.parametr.countryList = new Array();
-//             }
-//             for (var i in dests) {
-//                 for (var j in dests[i]) {
-//                     window.parametr.countryList[dests[i][j].code] = dests[i][j].country.code;
-//                 }
-//             }
-//         }
-
-//         function pushToOut(dest) {
-//             if (dest.value !== excludedKey) {
-//                 out.push(dest);
-//             }
-//         }
-
-//         fillCountryList(list);
-//         var out = [];
-//         if (searchOtherOption) addSearchOtherOption(out);
-//         for (var key in list) {
-//             var destArray = list[key];
-//             var keyInt = parseInt(key, 10);
-//             if (destArray[0].parentCode) {
-//                 pushToOut(addClassNameByIndex(prepareChildDestination(destArray), out.length));
-//             } else {
-//                 var isParent = (keyInt < dests.length - 1) && (destArray[0].code === dests[keyInt + 1][0]
-//                     .parentCode);
-//                 pushToOut(addClassNameByIndex(prepareDestination(destArray, isParent, false, withCountry), out
-//                     .length));
-//             }
-//         }
-//         return out;
-//     }
-
-//     function isDestArrayEqKey(destArray, keyArray) {
-//         if (destArray.length !== keyArray.length) return false;
-//         for (var i in destArray) {
-//             if (destArray[i].code !== keyArray[i]) return false;
-//         }
-//         return true;
-//     }
-
-//     function searchAutocompleteItem(key) {
-//         if (key) {
-//             var keyArray = key.split('index.html');
-//             for (var i in list) {
-//                 if (isDestArrayEqKey(list[i], keyArray)) {
-//                     return prepareDestination(list[i], false, false, false);
-//                 }
-//             }
-//         }
-//         return {
-//             value: '',
-//             label: ''
-//         };
-//     }
-
-//     function getFullList() {
-//         return prepareDestinationsList(true, '');
-//     }
-
-//     function getListWithoutCountry() {
-//         return prepareDestinationsList(false, '');
-//     }
-
-//     function getListWithoutCountryExcept(key) {
-//         return prepareDestinationsList(false, key);
-//     }
-
-//     function isNotEmpty() {
-//         return list.length > 0;
-//     }
-
-//     function init() {
-//         self.searchAutocompleteItem = searchAutocompleteItem;
-//         self.getFullList = getFullList;
-//         self.getListWithoutCountry = getListWithoutCountry;
-//         self.getListWithoutCountryExcept = getListWithoutCountryExcept;
-//         self.isNotEmpty = isNotEmpty;
-//     }
-
-//     init();
-//     return self;
-// }
-
-// function getFullList() {
-//     return prepareDestinationsList(true, '');
-// }
-
-// function prepareDestinationsList(withCountry, excludedKey) {
-
-//     function fillCountryList(dests) {
-//         if (!window.parametr.countryList) {
-//             window.parametr.countryList = new Array();
-//         }
-//         for (var i in dests) {
-//             for (var j in dests[i]) {
-//                 window.parametr.countryList[dests[i][j].code] = dests[i][j].country.code;
-//             }
-//         }
-//     }
-
-//     function pushToOut(dest) {
-//         if (dest.value !== excludedKey) {
-//             out.push(dest);
-//         }
-//     }
-
-//     fillCountryList(list);
-//     var out = [];
-//     if (searchOtherOption) addSearchOtherOption(out);
-//     for (var key in list) {
-//         var destArray = list[key];
-//         var keyInt = parseInt(key, 10);
-//         if (destArray[0].parentCode) {
-//             pushToOut(addClassNameByIndex(prepareChildDestination(destArray), out.length));
-//         } else {
-//             var isParent = (keyInt < dests.length - 1) && (destArray[0].code === dests[keyInt + 1][0]
-//                 .parentCode);
-//             pushToOut(addClassNameByIndex(prepareDestination(destArray, isParent, false, withCountry), out
-//                 .length));
-//         }
-//     }
-//     return out;
-// }
-
-// function forceAutocomplete() {
-//     $(this).val('');
-//     $(this).autocomplete("search", 'JKT');
-// }
-
-
-// $(".ff_elem").autocomplete({
-//     source: function (request, response) {
-//         jQuery.getJSON(
-//             "https://avia.gol.idc.cz/json/get-destinations?language=en&type=airports&search=" +
-//             request.term,
-//             function (jsonResponse) {
-//                 var destinationsList = new DestinationsList(jsonResponse, '', '- all airports');
-//                 var data = destinationsList.getFullList();
-//                 response(data);
-//             }
-//         );
-//     },
-//     minLength: 3,
-//     select: function (event, ui) {
-//         event.preventDefault();
-//         showOnFocusLock = true;
-//         var selectedObj = ui.item;
-//         $(this).val(selectedObj.text);
-//         $(this).parent().find('.input_hidden').val(selectedObj.value);
-//         return false;
-//     },
-//     html: true,
-//     autoFocus: true,
-//     focus: function () {
-//         return false;
-//     },
-//     response: function (event, ui) {
-//         if (ui.content.length === 0) {
-//             return false;
-//         }
-//     }
-// }).focus(forceAutocomplete).click(forceAutocomplete);
-
-// $(".ff_elem").autocomplete("option", "delay", 100);
 $('#footer').html($('#nav_header').html());
 
 // clse popup
-$('.popup').on('click', function(e) {
+$('.popup').on('click', function (e) {
     var container = $('.popup .overlay .popup-content');
     if ((!container.is(e.target) && container.has(e.target).length === 0) || !$(e.target).parents('.popup .overlay .popup-content')) {
         $(e.target).parents('.popup').fadeOut('slow');
         $('body').removeClass('no-scroll');
     }
+});
+
+/* slick-dots home page */
+var s = parseInt($('#slick-slide-size').text());
+var width = 100 / s;
+$('.nav-banner .slick-slide').css({
+    'width': `${width}%`
 });

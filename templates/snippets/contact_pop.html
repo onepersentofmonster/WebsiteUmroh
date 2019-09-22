@@ -1,229 +1,240 @@
 {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/contact_pop.css' %}" />
-        <div id="contact-pop" class="popup mobile-col-12">
-            <div class="overlay">
-                <div class="popup-content no-padding">
-                    <div class="box-close">
-                        <a onclick="$('#contact-pop').hide();$('body').removeClass('no-scroll');">
-                            <div class="pop-close"></div>
-                        </a>
-                    </div>
-                    <ul class="l-pop clear">
-                        <li class="full-width">
-                            <a data-contact="3">
-                                <div class="tbl">
-                                    <div class="cell v-middle icon-pop">
-                                        <div class="img-find"></div>
-                                    </div>
-                                    <div class="cell v-middle">
-                                        <div class="t-pop">Temukan Kami</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div class="xdanger">
-                        <div class="xclose-xdanger"><i class="fa fa-close"></i></div>
-                        <p style="font-weight:bold;padding-bottom:15px;">HATI-HATI TERHADAP PENIPUAN!!</p>
-                        <p style="padding-bottom:10px;">
-                            TAUFIQ HT TOURS & TRAVEL tidak memiliki kerjasama dengan instansi tertentu dalam hal penyediaan
-                            tiket dan proses
-                            recruitment karyawan, Kami menghimbau Bapak & Ibu sekalian untuk berhati - hati terhadap segala
-                            jenis penipuan yang mengatasnamakan TAUFIQ HT TOURS & TRAVEL
-                        </p>
-                        <p>
-                            Untuk info lebih lanjut silakan menghubungi kami di: 0858-6308-7879/0857-9751-1206 atau email ke:
-                            taufiqht29@gmail.com
-                        </p>
-                    </div>
-
-                    <!-- hubungi kami & box lokasi -->
-                    <div class="box-pop active-find" data-contact="3" style="overflow-y:scroll;height:560px;">
-                        <!-- hubungi kami -->
-                        <div class="tbl">
-                            <div class="cell w50 pull-right">
-                                <div id="map2" class="map2"></div>
-                            </div>
-                            <div class="cell w50 p30 pull-left">
-                                <div class="t-location">Hubungi Kami</div>
-                                <!-- row -->
-                                <div class="row inline">
-                                    <!-- sosial media -->
-                                    <div class="col inline l-5 m-5 s-12 push-l-7 push-m-7 push-s-0 xs20">
-                                        <!-- facebook -->
-                                        <div class="mb15">
-                                            <div class="inline-block hvr-soc">
-                                                <div class="inline-block v-middle bdr-pop">
-                                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="inline-block v-middle">
-                                                    <a href="https://www.facebook.com/thttourstravel/"
-                                                        target="_blank">thttourstravel</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- instagram -->
-                                        <div class="mb15">
-                                            <div class="inline-block hvr-soc">
-                                                <div class="inline-block v-middle bdr-pop">
-                                                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="inline-block v-middle">
-                                                    <a href="http://www.instagram.com/taufiqht_travel/"
-                                                        target="_blank">taufiqht_travel</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end sosial media -->
-                                    <!-- lokasi -->
-                                    <div class="col inline l-7 m-7 s-12 pull-l-5 pull-m-5 pull-s-0">
-                                        <div class="p-location detail-location1 open">
-                                            <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1
-                                            </div>
-                                            <p>Jl.Pabuaran No.50 Sukabumi 43131 - INDONESIA
-                                            </p>
-                                            <div>
-                                                P. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
-                                            </div>
-                                            <div>
-                                                Operational<br />
-                                                Senin - Minggu (07.00 - 17:00)
-                                            </div>
-                                        </div>
-                                        <div class="p-location detail-location2 ">
-                                            <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2
-                                            </div>
-                                            <p>Jl.Lingkar Selatan Sukabumi 43131 - INDONESIA</p>
-                                            <div>
-                                                P. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
-                                            </div>
-                                            <div>
-                                                Operational<br />
-                                                Senin - Minggu (07.00 - 17:00)
-                                            </div>
-                                        </div>
-                                        <div class="p-location detail-location3 ">
-                                            <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
-                                            </div>
-                                            <p>Jl. Raya 3 - INDONESIA</p>
-                                            <div>
-                                                P. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
-                                            </div>
-                                            <div>
-                                                Operational<br />
-                                                Senin - Minggu (07.00 - 17:00)
-                                            </div>
-                                        </div>
-                                        <div class="p-location detail-location4 ">
-                                            <div class="t-cabang">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
-                                            </div>
-                                            <p>Jl. Raya 4 - INDONESIA</p>
-                                            <div>
-                                                P. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                F. <a href="tel:620266213672">(0266) 213672</a>
-                                            </div>
-                                            <div>
-                                                E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
-                                            </div>
-                                            <div>
-                                                Operational<br />
-                                                Senin - Minggu (07.00 - 17:00)
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end lokasi -->
-                                </div>
-                                <!-- end row -->
-                            </div>
-                        </div>
-                        <!-- end hubungi kami -->
-
-                        <!-- box lokasi -->
-                        <div class="box-location">
-                            <div class="title-location">Kantor Kami</div>
-                            <div class="item-location">
-                                <div class="row inline min-10">
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.161166" lng-data="106.840104" class="hvr-location location1 active">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl.Pabuaran No.50 Sukabumi 43131 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.1929305" lng-data="106.8222026" class="hvr-location location2">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl.Lingkar Selatan Sukabumi 43131 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.1581384" lng-data="106.9078048" class="hvr-location location3">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl. Raya 3 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col inline l-3 m-4 s-12 min-10">
-                                        <div lat-data="-6.375815" lng-data="106.916152" class="hvr-location location4 ">
-                                            <div class=" text-location">
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
-                                            </div>
-                                            <div class="bdy-location">
-                                                <p>
-                                                    Jl. Raya 4 - INDONESIA
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end box lokasi -->
-                    </div>
-                    <!-- end hubungi kami & box lokasi -->
-                </div>
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact_pop.css' %}" />
+<div id="contact-pop" class="popup mobile-col-12">
+    <div class="overlay">
+        <div class="popup-content no-padding">
+            <div class="box-close">
+                <a onclick="$('#contact-pop').hide();$('body').removeClass('no-scroll');">
+                    <div class="pop-close"></div>
+                </a>
             </div>
+            <ul class="l-pop clear">
+                <li class="full-width active">
+                    <a data-contact="1">
+                        <div class="tbl">
+                            <div class="cell v-middle icon-pop">
+                                <div class="img-find"></div>
+                            </div>
+                            <div class="cell v-middle">
+                                <div class="t-pop">Temukan Kami</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="xdanger">
+                <div class="xclose-xdanger"><i class="fa fa-close"></i></div>
+                <p style="font-weight:bold;padding-bottom:15px;">HATI-HATI TERHADAP PENIPUAN!!</p>
+                <p style="padding-bottom:10px;">
+                    TAUFIQ HT TOURS & TRAVEL tidak memiliki kerjasama dengan instansi tertentu dalam hal penyediaan
+                    tiket dan proses
+                    recruitment karyawan, Kami menghimbau Bapak & Ibu sekalian untuk berhati - hati terhadap segala
+                    jenis penipuan yang mengatasnamakan TAUFIQ HT TOURS & TRAVEL
+                </p>
+                <p>
+                    Untuk info lebih lanjut silakan menghubungi kami di: 0858-6308-7879/0857-9751-1206 atau email ke:
+                    taufiqht29@gmail.com
+                </p>
+            </div>
+
+            <!-- hubungi kami & box lokasi -->
+            <div class="box-pop active-find active" data-contact="1" style="overflow-y:scroll;height:560px;">
+                <!-- hubungi kami -->
+                <div class="tbl">
+                    <div class="cell w50 pull-right">
+                        <div id="map2" class="map2">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7921.306517806663!2d106.920573!3d-6.931982!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xff9cc497165e5b7b!2sPT.%20TAUFIQ%20HAROMAIN%20TOBAH%20Tours%20%26%20Travel%20(Penyelenggara%20Umroh)!5e0!3m2!1sen!2sid!4v1569161167376!5m2!1sen!2sid"
+                                width="500" height="380" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    <div class="cell w50 p30 pull-left">
+                        <div class="t-location">Hubungi Kami</div>
+                        <!-- row -->
+                        <div class="row inline">
+                            <!-- sosial media -->
+                            <div class="col inline l-5 m-5 s-12 push-l-7 push-m-7 push-s-0 xs20">
+                                <!-- facebook -->
+                                <div class="mb15">
+                                    <div class="inline-block hvr-soc">
+                                        <div class="inline-block v-middle bdr-pop">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="inline-block v-middle">
+                                            <a href="https://www.facebook.com/thttourstravel/"
+                                                target="_blank">thttourstravel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- instagram -->
+                                <div class="mb15">
+                                    <div class="inline-block hvr-soc">
+                                        <div class="inline-block v-middle bdr-pop">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="inline-block v-middle">
+                                            <a href="http://www.instagram.com/taufiqht_travel/"
+                                                target="_blank">taufiqht_travel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end sosial media -->
+
+                            <!-- lokasi -->
+                            <div class="col inline l-7 m-7 s-12 pull-l-5 pull-m-5 pull-s-0">
+                                <div class="p-location detail-location1 open">
+                                    <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 1
+                                    </div>
+                                    <p>Jl.Pabuaran No.50 Sukabumi 43131 - INDONESIA
+                                    </p>
+                                    <div>
+                                        P. <a href="tel:6285863087879">6285863087879</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:6285797511206">6285797511206</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                                <div class="p-location detail-location2 ">
+                                    <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 2
+                                    </div>
+                                    <p>Jl.Lingkar Selatan Sukabumi 43131 - INDONESIA</p>
+                                    <div>
+                                        P. <a href="tel:6285863087879">6285863087879</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:6285797511206">6285797511206</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                                <div class="p-location detail-location3 ">
+                                    <div class="t-cabang"><i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
+                                    </div>
+                                    <p>Jl. Raya 3 - INDONESIA</p>
+                                    <div>
+                                        P. <a href="tel:6285863087879">6285863087879</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:6285797511206">6285797511206</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                                <div class="p-location detail-location4 ">
+                                    <div class="t-cabang">
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
+                                    </div>
+                                    <p>Jl. Raya 4 - INDONESIA</p>
+                                    <div>
+                                        P. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        F. <a href="tel:620266213672">(0266) 213672</a>
+                                    </div>
+                                    <div>
+                                        E. <a href="mailto:taufiqht29@gmail.com">taufiqht29@gmail.com</a>
+                                    </div>
+                                    <div>
+                                        Operational<br />
+                                        Senin - Minggu (07.00 - 17:00)
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end lokasi -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                </div>
+                <!-- end hubungi kami -->
+
+                <!-- box lokasi -->
+                <div class="box-location">
+                    <div class="title-location">Kantor Kami</div>
+                    <div class="item-location">
+                        <div class="row inline min-10">
+                            <div class="col inline l-3 m-4 s-12 min-10">
+                                <div lat-data="-6.161166" lng-data="106.840104" class="hvr-location location1">
+                                    <div class=" text-location">
+                                        <a href="https://goo.gl/maps/9snXieKkAd7azFKs5">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            Lokasi 1
+                                        </a>
+                                    </div>
+                                    <div class="bdy-location">
+                                        <p>
+                                            Jl.Pabuaran No.50 Sukabumi 43131 - INDONESIA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col inline l-3 m-4 s-12 min-10">
+                                <div lat-data="-6.1929305" lng-data="106.8222026" class="hvr-location location2">
+                                    <div class=" text-location">
+                                        <a href="https://goo.gl/maps/he3hm9viq1GQou5z9">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            Lokasi 2
+                                        </a>
+                                    </div>
+                                    <div class="bdy-location">
+                                        <p>
+                                            Jl.Lingkar Selatan Sukabumi 43131 - INDONESIA
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col inline l-3 m-4 s-12 min-10">
+                                    <div lat-data="-6.1581384" lng-data="106.9078048" class="hvr-location location3">
+                                        <div class=" text-location">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 3
+                                        </div>
+                                        <div class="bdy-location">
+                                            <p>
+                                                Jl. Raya 3 - INDONESIA
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col inline l-3 m-4 s-12 min-10">
+                                    <div lat-data="-6.375815" lng-data="106.916152" class="hvr-location location4 ">
+                                        <div class=" text-location">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>Lokasi 4
+                                        </div>
+                                        <div class="bdy-location">
+                                            <p>
+                                                Jl. Raya 4 - INDONESIA
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end box lokasi -->
+            </div>
+            <!-- end hubungi kami & box lokasi -->
         </div>
+    </div>
+</div>
