@@ -101,7 +101,7 @@
             <div class="bdr-itinerary"></div>
             <div class="box-itinerary">
 
-                {% for travel in package.packagetraveldetail_set.all reversed %}
+                {% for travel in package.packagetraveldetail_set.all %}
                 <div class="product-animated-bottom">
                     <div class="d-itinerary">Hari {{ forloop.counter }}</div>
                     <div class="tbl">
@@ -147,28 +147,6 @@
         </div>
     </div>
     <!-- end rangkaian perjalanan -->
-
-    <!-- travel hightlights belum diubah -->
-    <div class="bg-what" id="what"
-        style="background: url('{% static 'packages/images/bg-travel.jpg' %}') bottom no-repeat;">
-        <div class="container">
-            <div class="row inline min-20">
-                <div class="col inline l-4 m-4 s-12 min-20 product-animated-left">
-                    <div class="img-what">
-                        <img src="{% static 'packages/images/whatsinclude.png' %}" alt="img_include" />
-                    </div>
-                </div>
-                <div class="col inline l-8 m-8 s-12 min-20 product-animated-right">
-                    <div class="title-what bold">Travel Highlights</div>
-                    <div class="bdr-what"></div>
-                    <div class="bdy-what" style="color:#fff;">
-                        AIR TERJUN LEMBAH ANAI - NGARAI SIANOK - JAM GADANG - DANAU MANINJAU - JEMBATAN SITI NURBAYA
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end travel hihtlights -->
 
     <!-- fasilitas -->
     <div id="included_info" class="bg-plane"
