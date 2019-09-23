@@ -22,6 +22,12 @@ def index(request):
 
 def detail(request, slug):
     travel = get_object_or_404(Travel, slug__iexact = slug)
+    category_package = PackageCategory.objects.all()
+    category_travel = TravelCategory.objects.all()
     template = 'travels/detail.html'
-    context = {'travel': travel}
+    context = {
+        'travel': travel,
+        'category_package': category_package,
+        'category_travel': category_travel,
+    }
     return render(request,template,context)
