@@ -24,6 +24,7 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
+    'abouts.apps.AboutsConfig',
     'travels.apps.TravelsConfig',
     'blogs.apps.BlogsConfig',
     'packages.apps.PackagesConfig',

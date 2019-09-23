@@ -1,54 +1,4 @@
 // validate form
-$("#formContact").validate({
-    rules: {
-        name: {
-            required: true
-        },
-        subject: {
-            required: true
-        },
-        email: {
-            required: true,
-            email: true
-        },
-        phone: {
-            required: true,
-            number: true
-        },
-        message: {
-            required: true,
-            minlength: 20,
-            maxlength: 300
-        },
-        gRecaptchaResponseContact: {
-            required: function () {
-                if (grecaptcha.getResponse() == '') {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
-    },
-    messages: {
-        name: "Silakan masukkan nama Anda",
-        subject: "Silakan masukkan subjek Anda",
-        email: "Silakan masukkan email Anda yang valid",
-        phone: "Silakan masukkan nomor telepon Anda yang valid",
-        message: "Silakan masukkan pesan Anda antara 20 dan 300 karakter",
-        gRecaptchaResponseContact: {
-            required: "Recaptcha is required",
-        }
-    }
-});
-
-function onSubmitContact(data) {
-    if ($("#hiddenRecaptchaContact").val() == '') {
-        $("#hiddenRecaptchaContact").val(data);
-    }
-
-
-}
 
 function onTestChange() {
     var key = window.event.keyCode || window.event.charCode;
@@ -120,8 +70,9 @@ $("#amount-1").val("Rp. " + numberThousand($("#slider-range").slider("values", 0
 $("#amount-2").val("Rp. " + numberThousand($("#slider-range").slider("values", 1)));
 
 $('ul.l-pop li a').on('click', function () {
+    $('.xdanger').slideUp(300);
+    let li_tab = $(this);
 
-    var li_tab = $(this);
     var parents = li_tab.parents('.popup');
 
     if (!li_tab.parent().hasClass('active')) {
@@ -133,14 +84,6 @@ $('ul.l-pop li a').on('click', function () {
         parents.find('.box-pop').each(function () {
             $(this).removeClass('active');
         });
-        if (li_tab.attr('data-contact') == '1') {
-            parents.find('.active-booking').addClass('active');
-        } else if (li_tab.attr('data-contact') == '2') {
-            parents.find('.active-contact').addClass('active');
-        } else if (li_tab.attr('data-contact') == '3') {
-            parents.find('.active-find').addClass('active');
-            /* here we go */
-        }
     }
 });
 
@@ -352,7 +295,7 @@ function banner_counter() {
 banner_counter()
 
 
-$('.slider-banner').slick({
+$('.carousel').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -368,7 +311,7 @@ var slide_to_show = 4;
 $('.nav-banner').slick({
     slidesToShow: slide_to_show,
     slidesToScroll: 1,
-    asNavFor: '.slider-banner',
+    asNavFor: '.carousel',
     dots: false,
     arrows: false,
     centerMode: false,
@@ -722,39 +665,6 @@ $(".place").select2({
 });
 /* End Tour */
 
-/* Attraction */
-$(".click-domestic").click(function (event) {
-    event.preventDefault();
-    $(this).addClass('active');
-    $('ul.l-flight li a.click-international').removeClass('active');
-
-    var select = $('#ATTR_COUNTRY');
-    select.val(15);
-    select.attr('disabled', true);
-    select.selectpicker('refresh');
-    select.trigger('change');
-});
-
-$(".click-international").click(function (event) {
-    event.preventDefault();
-    $(this).addClass('active');
-    $('ul.l-flight li a.click-domestic').removeClass('active');
-
-    var select = $('#ATTR_COUNTRY');
-    select.val('');
-    select.attr('disabled', false);
-    select.selectpicker('refresh');
-    select.trigger('change');
-});
-
-$(document).on('click', '.i-plane', function () {
-    var icon = $(this);
-    setTimeout(function () {
-        icon.parent().find('.select-attraction .dropdown-toggle').trigger('click');
-    }, 100)
-});
-/* End Attraction */
-
 /* Insurance */
 $('ul.l-flight li a.click-daily').on('click', function () {
     $(this).addClass('active');
@@ -767,80 +677,80 @@ $('ul.l-flight li a.click-annual').on('click', function () {
     daily_annual('Annual');
 });
 
-$("#start-date-insurance").datepicker({
-    // dateFormat: "D d/m",
-    // numberOfMonths: 2,
-    // minDate: 0,
-    defaultDate: '0d',
-    minDate: '0d',
+$('.tanggal-picker').datepicker({
     changeMonth: true,
     changeYear: true,
     yearRange: '-10:+100',
-    dateFormat: "d M yy",
-    minDate: 0,
-    onSelect: function () {
-        dailyanual = $('#daily_annual').val();
-        date = $(this).datepicker('getDate');
+    dateFormat: "d-mm-yy",
+})
 
-        get_date = date.getDate();
-        get_month = date.getMonth();
-        get_year = date.getFullYear();
+// $("#paket-mulai-tanggal").datepicker({
+//     // dateFormat: "D d/m",
+//     // numberOfMonths: 2,
+//     // minDate: 0,
+//     defaultDate: '0d',
+//     minDate: '0d',
+//     changeMonth: true,
+//     changeYear: true,
+//     yearRange: '-10:+100',
+//     dateFormat: "yy-mm-d",
+//     minDate: 0,
+//     onSelect: function () {
+//         dailyanual = $('#daily_annual').val();
+//         date = $(this).datepicker('getDate');
 
-
-        if (dailyanual == 'Annual') {
-            d = $(this).datepicker('getDate');
-            d.setFullYear(d.getFullYear() + 1);
-
-            $('#end-date-insurance').datepicker('setDate', d);
-            $('#end-date-insurance').datepicker('option', 'minDate', d);
-            $('#end-date-insurance').datepicker('option', 'maxDate', d);
-        } else {
-            if (date) {
-                date.setDate(date.getDate() + 1);
-
-                return_date = $(this).datepicker('getDate');
-                return_date.setFullYear(return_date.getFullYear() + 1);
-                return_date.setDate(return_date.getDate() - 1);
-
-                $('#end-date-insurance').datepicker('option', 'minDate', date);
-                $('#end-date-insurance').datepicker('setDate', date);
-                $('#end-date-insurance').datepicker('option', 'maxDate', return_date);
-
-                get_date = date.getDate();
-                get_month = date.getMonth();
-                get_year = date.getFullYear();
-                // $('#iReturn').html('Return Date: ' + get_date + ' ' + m_names[get_month] + ' ' + get_year);
-            }
-        }
+//         get_date = date.getDate();
+//         get_month = date.getMonth();
+//         get_year = date.getFullYear();
 
 
-    }
-});
+//         if (dailyanual == 'Annual') {
+//             d = $(this).datepicker('getDate');
+//             d.setFullYear(d.getFullYear() + 1);
 
-$('#end-date-insurance').datepicker({
-    // dateFormat: "D d/m",
-    // numberOfMonths: 2,
-    defaultDate: "+1d",
-    changeMonth: true,
-    changeYear: true,
-    dateFormat: 'd M yy',
-    minDate: "0d",
-    yearRange: "-10:+100",
-});
+//             $('#paket-akhir-tanggal').datepicker('setDate', d);
+//             $('#paket-akhir-tanggal').datepicker('option', 'minDate', d);
+//             $('#paket-akhir-tanggal').datepicker('option', 'maxDate', d);
+//         } else {
+//             if (date) {
+//                 date.setDate(date.getDate() + 1);
+
+//                 return_date = $(this).datepicker('getDate');
+//                 return_date.setFullYear(return_date.getFullYear() + 1);
+//                 return_date.setDate(return_date.getDate() - 1);
+
+//                 $('#paket-akhir-tanggal').datepicker('option', 'minDate', date);
+//                 $('#paket-akhir-tanggal').datepicker('setDate', date);
+//                 $('#paket-akhir-tanggal').datepicker('option', 'maxDate', return_date);
+
+//                 get_date = date.getDate();
+//                 get_month = date.getMonth();
+//                 get_year = date.getFullYear();
+//                 // $('#iReturn').html('Return Date: ' + get_date + ' ' + m_names[get_month] + ' ' + get_year);
+//             }
+//         }
+
+
+//     }
+// });
+
+// $('#paket-akhir-tanggal').datepicker({
+//     // dateFormat: "D d/m",
+//     // numberOfMonths: 2,
+//     defaultDate: "+1d",
+//     changeMonth: true,
+//     changeYear: true,
+//     dateFormat: 'yy-mm-d',
+//     minDate: "0d",
+//     yearRange: "-10:+100",
+// });
 
 var today = new Date();
-// $("#start-date-insurance").datepicker( "setDate", today );
-// $("#end-date-insurance").datepicker( "setDate", '+1d' );
+// $("#paket-mulai-tanggal").datepicker( "setDate", today );
+// $("#paket-akhir-tanggal").datepicker( "setDate", '+1d' );
 
 $('.box-select').click(function () {
     $('.in-select').toggleClass('open');
-});
-
-$("html").click(function (a) {
-    if (!$(a.target).is(".box-select") && !$(a.target).parents().is(".box-select") && !$(a.target)
-        .parents().is(".select-attraction")) {
-        $('.in-select').removeClass('open');
-    }
 });
 
 $('.plus').on('click', function (event) {
@@ -901,60 +811,60 @@ $('ul.l-icon li a').on('click', function () {
             $(this).removeClass('open');
         });
 
-        $('.item-banner').removeClass('open');
+        $('.item_carousel').removeClass('open');
 
         if (li_tab.attr('data-id') == '1') {
             parents.find('.active-flight').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'flight_international.html');
+                $('ul.l-icon li a').attr('href', '');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'flight_international.html');
+                    $('ul.l-icon li a').attr('href', '');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
             });
         } else if (li_tab.attr('data-id') == '2') {
             parents.find('.active-tour').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'tour.html');
+                $('ul.l-icon li a').attr('href', 'paket/');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'tour.html');
+                    $('ul.l-icon li a').attr('href', 'paket/');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
             });
         } else if (li_tab.attr('data-id') == '4') {
             parents.find('.active-attraction').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'attractions.html');
+                $('ul.l-icon li a').attr('href', 'travel/');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'attractions.html');
+                    $('ul.l-icon li a').attr('href', 'travel/');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
             });
         } else if (li_tab.attr('data-id') == '5') {
             parents.find('.active-insurance').addClass('open');
-            $('.item-banner').toggleClass('open');
+            $('.item_carousel').toggleClass('open');
             $('.in-range').removeClass('open');
             if ($(window).width() < 480) {
-                $('ul.l-icon li a').attr('href', 'insurance.html');
+                $('ul.l-icon li a').attr('href', '');
             }
             $(window).on('resize', function () {
                 if ($(window).width() < 480) {
-                    $('ul.l-icon li a').attr('href', 'insurance.html');
+                    $('ul.l-icon li a').attr('href', '');
                 } else {
                     $('ul.l-icon li a').removeAttr('href');
                 }
@@ -963,7 +873,7 @@ $('ul.l-icon li a').on('click', function () {
     } else {
         li_tab.parent().removeClass('active');
         parents.find('.abs-search-home').removeClass('open');
-        $('.item-banner').removeClass('open');
+        $('.item_carousel').removeClass('open');
     }
 });
 
@@ -992,7 +902,7 @@ $("html").click(function (a) {
             .target).parents().is(".ui-datepicker-header") && !$(a.target).parents().is(
             ".ui-state-default") && !$(a.target).is(".ui-state-default")) {
         $('.abs-search-home').removeClass('open');
-        $('.item-banner').removeClass('open');
+        $('.item_carousel').removeClass('open');
         $('ul.l-icon li').removeClass('active');
         $('.in-range').removeClass('open');
     }
@@ -1130,14 +1040,14 @@ function daily_annual(tipe) {
     $('#insurance_destination').trigger('change');
     $('#insurance_destination').selectpicker('refresh');
 
-    $('#start-date-insurance').attr('disabled', false);
-    $('#end-date-insurance').attr('disabled', false);
-    $('#start-date-insurance').attr('readonly', true);
-    $('#end-date-insurance').attr('readonly', true);
-    $('#start-date-insurance').datepicker('setDate', '');
-    $('#end-date-insurance').datepicker('setDate', '');
-    $('#end-date-insurance').datepicker('option', 'minDate', '0d');
-    $('#end-date-insurance').datepicker('option', 'maxDate', '');
+    $('#paket-mulai-tanggal').attr('disabled', false);
+    $('#paket-akhir-tanggal').attr('disabled', false);
+    $('#paket-mulai-tanggal').attr('readonly', true);
+    $('#paket-akhir-tanggal').attr('readonly', true);
+    $('#paket-mulai-tanggal').datepicker('setDate', '');
+    $('#paket-akhir-tanggal').datepicker('setDate', '');
+    $('#paket-akhir-tanggal').datepicker('option', 'minDate', '0d');
+    $('#paket-akhir-tanggal').datepicker('option', 'maxDate', '');
 }
 
 $('#insurance_destination').change(function () {
@@ -1176,234 +1086,21 @@ $('#insurance_cover_type').change(function () {
     }
 
     $('#insurance_benefit').selectpicker('refresh');
+});
+$('#footer').html($('#nav_header').html());
 
-    // $("#iCover").hide();
-    // $("#iCover").html('Cover Type: '+ cover_text);
-    // $("#iCover").fadeIn();
+// clse popup
+$('.popup').on('click', function (e) {
+    var container = $('.popup .overlay .popup-content');
+    if ((!container.is(e.target) && container.has(e.target).length === 0) || !$(e.target).parents('.popup .overlay .popup-content')) {
+        $(e.target).parents('.popup').fadeOut('slow');
+        $('body').removeClass('no-scroll');
+    }
 });
 
-
-///flight JS///
-// var touchable = "ontouchend" in document;
-// var showOnFocusLoc = false;
-// if (!window.parametr) window.parametr = {};
-
-
-// function DestinationsList(dests, searchOtherOption, parentDestinationSuffix) {
-//     var self = this;
-//     var list = dests;
-
-//     function addClassNameByIndex(item, index) {
-//         item.className = (index & 1) ? 'odd' : 'even';
-//         return item;
-//     }
-
-//     function addSearchOtherOption(list) {
-//         list.push(addClassNameByIndex({
-//             value: '',
-//             label: searchOtherOption
-//         }, list.length));
-//     }
-
-//     function prepareDestination(destArray, isParent, isChild, withCountry) {
-//         var code = '';
-//         var label = '';
-//         var text = '';
-//         for (var destIndex in destArray) {
-//             var destCurrent = destArray[destIndex];
-//             var currText = destCurrent.name + ' (' + destCurrent.code + ')';
-//             code += (code ? '/' : '') + destCurrent.code;
-//             text += (text ? ', ' : '') + currText;
-//             if (!isChild) {
-//                 label += (label ? ', ' : '') + currText;;
-//                 if (isParent) {
-//                     label += parentDestinationSuffix;
-//                 }
-//                 if (withCountry && destCurrent.country.name) {
-//                     label += ', ' + destCurrent.country.name;
-//                 }
-//             }
-//         }
-//         if (isChild) {
-//             label = '<span class="child">' + text + '</span>';
-//         }
-//         return {
-//             value: code,
-//             label: label,
-//             text: text
-//         };
-//     }
-
-//     function prepareChildDestination(destArray) {
-//         return prepareDestination(destArray, false, true, false);
-//     }
-
-//     function prepareDestinationsList(withCountry, excludedKey) {
-
-//         function fillCountryList(dests) {
-//             if (!window.parametr.countryList) {
-//                 window.parametr.countryList = new Array();
-//             }
-//             for (var i in dests) {
-//                 for (var j in dests[i]) {
-//                     window.parametr.countryList[dests[i][j].code] = dests[i][j].country.code;
-//                 }
-//             }
-//         }
-
-//         function pushToOut(dest) {
-//             if (dest.value !== excludedKey) {
-//                 out.push(dest);
-//             }
-//         }
-
-//         fillCountryList(list);
-//         var out = [];
-//         if (searchOtherOption) addSearchOtherOption(out);
-//         for (var key in list) {
-//             var destArray = list[key];
-//             var keyInt = parseInt(key, 10);
-//             if (destArray[0].parentCode) {
-//                 pushToOut(addClassNameByIndex(prepareChildDestination(destArray), out.length));
-//             } else {
-//                 var isParent = (keyInt < dests.length - 1) && (destArray[0].code === dests[keyInt + 1][0]
-//                     .parentCode);
-//                 pushToOut(addClassNameByIndex(prepareDestination(destArray, isParent, false, withCountry), out
-//                     .length));
-//             }
-//         }
-//         return out;
-//     }
-
-//     function isDestArrayEqKey(destArray, keyArray) {
-//         if (destArray.length !== keyArray.length) return false;
-//         for (var i in destArray) {
-//             if (destArray[i].code !== keyArray[i]) return false;
-//         }
-//         return true;
-//     }
-
-//     function searchAutocompleteItem(key) {
-//         if (key) {
-//             var keyArray = key.split('index.html');
-//             for (var i in list) {
-//                 if (isDestArrayEqKey(list[i], keyArray)) {
-//                     return prepareDestination(list[i], false, false, false);
-//                 }
-//             }
-//         }
-//         return {
-//             value: '',
-//             label: ''
-//         };
-//     }
-
-//     function getFullList() {
-//         return prepareDestinationsList(true, '');
-//     }
-
-//     function getListWithoutCountry() {
-//         return prepareDestinationsList(false, '');
-//     }
-
-//     function getListWithoutCountryExcept(key) {
-//         return prepareDestinationsList(false, key);
-//     }
-
-//     function isNotEmpty() {
-//         return list.length > 0;
-//     }
-
-//     function init() {
-//         self.searchAutocompleteItem = searchAutocompleteItem;
-//         self.getFullList = getFullList;
-//         self.getListWithoutCountry = getListWithoutCountry;
-//         self.getListWithoutCountryExcept = getListWithoutCountryExcept;
-//         self.isNotEmpty = isNotEmpty;
-//     }
-
-//     init();
-//     return self;
-// }
-
-// function getFullList() {
-//     return prepareDestinationsList(true, '');
-// }
-
-// function prepareDestinationsList(withCountry, excludedKey) {
-
-//     function fillCountryList(dests) {
-//         if (!window.parametr.countryList) {
-//             window.parametr.countryList = new Array();
-//         }
-//         for (var i in dests) {
-//             for (var j in dests[i]) {
-//                 window.parametr.countryList[dests[i][j].code] = dests[i][j].country.code;
-//             }
-//         }
-//     }
-
-//     function pushToOut(dest) {
-//         if (dest.value !== excludedKey) {
-//             out.push(dest);
-//         }
-//     }
-
-//     fillCountryList(list);
-//     var out = [];
-//     if (searchOtherOption) addSearchOtherOption(out);
-//     for (var key in list) {
-//         var destArray = list[key];
-//         var keyInt = parseInt(key, 10);
-//         if (destArray[0].parentCode) {
-//             pushToOut(addClassNameByIndex(prepareChildDestination(destArray), out.length));
-//         } else {
-//             var isParent = (keyInt < dests.length - 1) && (destArray[0].code === dests[keyInt + 1][0]
-//                 .parentCode);
-//             pushToOut(addClassNameByIndex(prepareDestination(destArray, isParent, false, withCountry), out
-//                 .length));
-//         }
-//     }
-//     return out;
-// }
-
-// function forceAutocomplete() {
-//     $(this).val('');
-//     $(this).autocomplete("search", 'JKT');
-// }
-
-
-// $(".ff_elem").autocomplete({
-//     source: function (request, response) {
-//         jQuery.getJSON(
-//             "https://avia.gol.idc.cz/json/get-destinations?language=en&type=airports&search=" +
-//             request.term,
-//             function (jsonResponse) {
-//                 var destinationsList = new DestinationsList(jsonResponse, '', '- all airports');
-//                 var data = destinationsList.getFullList();
-//                 response(data);
-//             }
-//         );
-//     },
-//     minLength: 3,
-//     select: function (event, ui) {
-//         event.preventDefault();
-//         showOnFocusLock = true;
-//         var selectedObj = ui.item;
-//         $(this).val(selectedObj.text);
-//         $(this).parent().find('.input_hidden').val(selectedObj.value);
-//         return false;
-//     },
-//     html: true,
-//     autoFocus: true,
-//     focus: function () {
-//         return false;
-//     },
-//     response: function (event, ui) {
-//         if (ui.content.length === 0) {
-//             return false;
-//         }
-//     }
-// }).focus(forceAutocomplete).click(forceAutocomplete);
-
-// $(".ff_elem").autocomplete("option", "delay", 100);
+/* slick-dots home page */
+var s = parseInt($('#slick-slide-size').text());
+var width = 100 / s;
+$('.nav-banner .slick-slide').css({
+    'width': `${width}%`
+});
