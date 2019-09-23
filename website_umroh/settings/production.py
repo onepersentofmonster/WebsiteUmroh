@@ -5,18 +5,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['taufiq-ht.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '' #my gmail username
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-# Application definition
 
 INSTALLED_APPS = [
     'abouts.apps.AboutsConfig',
@@ -80,8 +73,12 @@ WSGI_APPLICATION = 'website_umroh.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_taufiq',
+        'USER': 'ridwan',
+        'PASSWORD': 'arifin123',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -132,12 +129,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static-root')
 
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
