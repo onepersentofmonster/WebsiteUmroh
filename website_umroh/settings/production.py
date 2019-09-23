@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'django_summernote',
     'djmoney',
+    'django_filters',
     'widget_tweaks',
     'rangefilter',
     'dj_pagination',
