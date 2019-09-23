@@ -12,12 +12,16 @@ from blogs.models import Blog
 
 def index(request):
     home = Home.objects.all()
-    descriptions = Description.objects.last()
-    item = descriptions.itemdescription_set.all()
-    item1 = item[0]
-    item2 = item[1]
-    item3 = item[2]
-    item4 = item[3]
+    if Description.objects.all():
+        descriptions = Description.objects.last()
+        item = descriptions.itemdescription_set.all()
+        item1 = item[0]
+        item2 = item[1]
+        item3 = item[2]
+        item4 = item[3]
+    else:
+        descriptions = item1 = item2 = item3 = item4 = False
+        
 
     packages = Package.objects.all()
     package_populer = packages.filter(
