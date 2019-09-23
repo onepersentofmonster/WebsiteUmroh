@@ -20,7 +20,6 @@ class Home(models.Model):
 
 
 class Description(models.Model):
-    home = models.ForeignKey(Home, on_delete=models.CASCADE)
     header = models.CharField(max_length=225, null=True, blank=True)
     dibuat_pada = models.DateTimeField(auto_now_add=True)
     diperbarui_pada = models.DateTimeField(auto_now=True)
