@@ -16377,6 +16377,10 @@ footer .footer-bottom .social-btns .btn:hover .fa {
     display: none
 }
 
+#instafeed-1 .instagram_profile img.instagram_profile_image {
+    margin: 1rem 0
+}
+
 @media (max-width: 1500px) {
     .popup .box-pop.active-find {
         height: 520px;

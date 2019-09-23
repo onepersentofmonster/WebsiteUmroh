@@ -1,7 +1,6 @@
 {% load static %}
+{% if home %}
 <div class="carousel">
-
-    {% if home %}
     {% for obj in home %}
     <div class="bg_carousel">
         <div class="item_carousel">
@@ -18,12 +17,20 @@
         <!-- </a> -->
     </div>
     {% endfor %}
-    {% else %}
-    <div class="bg_carousel" style="background-color: rgba(0, 0, 0, 0.6); height: 38vw;">
-    </div>
-    {% endif %}
-
 </div>
+{% else %}
+<div class="carousel" style="background-color: rgba(0, 0, 0, 0.6); height: 38vw;">
+    <div class="bg_carousel">
+        <div class="item_carousel">
+            <div class="container">
+                <div class="t-banner"></div>
+                <div class="n-banner"></div>
+                <div class="bdr-banner"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 <div class="abs-banner">
     <div class="container">
         <div class="nav-banner">
