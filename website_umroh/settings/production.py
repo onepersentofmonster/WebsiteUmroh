@@ -1,5 +1,5 @@
 import os
-import django_heroku
+# import django_heroku
 
 
 
@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://taufiq-ht.herokuapp.com/', 'widget.whatshelp.io']
+ALLOWED_HOSTS = ['taufiq-ht.herokuapp.com', 'widget.whatshelp.io']
 # ALLOWED_HOSTS = ['*']
 
 
@@ -127,4 +127,4 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
