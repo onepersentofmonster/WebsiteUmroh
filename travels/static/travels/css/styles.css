@@ -3,3 +3,15 @@ header .bdr-hdr {
     padding: 0 15px 20px;
     border-bottom: 1px solid #ccc !important
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    header #logo a img {
+        width: 30%;
+        height: auto;
+    }
+
+    header .menu-toggle {
+        cursor: pointer;
+        color: #ccc
+    }
+}
