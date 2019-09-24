@@ -2,6 +2,10 @@
 {% load pagination_tags %}
 {% load static %}
 
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'packages/css/styles.css' %}" />
+{% endblock style %}
+    
 
 {% block main %}
 <section id="main">
@@ -40,9 +44,6 @@
                                     <div class="pos-rel">
                                         <a href="{% url 'detail' obj.slug %}">
                                             <div class="overlay-desti"></div>
-                                            <!-- <div class="disc-desti">
-                                                        <img src="lib/images/icons/discount.png" alt="image_diskon" />
-                                                    </div> -->
                                             <div class="img-desti"
                                                 style="background: url('{{ obj.packageimage_set.first.img.url }}') no-repeat center;">
                                             </div>
