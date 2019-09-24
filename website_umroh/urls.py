@@ -13,7 +13,7 @@ urlpatterns = [
     path('', include('homes.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "Administrasi Taufiq Harohmain Tobah"
 admin.site.site_title = "TAUFIQ HT TOURS & TRAVEL"
