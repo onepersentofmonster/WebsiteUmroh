@@ -1,10 +1,11 @@
+from django.core.files.storage import FileSystemStorage
 from django.db import models
 
-# Create your models here.
 
+home_img = FileSystemStorage(location='/media/homes/img_slider')
 
 class Home(models.Model):
-    img_slider = models.ImageField(upload_to='home/img/')
+    img_slider = models.ImageField(storage=home_img)
     dibuat_pada = models.DateTimeField(auto_now_add=True)
     diperbarui_pada = models.DateTimeField(auto_now=True)
 
