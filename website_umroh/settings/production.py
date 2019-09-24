@@ -1,4 +1,6 @@
 import os
+import django_heroku
+
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -88,9 +90,6 @@ db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
 
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -137,3 +136,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static-root')
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'media-root')
+
+django_heroku.settings(locals())
