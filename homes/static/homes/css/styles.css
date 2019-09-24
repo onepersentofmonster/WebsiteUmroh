@@ -3,3 +3,11 @@ header #logo a img {
     height: auto;
     margin: -12px 0 0
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    header #logo a img {
+        width: 30%;
+        height: auto;
+        /* margin: -12px 0 0 */
+    }
+}
