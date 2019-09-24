@@ -15,9 +15,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 admin.site.site_header = "Administrasi Taufiq Harohmain Tobah"
 admin.site.site_title = "TAUFIQ HT TOURS & TRAVEL"
 handler404 = 'website_umroh.views.handler_404'
