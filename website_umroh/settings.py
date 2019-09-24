@@ -13,7 +13,7 @@ SECRET_KEY = 'ei+_r2+!9mv00%&o7jj@iu^qx03=)wsarp=$s!=u-_%y2iyrwi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pythonanywhere.com']
 
 
 # Application definition
@@ -80,12 +80,8 @@ WSGI_APPLICATION = 'website_umroh.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_taufiq',
-        'USER': 'ridwan',
-        'PASSWORD': 'arifin123',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
