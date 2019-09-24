@@ -1,0 +1,92 @@
+.box-pop.active-contact {
+    height: 520px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+input.input-pop.error {
+    border-bottom-color: #c42126 !important;
+}
+
+label.error {
+    color: #c42126 !important;
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: 12px
+}
+
+.bg-instagram {
+    height: 100%; 
+    width: 100%; 
+    background-size: cover !important;
+}
+
+#pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin: 3% 25% 0;
+
+}
+#pagination .pagination .current {
+    cursor: not-allowed;
+}
+#pagination .pagination span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+#pagination .pagination a {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #297cbb;
+    padding: 0 0.5rem;
+}
+
+#pagination .pagination a:hover {
+    color:#fdb813;
+}
+
+#id_kategori {
+    line-height: 1rem;
+    bottom:0;
+    top: -0.8rem;
+    border: 0;
+    border-bottom: 1px solid #eaeaea;
+    color: #666;
+    padding: 0.7rem 0 0.5rem 6rem
+}
+
+#id_nama {
+    border: 0;
+    color: #666;
+    padding: 10px 0 0.5rem 2rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.icon-cari {
+    position: absolute;
+    top: 0.7rem;
+    left: 0;
+    color: #919aa0
+}
+
+.icon-tag {
+    position:absolute; 
+    padding: 0 0 20px; 
+    z-index: 20; 
+    top:0
+}
+
+.icon-kalender {
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    color: #919aa0
+}
+
+.kategori {position:absolute; padding:10px 0 20px; z-index: 20}
+
+.kategori span {margin:-0.5rem 0 0 2rem; color:#666}
+
+.dibuat_pada span{margin:-1.7rem 0 0 2rem;color:#666}

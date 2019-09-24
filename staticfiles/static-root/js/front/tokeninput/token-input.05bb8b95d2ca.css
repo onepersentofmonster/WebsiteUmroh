@@ -1,0 +1,130 @@
+/* Example tokeninput style #1: Token vertical list*/
+ul.token-input-list {
+    overflow: hidden; 
+    font-family: 'BentonSans';
+    display: block;
+    width: 100%;
+    height: auto !important; ;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #67747c;
+    background-image: none;
+    border: 0;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    position: relative;
+    background: white;
+    -moz-border-radius: 0; 
+    -webkit-border-radius: 0; 
+    -khtml-border-radius: 0; 
+    border-radius: 0 !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    margin: 0;
+}
+
+ul.token-input-list li {
+    list-style-type: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+ul.token-input-list li input {
+    border: 0;
+    width: 350px;
+    padding: 3px 8px;
+    background-color: white;
+    -webkit-appearance: caret;
+}
+
+li.token-input-token {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    margin: 0 3px 5px;
+    padding: 0 5px;
+    border: 1px solid #ccd5e3;
+    background-color: #eff2f7;
+    font-weight: bold;
+    cursor: default;
+    display: inline-block;
+}
+
+li.token-input-token p {
+    float: left;
+    padding: 0;
+    font-weight: normal;
+    margin: 0 5px 0 0;
+}
+
+li.token-input-token span {
+    float: right;
+    color: #777;
+    cursor: pointer;
+}
+
+/*li.token-input-selected-token {
+    background-color: #08844e;
+    color: #fff;
+}
+
+li.token-input-selected-token span {
+    color: #bbb;
+}*/
+
+div.token-input-dropdown {
+    position: absolute;
+    width: 440px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 99999;
+}
+@media (max-width: 767px) { 
+    div.token-input-dropdown { 
+        width: 270px;
+    }
+}
+div.token-input-dropdown p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.token-input-dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown ul li {
+    background-color: #fff;
+    padding: 3px;
+    list-style-type: none;
+}
+
+div.token-input-dropdown ul li.token-input-dropdown-item {
+    background-color: #fafafa;
+}
+
+div.token-input-dropdown ul li.token-input-dropdown-item2 {
+    background-color: #fff;
+}
+
+div.token-input-dropdown ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.token-input-dropdown ul li.token-input-selected-dropdown-item {
+    background-color: #0b3868;
+    color: white;
+}
+

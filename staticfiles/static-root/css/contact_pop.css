@@ -1,0 +1,22 @@
+.xdanger {
+    padding: 30px 50px;
+    color: #999;
+    text-align: center;
+    background-color: #eee;
+    position: relative;
+}
+
+.xdanger .xclose-xdanger {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.xdanger p {
+    margin: 0;
+    padding: 0;
+    line-height: 23px;
+}
