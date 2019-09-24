@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['taufiq-ht.herokuapp.com', 'widget.whatshelp.io']
+ALLOWED_HOSTS = ['http://taufiq-ht.herokuapp.com/', 'widget.whatshelp.io']
 # ALLOWED_HOSTS = ['*']
 
 
