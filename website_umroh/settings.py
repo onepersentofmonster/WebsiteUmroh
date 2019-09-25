@@ -7,7 +7,7 @@ SECRET_KEY = 'ei+_r2+!9mv00%&o7jj@iu^qx03=)wsarp=$s!=u-_%y2iyrwi'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['allabout.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['taufiqHT.pythonanywhere.com', 'localhost']
 
 INSTALLED_APPS = [
     'abouts.apps.AboutsConfig',
