@@ -36,7 +36,7 @@ class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='penulis')
     img = models.ImageField(upload_to='blog/img/article/', blank=True)
     judul = models.CharField(max_length=250)
-    slug = AutoSlugField(populate_from='judul')
+    slug = AutoSlugField(populate_from='judul', unique=True, always_update=True)
     konten = models.TextField(null=True, blank=True)
     kategori = models.ForeignKey(Category, on_delete=models.CASCADE)
     dibuat_pada = models.DateTimeField(auto_now_add=True)

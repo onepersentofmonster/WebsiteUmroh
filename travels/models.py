@@ -100,7 +100,7 @@ class Travel(models.Model):
     akomodasi = models.ManyToManyField(TravelHotel, through='TravelAccommodation', blank=True)
     dibuat_pada = models.DateTimeField(auto_now_add=True)
     diperbarui_pada = models.DateTimeField(auto_now=True)
-    slug = AutoSlugField(populate_from='nama')
+    slug = AutoSlugField(populate_from='nama', unique=True, always_update=True)
 
     def __str__(self):
         return self.nama

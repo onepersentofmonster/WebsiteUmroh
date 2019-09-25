@@ -32,7 +32,7 @@ def index(request):
 
 def detail(request, id, slug):
     blogs = Blog.objects.all()
-    blog = Blog.objects.get(slug__iexact=slug)
+    blog = Blog.objects.get(slug=slug)
     f = BlogFilter(request.GET, queryset=Blog.objects.all())
     next_blog = Blog.objects.filter(id__gt=id)[:4]
     category = Category.objects.all()
